@@ -11,7 +11,7 @@ Target Device  : xc6slx9
 Target Package : ftg256
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Sat Nov 30 19:05:35 2019
+Mapped Date    : Sun Dec 01 21:09:46 2019
 
 Design Summary
 --------------
@@ -52,8 +52,8 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Peak Memory Usage:  4502 MB
-Total REAL time to MAP completion:  5 secs 
+Peak Memory Usage:  4504 MB
+Total REAL time to MAP completion:  7 secs 
 Total CPU time to MAP completion:   5 secs 
 
 Table of Contents

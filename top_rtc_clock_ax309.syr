@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.25 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.25 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: top_rtc_clock_ax309.prj
 
@@ -105,15 +105,15 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Projects\RTC_2\rtl_ds1302.vhd" into library work
+Parsing VHDL file "D:\Projects\real-time-clock\rtl_ds1302.vhd" into library work
 Parsing entity <rtl_ds1302>.
 Parsing architecture <rtl_ds1302> of entity <rtl_ds1302>.
-Parsing VHDL file "C:\Projects\RTC_2\ctrl_types_pkg.vhd" into library work
+Parsing VHDL file "D:\Projects\real-time-clock\ctrl_types_pkg.vhd" into library work
 Parsing package <ctrl_types_pkg>.
-Parsing VHDL file "C:\Projects\RTC_2\cl_timer_data.vhd" into library work
+Parsing VHDL file "D:\Projects\real-time-clock\cl_timer_data.vhd" into library work
 Parsing entity <cl_timer_data>.
 Parsing architecture <cl_timer_data> of entity <cl_timer_data>.
-Parsing VHDL file "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" into library work
+Parsing VHDL file "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" into library work
 Parsing entity <top_rtc_clock_ax309>.
 Parsing architecture <top_rtc_clock_ax309> of entity <top_rtc_clock_ax309>.
 
@@ -124,28 +124,28 @@ Parsing architecture <top_rtc_clock_ax309> of entity <top_rtc_clock_ax309>.
 Elaborating entity <top_rtc_clock_ax309> (architecture <top_rtc_clock_ax309>) with generics from library <work>.
 
 Elaborating entity <cl_timer_data> (architecture <cl_timer_data>) with generics from library <work>.
-INFO:HDLCompiler:679 - "C:\Projects\RTC_2\cl_timer_data.vhd" Line 390. Case statement is complete. others clause is never selected
-INFO:HDLCompiler:679 - "C:\Projects\RTC_2\cl_timer_data.vhd" Line 416. Case statement is complete. others clause is never selected
-WARNING:HDLCompiler:1127 - "C:\Projects\RTC_2\cl_timer_data.vhd" Line 422: Assignment to days_lcd ignored, since the identifier is never used
+INFO:HDLCompiler:679 - "D:\Projects\real-time-clock\cl_timer_data.vhd" Line 390. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "D:\Projects\real-time-clock\cl_timer_data.vhd" Line 416. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:1127 - "D:\Projects\real-time-clock\cl_timer_data.vhd" Line 422: Assignment to days_lcd ignored, since the identifier is never used
 
 Elaborating entity <rtl_ds1302> (architecture <rtl_ds1302>) with generics from library <work>.
-WARNING:HDLCompiler:634 - "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" Line 47: Net <RGB[2]> does not have a driver.
-WARNING:HDLCompiler:634 - "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" Line 48: Net <vSync> does not have a driver.
-WARNING:HDLCompiler:634 - "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" Line 50: Net <clk_in> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" Line 47: Net <RGB[2]> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" Line 48: Net <vSync> does not have a driver.
+WARNING:HDLCompiler:634 - "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" Line 50: Net <clk_in> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <top_rtc_clock_ax309>.
-    Related source file is "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd".
+    Related source file is "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd".
         DIV_SCL = 100
 WARNING:Xst:647 - Input <LCD> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <START> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <CLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" line 73: Output port <timer_data> of the instance <x_SET_TIME> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" line 73: Output port <timer_addr> of the instance <x_SET_TIME> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Projects\RTC_2\top_rtc_clock_ax309.vhd" line 73: Output port <drawing_allowed> of the instance <x_SET_TIME> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" line 73: Output port <timer_data> of the instance <x_SET_TIME> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" line 73: Output port <timer_addr> of the instance <x_SET_TIME> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\Projects\real-time-clock\top_rtc_clock_ax309.vhd" line 73: Output port <drawing_allowed> of the instance <x_SET_TIME> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <RGB> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <vSync> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <hSync> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -155,7 +155,7 @@ WARNING:Xst:653 - Signal <clk_in> is used but never assigned. This sourceless si
 Unit <top_rtc_clock_ax309> synthesized.
 
 Synthesizing Unit <cl_timer_data>.
-    Related source file is "C:\Projects\RTC_2\cl_timer_data.vhd".
+    Related source file is "D:\Projects\real-time-clock\cl_timer_data.vhd".
         TIME_SECS = 0
         TIME_MINS = 45
         TIME_HRS = 16
@@ -211,7 +211,7 @@ Synthesizing Unit <cl_timer_data>.
 Unit <cl_timer_data> synthesized.
 
 Synthesizing Unit <rtl_ds1302>.
-    Related source file is "C:\Projects\RTC_2\rtl_ds1302.vhd".
+    Related source file is "D:\Projects\real-time-clock\rtl_ds1302.vhd".
         DIV_SCL = 100
     Found 4-bit register for signal <cnt>.
     Found 4-bit register for signal <STM>.
@@ -663,12 +663,12 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 10.75 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 7.04 secs
  
 --> 
 
-Total memory usage is 4526312 kilobytes
+Total memory usage is 4527524 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  211 (   0 filtered)
