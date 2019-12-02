@@ -44,10 +44,10 @@ end rtl_ds1302;
 architecture rtl_ds1302 of rtl_ds1302 is
 
 
-type fsm_serial is (    RDY, START, WAITING, DATA, ADDR,
-                        CLK_RISE, CLK_FALL, CLK_ONE,
-                        WRITE, CLK_WR_R, CLK_WR1, CLK_WR_F,
-                        CLK_RD_R, CLK_RD1, CLK_RD_F, STOP);
+type fsm_serial is (RDY, START, WAITING, DATA, ADDR,
+                    CLK_RISE, CLK_FALL, CLK_ONE,
+                    WRITE, CLK_WR_R, CLK_WR1, CLK_WR_F,
+                    CLK_RD_R, CLK_RD1, CLK_RD_F, STOP);
 
 signal STM : fsm_serial;
 

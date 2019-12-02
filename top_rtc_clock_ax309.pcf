@@ -1,4 +1,16 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sun Dec 01 21:09:53 2019
+// Written by: Map P.20131013 on Mon Dec 02 21:22:45 2019
 //! **************************************************************************
+
+SCHEMATIC START;
+COMP "CLK" LOCATE = SITE "T8" LEVEL 1;
+COMP "VGA_HSYNC" LOCATE = SITE "M14" LEVEL 1;
+COMP "VGA_VSYNC" LOCATE = SITE "L13" LEVEL 1;
+COMP "T_CE" LOCATE = SITE "C13" LEVEL 1;
+COMP "T_CK" LOCATE = SITE "E13" LEVEL 1;
+COMP "T_DT" LOCATE = SITE "D14" LEVEL 1;
+COMP "RGB<0>" LOCATE = SITE "P7" LEVEL 1;
+COMP "RGB<1>" LOCATE = SITE "M9" LEVEL 1;
+COMP "RGB<2>" LOCATE = SITE "M11" LEVEL 1;
+SCHEMATIC END;
 

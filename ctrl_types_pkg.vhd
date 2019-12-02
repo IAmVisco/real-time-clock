@@ -2,18 +2,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 package ctrl_types_pkg is
-    component vga_ctrl640x480 is
-        port(
-            clk     :  in   std_logic;                          -- Pixel clk - DCM should generate 25 MHz freq;
-            reset   :  in   std_logic;                          -- Asycnchronous reset
-            h_sync  :  out  std_logic;                          -- Horiztonal sync pulse
-            v_sync  :  out  std_logic;                          -- Vertical sync pulse
-            disp    :  out  std_logic;                          -- Display enable '1'
-            x_out   :  out  std_logic_vector(9 downto 0);       -- x axis
-            y_out   :  out  std_logic_vector(8 downto 0)        -- y axis
-        );
-    end component;
-
     component rtl_ds1302 is
         generic (
             TD              : in time;                              -- simulation time;
@@ -66,8 +54,20 @@ package ctrl_types_pkg is
             enable      :  out  std_logic;                      -- timer enable
             ---- LCD1602 signals ----
             drawing_allowed    :  out  std_logic;                      -- enable writing to LCD RAM
-            timer_data         :  out  std_logic_vector(7 downto 0);   -- data to LCD RAM
+            timer_data         :  out  std_logic_vector(3 downto 0);   -- data to LCD RAM
             timer_addr         :  out  std_logic_vector(4 downto 0)    -- address to LCD RAM
+        );
+    end component;
+
+    component vga_driver is
+        port (
+            CLK         : in  STD_LOGIC;
+            RST         : in  STD_LOGIC;
+            DATA        : in  STD_LOGIC_VECTOR (3 downto 0);
+            ADDRESS     : in  STD_LOGIC_VECTOR (4 downto 0);
+            HSYNC       : out  STD_LOGIC;
+            VSYNC       : out  STD_LOGIC;
+            RGB         : out  STD_LOGIC_VECTOR (2 downto 0)
         );
     end component;
 

@@ -1,0 +1,13 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Dec 02 18:54:03 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "HSYNC" LOCATE = SITE "M14" LEVEL 1;
+COMP "RGB<0>" LOCATE = SITE "M11" LEVEL 1;
+COMP "RGB<1>" LOCATE = SITE "M9" LEVEL 1;
+COMP "RGB<2>" LOCATE = SITE "P7" LEVEL 1;
+COMP "VSYNC" LOCATE = SITE "L13" LEVEL 1;
+COMP "CLK" LOCATE = SITE "T8" LEVEL 1;
+SCHEMATIC END;
+

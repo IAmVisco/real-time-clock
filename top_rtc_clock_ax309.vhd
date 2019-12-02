@@ -13,41 +13,40 @@ use work.ctrl_types_pkg.all;
 
 entity top_rtc_clock_ax309 is
     generic (
-        TD              : in time := 1 ns ; --! simulation time;
-        DIV_SCL         : in integer := 100 --! clock division for logic counters
+        TD              : in time    := 1 ns; --! simulation time;
+        DIV_SCL         : in integer := 100   --! clock division for logic counters
     );
     port(
         ---- SWITCHES ----
-        RESET       :  in   std_logic;  --! asycnchronous reset: SW(0)
-        LCD         :  in   std_logic;  --! LCD/LED Switch : SW(2)
-        START       :  in   std_logic;  --! LCD Controller Start : SW(3)
-        RESTART     :  in   std_logic;  --! RESTART Timer DS1302
+        RESET       :  in   std_logic;  --! asycnchronous reset: SW(1)
+        RESTART     :  in   std_logic;  --! RESTART Timer DS1302 SW(2)
         ---- CLOCK 50 MHz ----
         CLK         :  in   std_logic;  --! main clock 50 MHz
         ---- VGA SYNC ----
         VGA_HSYNC   :  out  std_logic;  --! horiztonal sync
         VGA_VSYNC   :  out  std_logic;  --! vertical sync
-        VGA_R       :  out  std_logic;  --! VGA Red
-        VGA_G       :  out  std_logic;  --! VGA Green
-        VGA_B       :  out  std_logic;  --! VGA Blue
+        RGB         :  out  STD_LOGIC_VECTOR (2 downto 0);
+        --VGA_R       :  out  std_logic;  --! VGA Red
+        --VGA_G       :  out  std_logic;  --! VGA Green
+        --VGA_B       :  out  std_logic;  --! VGA Blue
         ---- SERIAL TIMER ----
         T_DT        : inout std_logic;  --! timer serial data
         T_CK        : out   std_logic;  --! timer serial clock (~1 MHz)
-        T_CE        : out   std_logic  --! timer serial enable
+        T_CE        : out   std_logic   --! timer serial enable
     );
 end top_rtc_clock_ax309;
 
 architecture top_rtc_clock_ax309 of top_rtc_clock_ax309 is
 
 ---------------- SIGNALS DECLARATION ----------------
-signal reset_v      : std_logic_vector(6 downto 0);
-signal rst          : std_logic;
+--signal reset_v      : std_logic_vector(6 downto 0);
+--signal rst          : std_logic;
 
 -- VGA
-signal RGB          : std_logic_vector(2 downto 0);
+--signal RGB          : std_logic_vector(2 downto 0);
 signal vSync, hSync : std_logic;
 
-signal clk_in       : std_logic;
+--signal CLK       : std_logic;
 
 
 signal time_addr    : std_logic_vector(7 downto 0);
@@ -57,7 +56,7 @@ signal time_data_v  : std_logic;
 signal time_rdy     : std_logic;
 signal time_enable  : std_logic;
 
-signal rstart       : std_logic;
+--signal rstart       : std_logic;
 
 signal ds_data_i    : std_logic;
 signal ds_data_o    : std_logic;
@@ -65,7 +64,7 @@ signal ds_data_t    : std_logic;
 signal ds_data_tn   : std_logic;
 
 signal load_ena     : std_logic;
-signal load_dat     : std_logic_vector(7 downto 0);
+signal load_dat     : std_logic_vector(3 downto 0);
 signal load_addr    : std_logic_vector(4 downto 0);
 
 begin
@@ -73,8 +72,8 @@ begin
     x_SET_TIME: cl_timer_data
         generic map (
             TIME_SECS   => 00,              -- seconds
-            TIME_MINS   => 45,              -- minutes
-            TIME_HRS    => 16,              -- hours
+            TIME_MINS   => 30,              -- minutes
+            TIME_HRS    => 19,              -- hours
             TIME_DTS    => 02,              -- dates
             TIME_MTHS   => 11,              -- months
             TIME_DAYS   => 01,              -- days
@@ -83,9 +82,9 @@ begin
         )
         port map(
             ---- Global signals ----
-            reset       => rst,      -- asycnchronous reset
-            clk         => clk_in,          -- clock 50 MHz
-            restart     => rstart,          -- restart timer
+            reset       => RESET,      -- asycnchronous reset
+            clk         => CLK,          -- clock 50 MHz
+            restart     => RESTART,          -- restart timer
             ---- DS1302 signals ----
             addr        => time_addr,       -- address for timer
             data_o      => time_data_i,     -- input data (to timer)
@@ -106,8 +105,8 @@ begin
             )
         port map(
             -- global ports
-            clk50m          => clk_in,      -- system frequency (50 MHz)
-            rstn            => rst,  -- '0' - negative reset
+            clk50m          => CLK,      -- system frequency (50 MHz)
+            rstn            => RESET,  -- '0' - negative reset
             -- main interface
             enable          => time_enable, -- i2c start    (S)
             addr_i          => time_addr,   -- address Tx: 7 bit - always '1', 0 bit - R/W ('0' - write, '1' - read)
@@ -126,21 +125,33 @@ begin
             ds_ena          => T_CE         -- clock enable for i2c
         );
 
+    --------------------- VGA Driver -------------------
+    x_VGA_DATA: vga_driver
+        port map (
+            RST        => RESET,
+            CLK        => CLK,
+            DATA       => load_dat,
+            ADDRESS    => load_addr,
+            HSYNC      => VGA_HSYNC,
+            VSYNC      => VGA_VSYNC,
+            RGB        => RGB
+        );
+
     ds_data_tn <= ds_data_t;
 
     ---------------- I/O BUFFERS ----------------
-    xDSIO: iobuf port map(i => ds_data_o,  o => ds_data_i, io => T_DT, t => ds_data_tn);
+    --xCLKIN: ibufg port map(i => CLK, o => CLK);
+    xDSIO: iobuf port map(i => ds_data_o,  o => ds_data_i, io => T_DT, t => ds_data_tn); --  FIXME
 
-    xRESET: ibuf port map(i => RESET, o => rst);
+    --xRESET: ibuf port map(i => RESET, o => rst);
     --xSTART: ibuf port map(i => START, o => disp_start);
-    xRESTART: ibuf port map(i => RESTART, o => rstart);
+    --xRESTART: ibuf port map(i => RESTART, o => RESTART);
 
+    --xVGA_vSync: obuf port map(i => vSync, o => VGA_VSYNC);
+    --xVGA_hSync: obuf port map(i => hSync, o => VGA_HSYNC);
 
-    xVGA_vSync: obuf port map(i => vSync, o => VGA_VSYNC);
-    xVGA_hSync: obuf port map(i => hSync, o => VGA_HSYNC);
-
-    xVGA_R: obuf port map(i => RGB(2), o => VGA_R);
-    xVGA_G: obuf port map(i => RGB(1), o => VGA_G);
-    xVGA_B: obuf port map(i => RGB(0), o => VGA_B);
+    --xVGA_R: obuf port map(i => RGB(2), o => VGA_R);
+    --xVGA_G: obuf port map(i => RGB(1), o => VGA_G);
+    --xVGA_B: obuf port map(i => RGB(0), o => VGA_B);
 
 end top_rtc_clock_ax309;

@@ -1,1 +1,5 @@
-work	"Clock.vhd"
+work	"VGA.vhd"
+work	"cl_timer_data.vhd"
+work	"ctrl_types_pkg.vhd"
+work	"rtl_ds1302.vhd"
+work	"top_rtc_clock_ax309.vhd"

@@ -35,7 +35,7 @@ entity cl_timer_data is
         enable      :  out  std_logic;                      --! timer enable
         ---- LCD/VGA output signals ----
         drawing_allowed    :  out  std_logic;                      --! enable writing to LCD RAM
-        timer_data         :  out  std_logic_vector(7 downto 0);   --! data to LCD RAM
+        timer_data         :  out  std_logic_vector(3 downto 0);   --! data to LCD RAM
         timer_addr         :  out  std_logic_vector(4 downto 0)    --! address to LCD RAM
     );
 end cl_timer_data;
@@ -123,7 +123,7 @@ begin
     end if;
 end process;
 
-timer_data         <= x"3" & data_rom after td when rising_edge(clk);
+timer_data         <= data_rom after td when rising_edge(clk);
 timer_addr         <= lcd_addr after td when rising_edge(clk);
 drawing_allowed    <= load after td when rising_edge(clk);
 

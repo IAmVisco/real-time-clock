@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-12-01T14:01:43</DateModified>
+  <DateModified>2019-12-02T21:33:19</DateModified>
   <ModuleName>top_rtc_clock_ax309</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>D:/Projects/real-time-clock/iseconfig/top_rtc_clock_ax309.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/Projects/real-time-clock\</ImplementationReportsDirectory>
-  <DateInitialized>2019-11-30T19:04:55</DateInitialized>
+  <SummaryTimeStamp>2019-12-02T21:23:18</SummaryTimeStamp>
+  <SavedFilePath>C:/Projects/RTC_2/iseconfig/top_rtc_clock_ax309.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Projects/RTC_2\</ImplementationReportsDirectory>
+  <DateInitialized>2019-12-02T19:04:49</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
