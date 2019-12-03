@@ -1,32 +1,12 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Projects/RTC_2/TB_top_isim_beh.exe -prj C:/Projects/RTC_2/TB_top_beh.prj work.TB_top 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Projects/RTC_2/TB_digi_clock_isim_beh.exe -prj C:/Projects/RTC_2/TB_digi_clock_beh.prj work.TB_digi_clock 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Projects/RTC_2/VGA.vhd" into library work
-Parsing VHDL file "C:/Projects/RTC_2/rtl_ds1302.vhd" into library work
-Parsing VHDL file "C:/Projects/RTC_2/ctrl_types_pkg.vhd" into library work
-Parsing VHDL file "C:/Projects/RTC_2/cl_timer_data.vhd" into library work
-Parsing VHDL file "C:/Projects/RTC_2/top_rtc_clock_ax309.vhd" into library work
-Parsing VHDL file "C:/Projects/RTC_2/TB_top.vhd" into library work
+Parsing VHDL file "C:/Projects/RTC_2/Clock.vhd" into library work
+Parsing VHDL file "C:/Projects/RTC_2/TB_digi_clock.vhd" into library work
 Starting static elaboration
-Completed static elaboration
-Compiling package standard
-Compiling package std_logic_1164
-Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling package vcomponents
-Compiling package ctrl_types_pkg
-Compiling package numeric_std
-Compiling architecture cl_timer_data of entity cl_timer_data [\cl_timer_data(0,30,19,2,11,1,19...]
-Compiling architecture rtl_ds1302 of entity rtl_ds1302 [\rtl_ds1302(1000,100)\]
-Compiling architecture vga_driver of entity vga_driver [vga_driver_default]
-Compiling architecture iobuf_v of entity IOBUF [\IOBUF("DONT_CARE",12,"0",true,"...]
-Compiling architecture top_rtc_clock_ax309 of entity top_rtc_clock_ax309 [\top_rtc_clock_ax309(1000,100)\]
-Compiling architecture behavior of entity tb_top
-Time Resolution for simulation is 1ps.
-Waiting for 4 sub-compilation(s) to finish...
-Compiled 18 VHDL Units
-Built simulation executable C:/Projects/RTC_2/TB_top_isim_beh.exe
-Fuse Memory Usage: 52380 KB
-Fuse CPU Usage: 1031 ms
+ERROR:HDLCompiler:377 - "C:/Projects/RTC_2/TB_digi_clock.vhd" Line 11: Entity port seconds does not match with type std_logic_vector of component port
+ERROR:HDLCompiler:377 - "C:/Projects/RTC_2/TB_digi_clock.vhd" Line 12: Entity port minutes does not match with type std_logic_vector of component port
+ERROR:HDLCompiler:377 - "C:/Projects/RTC_2/TB_digi_clock.vhd" Line 13: Entity port hours does not match with type std_logic_vector of component port
+ERROR:Simulator:777 - Static elaboration of top level VHDL design unit tb_digi_clock in library work failed

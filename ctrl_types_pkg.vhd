@@ -63,11 +63,20 @@ package ctrl_types_pkg is
         port (
             CLK         : in  STD_LOGIC;
             RST         : in  STD_LOGIC;
-            DATA        : in  STD_LOGIC_VECTOR (3 downto 0);
-            ADDRESS     : in  STD_LOGIC_VECTOR (4 downto 0);
+           SECONDS   : in   integer;
+           MINUTES   : in   integer;
+           HOURS     : in   integer;
             HSYNC       : out  STD_LOGIC;
             VSYNC       : out  STD_LOGIC;
             RGB         : out  STD_LOGIC_VECTOR (2 downto 0)
+        );
+    end component;
+
+    component digi_clk is
+    port (clk1    : in std_logic;
+          seconds : out integer;
+          minutes : out integer;
+          hours   : out integer
         );
     end component;
 

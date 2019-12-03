@@ -5,9 +5,9 @@ use ieee.std_logic_unsigned.all;
 
 entity digi_clk is
 port (clk1    : in std_logic;
-      seconds : out std_logic_vector(5 downto 0);
-      minutes : out std_logic_vector(5 downto 0);
-      hours   : out std_logic_vector(4 downto 0)
+      seconds : out integer;
+      minutes : out integer;
+      hours   : out integer
     );
 end digi_clk;
 
@@ -16,16 +16,16 @@ signal sec, min, hour : integer range 0 to 60 := 0;
 signal count          : integer := 1;
 signal clk            : std_logic := '0';
 begin
-    seconds <= conv_std_logic_vector(sec, 6);
-    minutes <= conv_std_logic_vector(min, 6);
-    hours   <= conv_std_logic_vector(hour,5);
+    --seconds <= conv_std_logic_vector(sec, 6);
+    --minutes <= conv_std_logic_vector(min, 6);
+    --hours   <= conv_std_logic_vector(hour,5);
 
     -- Frequency divider - 100MHz to 1MHz
     process(clk1)
     begin
         if rising_edge(clk1) then
             count <= count + 1;
-            if (count = 50000000) then
+            if (count = 25000000) then
                 clk <= not clk;
                 count <= 1;
             end if;
