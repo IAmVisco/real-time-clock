@@ -29,7 +29,7 @@ begin
     hours        <= hour;
     half_seconds <= clk05;
 
-    -- Frequency divider - 100MHz to 1MHz
+    -- Frequency divider - 50MHz to 1MHz
     process(clk1)
     begin
         if rising_edge(clk1) then
@@ -44,7 +44,7 @@ begin
         end if;
     end process;
 
-    process(clk) -- period of clk is 1 second.
+    process(clk) -- period of clk is 1 second
     begin
         if rising_edge(clk) then
             if (sec < 59) then

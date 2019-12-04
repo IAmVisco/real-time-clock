@@ -70,7 +70,7 @@ package ctrl_types_pkg is
             HSYNC       : out  STD_LOGIC;
             VSYNC       : out  STD_LOGIC;
             RED         : out  STD_LOGIC_VECTOR (4 downto 0);
-            GREEN       : out  STD_LOGIC_VECTOR (5 downto 0);
+            GREEN       : out  STD_LOGIC_VECTOR (4 downto 0);
             BLUE        : out  STD_LOGIC_VECTOR (4 downto 0)
         );
     end component;

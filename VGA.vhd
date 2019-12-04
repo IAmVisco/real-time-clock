@@ -13,7 +13,7 @@ entity vga_driver is
             HSYNC       : out  STD_LOGIC;
             VSYNC       : out  STD_LOGIC;
             RED         : out  STD_LOGIC_VECTOR (4 downto 0);
-            GREEN       : out  STD_LOGIC_VECTOR (5 downto 0);
+            GREEN       : out  STD_LOGIC_VECTOR (4 downto 0);
             BLUE        : out  STD_LOGIC_VECTOR (4 downto 0)
         );
 end vga_driver;
@@ -34,13 +34,22 @@ architecture vga_driver of vga_driver is
     signal hPos : integer := 0;
     signal vPos : integer := 0;
 
-    signal videoOn : std_logic := '0';
+    signal incr_red   : STD_LOGIC := '1';
+    signal incr_green : STD_LOGIC := '1';
+    signal incr_blue  : STD_LOGIC := '1';
 
-    constant SegWidth : integer := 32;
-    constant SegSize1 : integer := SegWidth / 6;
-    constant SegSize2 : integer := SegWidth + (SegSize1 / 2);
-    constant ColDist : integer := 20;
-    constant ColWidth : integer := 10;
+    signal cur_red   : std_logic_vector(4 downto 0) := "00000";
+    signal cur_green : std_logic_vector(4 downto 0) := "00000";
+    signal cur_blue  : std_logic_vector(4 downto 0) := "00000";
+    signal count     : integer   := 1;
+
+    signal videoOn     : std_logic := '0';
+
+    constant SegWidth  : integer := 32;
+    constant SegSize1  : integer := SegWidth / 6;
+    constant SegSize2  : integer := SegWidth + (SegSize1 / 2);
+    constant ColDist   : integer := 20;
+    constant ColWidth  : integer := 10;
     constant ColHeight : integer := 18;
     constant StartPosX : integer := HD / 2 - 150;
     constant StartPosY : integer := VD / 2 - 40;
@@ -630,214 +639,272 @@ begin
         end if;
     end process;
 
+    change_colors: process(clk25, RST)
+    begin
+        if (RST = '1') then
+            incr_red   <= '1';
+            incr_green <= '1';
+            incr_blue  <= '1';
+            cur_red    <= "00000";
+            cur_green  <= "00000";
+            cur_blue   <= "00000";
+        elsif rising_edge(clk25) then
+            count <= count + 1;
+            if (count = 2500000) then
+                count <= 1;
+                if (incr_red = '1') then
+                    if (cur_red = "11111") then
+                        incr_red <= '0';
+                    else
+                        cur_red <= cur_red + "00001";
+                    end if;
+                else
+                    if (cur_red = "00000") then
+                        incr_red <= '1';
+                    else
+                        cur_red <= cur_red - "00001";
+                    end if;
+                end if;
+
+                if (incr_green = '1') then
+                    if (cur_green = "11111") then
+                        incr_green <= '0';
+                    else
+                        cur_green <= cur_green + "00001";
+                    end if;
+                else
+                    if (cur_green = "00000") then
+                        incr_green <= '1';
+                    else
+                        cur_green <= cur_green - "00001";
+                    end if;
+                end if;
+
+                if (incr_blue = '1') then
+                    if (cur_blue = "11111") then
+                        incr_blue <= '0';
+                    else
+                        cur_blue <= cur_blue + "00001";
+                    end if;
+                else
+                    if (cur_blue = "00000") then
+                        incr_blue <= '1';
+                    else
+                        cur_blue <= cur_blue - "00001";
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+
     draw: process(clk25, RST, hPos, vPos, videoOn)
     begin
         if (RST = '1') then
             RED   <= "00000";
-            GREEN <= "000000";
+            GREEN <= "00000";
             BLUE  <= "00000";
         elsif rising_edge(clk25) then
             if (videoOn = '1') then
                 if (h1seg(0) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegSize1) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segA H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(0) = '1' AND Vpos >= segH2Ypos AND Vpos <= segH2Ypos + SegSize1) AND (Hpos >= segH2Xpos AND Hpos <= segH2Xpos + SegWidth) then  -- segA H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(0) = '1' AND Vpos >= segM1Ypos AND Vpos <= segM1Ypos + SegSize1) AND (Hpos >= segM1Xpos AND Hpos <= segM1Xpos + SegWidth) then  -- segA M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(0) = '1' AND Vpos >= segM2Ypos AND Vpos <= segM2Ypos + SegSize1) AND (Hpos >= segM2Xpos AND Hpos <= segM2Xpos + SegWidth) then  -- segA M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(0) = '1' AND Vpos >= segS1Ypos AND Vpos <= segS1Ypos + SegSize1) AND (Hpos >= segS1Xpos AND Hpos <= segS1Xpos + SegWidth) then  -- segA S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(0) = '1' AND Vpos >= segS2Ypos AND Vpos <= segS2Ypos + SegSize1) AND (Hpos >= segS2Xpos AND Hpos <= segS2Xpos + SegWidth) then  -- segA S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                 elsif (h1seg(1) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segH1Xpos + SegWidth - SegSize1 AND Hpos <= segH1Xpos + SegWidth) then  -- segB H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(1) = '1' AND Vpos >= segH2Ypos AND Vpos <= segH2Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segH2Xpos + SegWidth - SegSize1 AND Hpos <= segH2Xpos + SegWidth) then  -- segB H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(1) = '1' AND Vpos >= segM1Ypos AND Vpos <= segM1Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segM1Xpos + SegWidth - SegSize1 AND Hpos <= segM1Xpos + SegWidth) then  -- segB M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(1) = '1' AND Vpos >= segM2Ypos AND Vpos <= segM2Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segM2Xpos + SegWidth - SegSize1 AND Hpos <= segM2Xpos + SegWidth) then  -- segB M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(1) = '1' AND Vpos >= segS1Ypos AND Vpos <= segS1Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segS1Xpos + SegWidth - SegSize1 AND Hpos <= segS1Xpos + SegWidth) then  -- segB S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(1) = '1' AND Vpos >= segS2Ypos AND Vpos <= segS2Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segS2Xpos + SegWidth - SegSize1 AND Hpos <= segS2Xpos + SegWidth) then  -- segB S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                 elsif (h1seg(2) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos + SegWidth - SegSize1 AND Hpos <= segH1Xpos + SegWidth) then  -- segC H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(2) = '1' AND Vpos >= segH2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH2Ypos + (2*SegWidth)) AND (Hpos >= segH2Xpos + SegWidth - SegSize1 AND Hpos <= segH2Xpos + SegWidth) then  -- segC H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(2) = '1' AND Vpos >= segM1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segM1Ypos + (2*SegWidth)) AND (Hpos >= segM1Xpos + SegWidth - SegSize1 AND Hpos <= segM1Xpos + SegWidth) then  -- segC M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(2) = '1' AND Vpos >= segM2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segM2Ypos + (2*SegWidth)) AND (Hpos >= segM2Xpos + SegWidth - SegSize1 AND Hpos <= segM2Xpos + SegWidth) then  -- segC M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(2) = '1' AND Vpos >= segS1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segS1Ypos + (2*SegWidth)) AND (Hpos >= segS1Xpos + SegWidth - SegSize1 AND Hpos <= segS1Xpos + SegWidth) then  -- segC S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(2) = '1' AND Vpos >= segS2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segS2Ypos + (2*SegWidth)) AND (Hpos >= segS2Xpos + SegWidth - SegSize1 AND Hpos <= segS2Xpos + SegWidth) then  -- segC S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                 elsif (h1seg(3) = '1' AND Vpos >= segH1Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segD H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(3) = '1' AND Vpos >= segH2Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segH2Ypos + (2*SegWidth)) AND (Hpos >= segH2Xpos AND Hpos <= segH2Xpos + SegWidth) then  -- segD H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(3) = '1' AND Vpos >= segM1Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segM1Ypos + (2*SegWidth)) AND (Hpos >= segM1Xpos AND Hpos <= segM1Xpos + SegWidth) then  -- segD M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(3) = '1' AND Vpos >= segM2Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segM2Ypos + (2*SegWidth)) AND (Hpos >= segM2Xpos AND Hpos <= segM2Xpos + SegWidth) then  -- segD M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(3) = '1' AND Vpos >= segS1Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segS1Ypos + (2*SegWidth)) AND (Hpos >= segS1Xpos AND Hpos <= segS1Xpos + SegWidth) then  -- segD S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(3) = '1' AND Vpos >= segS2Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segS2Ypos + (2*SegWidth)) AND (Hpos >= segS2Xpos AND Hpos <= segS2Xpos + SegWidth) then  -- segD S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                 elsif (h1seg(4) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegSize1) then  -- segE H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(4) = '1' AND Vpos >= segH2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH2Ypos + (2*SegWidth)) AND (Hpos >= segH2Xpos AND Hpos <= segH2Xpos + SegSize1) then  -- segE H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(4) = '1' AND Vpos >= segM1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segM1Ypos + (2*SegWidth)) AND (Hpos >= segM1Xpos AND Hpos <= segM1Xpos + SegSize1) then  -- segE M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(4) = '1' AND Vpos >= segM2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segM2Ypos + (2*SegWidth)) AND (Hpos >= segM2Xpos AND Hpos <= segM2Xpos + SegSize1) then  -- segE M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(4) = '1' AND Vpos >= segS1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segS1Ypos + (2*SegWidth)) AND (Hpos >= segS1Xpos AND Hpos <= segS1Xpos + SegSize1) then  -- segE S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(4) = '1' AND Vpos >= segS2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segS2Ypos + (2*SegWidth)) AND (Hpos >= segS2Xpos AND Hpos <= segS2Xpos + SegSize1) then  -- segE S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                 elsif (h1seg(5) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegWidth ) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegSize1) then  -- segF H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(5) = '1' AND Vpos >= segH2Ypos AND Vpos <= segH2Ypos + SegWidth ) AND (Hpos >= segH2Xpos AND Hpos <= segH2Xpos + SegSize1) then  -- segF H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(5) = '1' AND Vpos >= segM1Ypos AND Vpos <= segM1Ypos + SegWidth ) AND (Hpos >= segM1Xpos AND Hpos <= segM1Xpos + SegSize1) then  -- segF M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(5) = '1' AND Vpos >= segM2Ypos AND Vpos <= segM2Ypos + SegWidth ) AND (Hpos >= segM2Xpos AND Hpos <= segM2Xpos + SegSize1) then  -- segF M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(5) = '1' AND Vpos >= segS1Ypos AND Vpos <= segS1Ypos + SegWidth ) AND (Hpos >= segS1Xpos AND Hpos <= segS1Xpos + SegSize1) then  -- segF S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(5) = '1' AND Vpos >= segS2Ypos AND Vpos <= segS2Ypos + SegWidth ) AND (Hpos >= segS2Xpos AND Hpos <= segS2Xpos + SegSize1) then  -- segF S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                 elsif (h1seg(6) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segG H1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (h2seg(6) = '1' AND Vpos >= segH2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH2Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segH2Xpos AND Hpos <= segH2Xpos + SegWidth) then  -- segG H2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m1seg(6) = '1' AND Vpos >= segM1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segM1Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segM1Xpos AND Hpos <= segM1Xpos + SegWidth) then  -- segG M1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (m2seg(6) = '1' AND Vpos >= segM2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segM2Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segM2Xpos AND Hpos <= segM2Xpos + SegWidth) then  -- segG M2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s1seg(6) = '1' AND Vpos >= segS1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segS1Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segS1Xpos AND Hpos <= segS1Xpos + SegWidth) then  -- segG S1
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 elsif (s2seg(6) = '1' AND Vpos >= segS2Ypos + SegWidth - (SegSize1/2) AND Vpos <= segS2Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segS2Xpos AND Hpos <= segS2Xpos + SegWidth) then  -- segG S2
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                elsif HALF_SECOND = '1' AND (Vpos >= Col1Ypos AND Vpos <= Col1Ypos + ColHeight) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then -- left colon top
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                elsif HALF_SECOND = '1' AND  (Vpos >= Col1Ypos + ColHeight + ColDist AND Vpos <= Col1Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then -- left colon bot
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
 
                elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos AND Vpos <= Col2Ypos + ColHeight) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then -- right colon top
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos + ColHeight + ColDist AND Vpos <= Col2Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then -- right colon bot
-                    RED   <= "11111";
-                    GREEN <= "000001";
-                    BLUE  <= "00001";
+                    RED   <= cur_red;
+                    GREEN <= cur_green;
+                    BLUE  <= cur_blue;
                 else
                     RED   <= "11111";
-                    GREEN <= "111111";
+                    GREEN <= "11111";
                     BLUE  <= "11111";  -- background colour
                 end if;
             else
                 RED   <= "00000";
-                GREEN <= "000000";
+                GREEN <= "00000";
                 BLUE  <= "00000";
             end if;
         end if;
