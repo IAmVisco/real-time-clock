@@ -4,18 +4,19 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity vga_driver is
-    Port (  CLK         : in   STD_LOGIC;
-            RST         : in   STD_LOGIC;
-            HALF_SECOND : in   STD_LOGIC;
-            SECONDS     : in   integer;
-            MINUTES     : in   integer;
-            HOURS       : in   integer;
-            HSYNC       : out  STD_LOGIC;
-            VSYNC       : out  STD_LOGIC;
-            RED         : out  STD_LOGIC_VECTOR (4 downto 0);
-            GREEN       : out  STD_LOGIC_VECTOR (4 downto 0);
-            BLUE        : out  STD_LOGIC_VECTOR (4 downto 0)
-        );
+    port (
+        CLK         : in   std_logic;
+        RST         : in   std_logic; -- doesnt map on real fpga for some reason
+        HALF_SECOND : in   std_logic;
+        SECONDS     : in   integer;
+        MINUTES     : in   integer;
+        HOURS       : in   integer;
+        HSYNC       : out  std_logic;
+        VSYNC       : out  std_logic;
+        RED         : out  std_logic_vector (4 downto 0);
+        GREEN       : out  std_logic_vector (4 downto 0);
+        BLUE        : out  std_logic_vector (4 downto 0)
+    );
 end vga_driver;
 
 architecture vga_driver of vga_driver is
@@ -31,17 +32,15 @@ architecture vga_driver of vga_driver is
     constant VSP : integer := 2;        --    2   Sync pulse (Retrace)
     constant VBP : integer := 33;       --   33   Left boarder (back porch)
 
+    -- draw positions
     signal hPos : integer := 0;
     signal vPos : integer := 0;
 
-    signal incr_red   : STD_LOGIC := '1';
-    signal incr_green : STD_LOGIC := '1';
-    signal incr_blue  : STD_LOGIC := '1';
-
-    signal cur_red   : std_logic_vector(4 downto 0) := "00000";
-    signal cur_green : std_logic_vector(4 downto 0) := "00000";
-    signal cur_blue  : std_logic_vector(4 downto 0) := "00000";
-    signal count     : integer   := 1;
+    -- color vectors
+    signal cur_red     : std_logic_vector(4 downto 0) := "00000";
+    signal cur_green   : std_logic_vector(4 downto 0) := "00000";
+    signal cur_blue    : std_logic_vector(4 downto 0) := "00000";
+    signal count       : integer   := 1;
 
     signal videoOn     : std_logic := '0';
 
@@ -63,8 +62,8 @@ architecture vga_driver of vga_driver is
     constant SegH2Ypos : integer := StartPosY;
 
     --column1
-    constant Col1Xpos : integer := StartPosX + 91;
-    constant Col1Ypos : integer := StartPosY + 5;
+    constant Col1Xpos  : integer := StartPosX + 91;
+    constant Col1Ypos  : integer := StartPosY + 5;
 
     --m1
     constant SegM1Xpos : integer := StartPosX + 110;
@@ -75,8 +74,8 @@ architecture vga_driver of vga_driver is
     constant SegM2Ypos : integer := StartPosY;
 
     --column2
-    constant Col2Xpos : integer := StartPosX + 191;
-    constant Col2Ypos : integer := StartPosY + 5;
+    constant Col2Xpos  : integer := StartPosX + 191;
+    constant Col2Ypos  : integer := StartPosY + 5;
 
     --s1
     constant SegS1Xpos : integer := StartPosX + 210;
@@ -86,24 +85,24 @@ architecture vga_driver of vga_driver is
     constant SegS2Xpos : integer := StartPosX + 250;
     constant SegS2Ypos : integer := StartPosY;
 
-    signal h1seg : std_logic_vector (6 downto 0) := "1111111";
-    signal h2seg : std_logic_vector (6 downto 0) := "0000001";
-    signal m1seg : std_logic_vector (6 downto 0) := "0010000";
-    signal m2seg : std_logic_vector (6 downto 0) := "0000000";
-    signal s1seg : std_logic_vector (6 downto 0) := "0000100";
-    signal s2seg : std_logic_vector (6 downto 0) := "0000000";
+    signal h1seg       : std_logic_vector(6 downto 0) := "1111111";
+    signal h2seg       : std_logic_vector(6 downto 0) := "0000000";
+    signal m1seg       : std_logic_vector(6 downto 0) := "0000000";
+    signal m2seg       : std_logic_vector(6 downto 0) := "0000000";
+    signal s1seg       : std_logic_vector(6 downto 0) := "0000000";
+    signal s2seg       : std_logic_vector(6 downto 0) := "0000000";
 
-    signal zero  : std_logic_vector (6 downto 0) := "0111111";
-    signal one   : std_logic_vector (6 downto 0) := "0000110";
-    signal two   : std_logic_vector (6 downto 0) := "1011011";
-    signal three : std_logic_vector (6 downto 0) := "1001111";
-    signal four  : std_logic_vector (6 downto 0) := "1100110";
-    signal five  : std_logic_vector (6 downto 0) := "1101101";
-    signal six   : std_logic_vector (6 downto 0) := "1111101";
-    signal seven : std_logic_vector (6 downto 0) := "0000111";
-    signal eight : std_logic_vector (6 downto 0) := "1111111";
-    signal nine  : std_logic_vector (6 downto 0) := "1101111";
-
+    -- 7seg preset values
+    signal zero        : std_logic_vector(6 downto 0) := "0111111";
+    signal one         : std_logic_vector(6 downto 0) := "0000110";
+    signal two         : std_logic_vector(6 downto 0) := "1011011";
+    signal three       : std_logic_vector(6 downto 0) := "1001111";
+    signal four        : std_logic_vector(6 downto 0) := "1100110";
+    signal five        : std_logic_vector(6 downto 0) := "1101101";
+    signal six         : std_logic_vector(6 downto 0) := "1111101";
+    signal seven       : std_logic_vector(6 downto 0) := "0000111";
+    signal eight       : std_logic_vector(6 downto 0) := "1111111";
+    signal nine        : std_logic_vector(6 downto 0) := "1101111";
 begin
     clk_div: process(CLK)
     begin
@@ -642,9 +641,6 @@ begin
     change_colors: process(clk25, RST)
     begin
         if (RST = '1') then
-            incr_red   <= '1';
-            incr_green <= '1';
-            incr_blue  <= '1';
             cur_red    <= "00000";
             cur_green  <= "00000";
             cur_blue   <= "00000";

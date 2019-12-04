@@ -24,23 +24,44 @@ entity top_digi_clk is
 end top_digi_clk;
 
 architecture Behavioral of top_digi_clk is
-signal sec, min, hour : integer range 0 to 60 := 0;
-signal half_sec       : std_logic;
-signal RESET          : std_logic := '0';
+signal sec, min, hour      : integer range 0 to 60 := 0;
+signal half_sec            : std_logic;
+signal RESET               : std_logic := '0';
+signal reset_n             : std_logic;
+signal debounced_inc_hour  : std_logic;
+signal debounced_inc_min   : std_logic;
 
 begin
-    x_DIGI_CLK: digi_clk
+    reset_n <= not RESET;
+
+    INC_HOUR_DEBOUCE: debounce
+        port map (
+            clk      => CLK,
+            reset_n  => reset_n,
+            button   => INC_HOUR,
+            result   => debounced_inc_hour
+        );
+
+    INC_MIN_DEBOUCE: debounce
+        port map (
+            clk      => CLK,
+            reset_n  => reset_n,
+            button   => INC_MIN,
+            result   => debounced_inc_min
+        );
+
+    DIGI_RTC_DATA: digi_clk
         port map (
             clk1         => CLK,
-            inc_hour     => INC_HOUR,
-            inc_min      => INC_MIN,
+            inc_hour     => debounced_inc_hour,
+            inc_min      => debounced_inc_min,
             half_seconds => half_sec,
             seconds      => sec,
             minutes      => min,
             hours        => hour
         );
 
-    x_VGA_DATA: vga_driver
+    VGA_DATA: vga_driver
         port map (
             RST         => RESET,
             CLK         => CLK,

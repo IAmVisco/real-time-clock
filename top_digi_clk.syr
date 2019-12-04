@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: top_digi_clk.prj
 
@@ -108,6 +108,9 @@ Slice Utilization Ratio Delta      : 5
 Parsing VHDL file "C:\Projects\RTC_2\VGA.vhd" into library work
 Parsing entity <vga_driver>.
 Parsing architecture <vga_driver> of entity <vga_driver>.
+Parsing VHDL file "C:\Projects\RTC_2\debounce.vhd" into library work
+Parsing entity <debounce>.
+Parsing architecture <logic> of entity <debounce>.
 Parsing VHDL file "C:\Projects\RTC_2\ctrl_types_pkg.vhd" into library work
 Parsing package <ctrl_types_pkg>.
 Parsing VHDL file "C:\Projects\RTC_2\Clock.vhd" into library work
@@ -124,6 +127,8 @@ Parsing architecture <Behavioral> of entity <top_digi_clk>.
 Elaborating entity <top_digi_clk> (architecture <Behavioral>) from library <work>.
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\top_digi_clk.vhd" Line 29: Using initial value '0' for reset since it is never assigned
 
+Elaborating entity <debounce> (architecture <logic>) with generics from library <work>.
+
 Elaborating entity <digi_clk> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <vga_driver> (architecture <vga_driver>) from library <work>.
@@ -137,7 +142,6 @@ WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 102: Using initial va
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 103: Using initial value "0000111" for seven since it is never assigned
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 104: Using initial value "1111111" for eight since it is never assigned
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 105: Using initial value "1101111" for nine since it is never assigned
-WARNING:HDLCompiler:1127 - "C:\Projects\RTC_2\VGA.vhd" Line 642: Assignment to incr_red ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -149,35 +153,40 @@ Synthesizing Unit <top_digi_clk>.
 	no macro.
 Unit <top_digi_clk> synthesized.
 
+Synthesizing Unit <debounce>.
+    Related source file is "C:\Projects\RTC_2\debounce.vhd".
+        clk_freq = 50000000
+        stable_time = 10
+    Found 2-bit register for signal <flipflops>.
+    Found 1-bit register for signal <result>.
+    Found 19-bit register for signal <debounce.count>.
+    Found 19-bit adder for signal <debounce.count[18]_GND_8_o_add_1_OUT> created at line 35.
+    Found 19-bit comparator greater for signal <debounce.count[18]_PWR_8_o_LessThan_1_o> created at line 34
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <debounce> synthesized.
+
 Synthesizing Unit <digi_clk>.
     Related source file is "C:\Projects\RTC_2\Clock.vhd".
     Found 1-bit register for signal <clk05>.
     Found 1-bit register for signal <clk>.
+    Found 5-bit register for signal <hour>.
+    Found 6-bit register for signal <min>.
     Found 6-bit register for signal <sec>.
     Found 32-bit register for signal <count>.
-    Found 1-bit register for signal <hour<4>>.
-    Found 1-bit register for signal <hour<3>>.
-    Found 1-bit register for signal <hour<2>>.
-    Found 1-bit register for signal <hour<1>>.
-    Found 1-bit register for signal <hour<0>>.
-    Found 1-bit register for signal <min<5>>.
-    Found 1-bit register for signal <min<4>>.
-    Found 1-bit register for signal <min<3>>.
-    Found 1-bit register for signal <min<2>>.
-    Found 1-bit register for signal <min<1>>.
-    Found 1-bit register for signal <min<0>>.
-    Found 32-bit adder for signal <count[31]_GND_8_o_add_3_OUT> created at line 38.
-    Found 5-bit adder for signal <hour[4]_GND_8_o_add_9_OUT> created at line 53.
-    Found 6-bit adder for signal <min[5]_GND_8_o_add_13_OUT> created at line 61.
-    Found 6-bit adder for signal <sec[5]_GND_8_o_add_17_OUT> created at line 69.
-    Found 5-bit comparator greater for signal <hour[4]_PWR_8_o_LessThan_9_o> created at line 52
-    Found 6-bit comparator greater for signal <sec[5]_PWR_8_o_LessThan_17_o> created at line 68
-    Found 6-bit comparator greater for signal <min[5]_PWR_8_o_LessThan_19_o> created at line 72
+    Found 32-bit adder for signal <count[31]_GND_9_o_add_3_OUT> created at line 38.
+    Found 5-bit adder for signal <hour[4]_GND_9_o_add_9_OUT> created at line 53.
+    Found 6-bit adder for signal <min[5]_GND_9_o_add_12_OUT> created at line 59.
+    Found 6-bit adder for signal <sec[5]_GND_9_o_add_15_OUT> created at line 65.
+    Found 5-bit comparator greater for signal <hour[4]_PWR_9_o_LessThan_9_o> created at line 52
+    Found 6-bit comparator lessequal for signal <min[5]_PWR_9_o_LessThan_12_o> created at line 58
+    Found 6-bit comparator lessequal for signal <sec[5]_PWR_9_o_LessThan_15_o> created at line 64
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred  51 D-type flip-flop(s).
 	inferred   3 Comparator(s).
-	inferred   2 Multiplexer(s).
 Unit <digi_clk> synthesized.
 
 Synthesizing Unit <vga_driver>.
@@ -201,60 +210,60 @@ Synthesizing Unit <vga_driver>.
     Found 5-bit register for signal <GREEN>.
     Found 5-bit register for signal <BLUE>.
     Found 1-bit register for signal <clk25>.
-    Found 32-bit adder for signal <hPos[31]_GND_89_o_add_1_OUT> created at line 123.
-    Found 32-bit adder for signal <vPos[31]_GND_89_o_add_6_OUT> created at line 137.
-    Found 32-bit adder for signal <count[31]_GND_89_o_add_175_OUT> created at line 652.
-    Found 5-bit adder for signal <cur_green[4]_GND_89_o_add_184_OUT> created at line 658.
-    Found 5-bit adder for signal <cur_blue[4]_GND_89_o_add_192_OUT> created at line 662.
-    Found 5-bit adder for signal <cur_red[4]_GND_89_o_add_200_OUT> created at line 666.
-    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_189_OUT<4:0>> created at line 660.
-    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_197_OUT<4:0>> created at line 664.
-    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_205_OUT<4:0>> created at line 668.
-    Found 32-bit comparator lessequal for signal <n0011> created at line 148
-    Found 32-bit comparator greater for signal <hPos[31]_GND_89_o_LessThan_12_o> created at line 148
-    Found 32-bit comparator lessequal for signal <n0016> created at line 161
-    Found 32-bit comparator greater for signal <vPos[31]_GND_89_o_LessThan_14_o> created at line 161
-    Found 32-bit comparator lessequal for signal <n0021> created at line 174
-    Found 32-bit comparator lessequal for signal <n0023> created at line 174
-    Found 32-bit comparator lessequal for signal <n0276> created at line 702
-    Found 32-bit comparator lessequal for signal <n0306> created at line 732
-    Found 32-bit comparator lessequal for signal <n0312> created at line 736
-    Found 32-bit comparator lessequal for signal <n0318> created at line 740
-    Found 32-bit comparator lessequal for signal <n0324> created at line 744
-    Found 32-bit comparator lessequal for signal <n0330> created at line 748
-    Found 32-bit comparator lessequal for signal <n0336> created at line 752
-    Found 32-bit comparator lessequal for signal <n0362> created at line 777
-    Found 32-bit comparator lessequal for signal <n0388> created at line 802
-    Found 32-bit comparator lessequal for signal <n0394> created at line 807
-    Found 32-bit comparator lessequal for signal <n0400> created at line 811
-    Found 32-bit comparator lessequal for signal <n0406> created at line 815
-    Found 32-bit comparator lessequal for signal <n0412> created at line 819
-    Found 32-bit comparator lessequal for signal <n0418> created at line 823
-    Found 32-bit comparator lessequal for signal <n0424> created at line 827
-    Found 32-bit comparator lessequal for signal <n0426> created at line 827
-    Found 32-bit comparator lessequal for signal <n0428> created at line 827
-    Found 32-bit comparator lessequal for signal <n0434> created at line 832
-    Found 32-bit comparator lessequal for signal <n0436> created at line 832
-    Found 32-bit comparator lessequal for signal <n0442> created at line 836
-    Found 32-bit comparator lessequal for signal <n0444> created at line 836
-    Found 32-bit comparator lessequal for signal <n0450> created at line 840
-    Found 32-bit comparator lessequal for signal <n0452> created at line 840
-    Found 32-bit comparator lessequal for signal <n0458> created at line 844
-    Found 32-bit comparator lessequal for signal <n0460> created at line 844
-    Found 32-bit comparator lessequal for signal <n0466> created at line 848
-    Found 32-bit comparator lessequal for signal <n0468> created at line 848
-    Found 32-bit comparator lessequal for signal <n0474> created at line 852
-    Found 32-bit comparator lessequal for signal <n0476> created at line 852
-    Found 32-bit comparator lessequal for signal <n0478> created at line 852
-    Found 32-bit comparator lessequal for signal <n0480> created at line 852
-    Found 32-bit comparator lessequal for signal <n0488> created at line 861
-    Found 32-bit comparator lessequal for signal <n0490> created at line 861
-    Found 32-bit comparator lessequal for signal <n0494> created at line 866
-    Found 32-bit comparator lessequal for signal <n0496> created at line 866
-    Found 32-bit comparator lessequal for signal <n0502> created at line 870
-    Found 32-bit comparator lessequal for signal <n0504> created at line 870
-    Found 32-bit comparator lessequal for signal <n0506> created at line 870
-    Found 32-bit comparator lessequal for signal <n0508> created at line 870
+    Found 32-bit adder for signal <hPos[31]_GND_90_o_add_1_OUT> created at line 122.
+    Found 32-bit adder for signal <vPos[31]_GND_90_o_add_6_OUT> created at line 136.
+    Found 32-bit adder for signal <count[31]_GND_90_o_add_175_OUT> created at line 648.
+    Found 5-bit adder for signal <cur_green[4]_GND_90_o_add_184_OUT> created at line 654.
+    Found 5-bit adder for signal <cur_blue[4]_GND_90_o_add_192_OUT> created at line 658.
+    Found 5-bit adder for signal <cur_red[4]_GND_90_o_add_200_OUT> created at line 662.
+    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_189_OUT<4:0>> created at line 656.
+    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_197_OUT<4:0>> created at line 660.
+    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_205_OUT<4:0>> created at line 664.
+    Found 32-bit comparator lessequal for signal <n0011> created at line 147
+    Found 32-bit comparator greater for signal <hPos[31]_GND_90_o_LessThan_12_o> created at line 147
+    Found 32-bit comparator lessequal for signal <n0016> created at line 160
+    Found 32-bit comparator greater for signal <vPos[31]_GND_90_o_LessThan_14_o> created at line 160
+    Found 32-bit comparator lessequal for signal <n0021> created at line 173
+    Found 32-bit comparator lessequal for signal <n0023> created at line 173
+    Found 32-bit comparator lessequal for signal <n0276> created at line 698
+    Found 32-bit comparator lessequal for signal <n0306> created at line 728
+    Found 32-bit comparator lessequal for signal <n0312> created at line 732
+    Found 32-bit comparator lessequal for signal <n0318> created at line 736
+    Found 32-bit comparator lessequal for signal <n0324> created at line 740
+    Found 32-bit comparator lessequal for signal <n0330> created at line 744
+    Found 32-bit comparator lessequal for signal <n0336> created at line 748
+    Found 32-bit comparator lessequal for signal <n0362> created at line 773
+    Found 32-bit comparator lessequal for signal <n0388> created at line 798
+    Found 32-bit comparator lessequal for signal <n0394> created at line 803
+    Found 32-bit comparator lessequal for signal <n0400> created at line 807
+    Found 32-bit comparator lessequal for signal <n0406> created at line 811
+    Found 32-bit comparator lessequal for signal <n0412> created at line 815
+    Found 32-bit comparator lessequal for signal <n0418> created at line 819
+    Found 32-bit comparator lessequal for signal <n0424> created at line 823
+    Found 32-bit comparator lessequal for signal <n0426> created at line 823
+    Found 32-bit comparator lessequal for signal <n0428> created at line 823
+    Found 32-bit comparator lessequal for signal <n0434> created at line 828
+    Found 32-bit comparator lessequal for signal <n0436> created at line 828
+    Found 32-bit comparator lessequal for signal <n0442> created at line 832
+    Found 32-bit comparator lessequal for signal <n0444> created at line 832
+    Found 32-bit comparator lessequal for signal <n0450> created at line 836
+    Found 32-bit comparator lessequal for signal <n0452> created at line 836
+    Found 32-bit comparator lessequal for signal <n0458> created at line 840
+    Found 32-bit comparator lessequal for signal <n0460> created at line 840
+    Found 32-bit comparator lessequal for signal <n0466> created at line 844
+    Found 32-bit comparator lessequal for signal <n0468> created at line 844
+    Found 32-bit comparator lessequal for signal <n0474> created at line 848
+    Found 32-bit comparator lessequal for signal <n0476> created at line 848
+    Found 32-bit comparator lessequal for signal <n0478> created at line 848
+    Found 32-bit comparator lessequal for signal <n0480> created at line 848
+    Found 32-bit comparator lessequal for signal <n0488> created at line 857
+    Found 32-bit comparator lessequal for signal <n0490> created at line 857
+    Found 32-bit comparator lessequal for signal <n0494> created at line 862
+    Found 32-bit comparator lessequal for signal <n0496> created at line 862
+    Found 32-bit comparator lessequal for signal <n0502> created at line 866
+    Found 32-bit comparator lessequal for signal <n0504> created at line 866
+    Found 32-bit comparator lessequal for signal <n0506> created at line 866
+    Found 32-bit comparator lessequal for signal <n0508> created at line 866
     Summary:
 	inferred   7 Adder/Subtractor(s).
 	inferred 172 D-type flip-flop(s).
@@ -266,27 +275,32 @@ Unit <vga_driver> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 11
+# Adders/Subtractors                                   : 13
+ 19-bit adder                                          : 2
  32-bit adder                                          : 4
  5-bit adder                                           : 2
  5-bit addsub                                          : 2
  5-bit subtractor                                      : 1
  6-bit adder                                           : 2
-# Registers                                            : 34
- 1-bit register                                        : 17
+# Registers                                            : 31
+ 1-bit register                                        : 8
+ 19-bit register                                       : 2
+ 2-bit register                                        : 2
  32-bit register                                       : 4
- 5-bit register                                        : 6
- 6-bit register                                        : 1
+ 5-bit register                                        : 7
+ 6-bit register                                        : 2
  7-bit register                                        : 6
-# Comparators                                          : 48
+# Comparators                                          : 50
+ 19-bit comparator greater                             : 2
  32-bit comparator greater                             : 2
  32-bit comparator lessequal                           : 43
  5-bit comparator greater                              : 1
- 6-bit comparator greater                              : 2
-# Multiplexers                                         : 52
- 5-bit 2-to-1 multiplexer                              : 3
- 6-bit 2-to-1 multiplexer                              : 1
+ 6-bit comparator lessequal                            : 2
+# Multiplexers                                         : 50
+ 5-bit 2-to-1 multiplexer                              : 2
  7-bit 2-to-1 multiplexer                              : 48
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
 
 =========================================================================
 
@@ -295,8 +309,14 @@ Macro Statistics
 =========================================================================
 
 
+Synthesizing (advanced) Unit <debounce>.
+The following registers are absorbed into counter <debounce.count>: 1 register on signal <debounce.count>.
+Unit <debounce> synthesized (advanced).
+
 Synthesizing (advanced) Unit <digi_clk>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
+The following registers are absorbed into counter <hour>: 1 register on signal <hour>.
+The following registers are absorbed into counter <min>: 1 register on signal <min>.
 The following registers are absorbed into counter <sec>: 1 register on signal <sec>.
 Unit <digi_clk> synthesized (advanced).
 
@@ -312,25 +332,28 @@ Unit <vga_driver> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
- 5-bit adder                                           : 2
+# Adders/Subtractors                                   : 2
+ 5-bit adder                                           : 1
  5-bit subtractor                                      : 1
- 6-bit adder                                           : 1
-# Counters                                             : 7
+# Counters                                             : 11
+ 19-bit up counter                                     : 2
  32-bit up counter                                     : 4
+ 5-bit up counter                                      : 1
  5-bit updown counter                                  : 2
- 6-bit up counter                                      : 1
-# Registers                                            : 79
- Flip-Flops                                            : 79
-# Comparators                                          : 48
+ 6-bit up counter                                      : 2
+# Registers                                            : 74
+ Flip-Flops                                            : 74
+# Comparators                                          : 50
+ 19-bit comparator greater                             : 2
  32-bit comparator greater                             : 2
  32-bit comparator lessequal                           : 43
  5-bit comparator greater                              : 1
- 6-bit comparator greater                              : 2
-# Multiplexers                                         : 52
- 5-bit 2-to-1 multiplexer                              : 3
- 6-bit 2-to-1 multiplexer                              : 1
+ 6-bit comparator lessequal                            : 2
+# Multiplexers                                         : 50
+ 5-bit 2-to-1 multiplexer                              : 2
  7-bit 2-to-1 multiplexer                              : 48
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
 
 =========================================================================
 
@@ -341,106 +364,78 @@ WARNING:Xst:1293 - FF/Latch <h1seg_1> has a constant value of 1 in block <vga_dr
 INFO:Xst:2261 - The FF/Latch <m1seg_0> in Unit <vga_driver> is equivalent to the following FF/Latch, which will be removed : <m1seg_3> 
 INFO:Xst:2261 - The FF/Latch <s1seg_0> in Unit <vga_driver> is equivalent to the following FF/Latch, which will be removed : <s1seg_3> 
 INFO:Xst:2261 - The FF/Latch <h1seg_0> in Unit <vga_driver> is equivalent to the following 2 FFs/Latches, which will be removed : <h1seg_3> <h1seg_4> 
-WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
-   incompatible with the Spartan6 architecture. The two primary causes of this is
-   either a register or latch described with both an asynchronous set and
-   asynchronous reset, or a register or latch described with an asynchronous
-   set or reset which however has an initialization value of the opposite 
-   polarity (i.e. asynchronous reset with an initialization value of 1).
-    While this circuit can be built, it creates a sub-optimal implementation
-   in terms of area, power and performance. For a more optimal implementation
-   Xilinx highly recommends one of the following:
-
-          1) Remove either the set or reset from all registers and latches
-             if not needed for required functionality
-          2) Modify the code in order to produce a synchronous set
-             and/or reset (both is preferred)
-          3) Ensure all registers have the same initialization value as the
-             described asynchronous set or reset polarity
-          4) Use the -async_to_sync option to transform the asynchronous
-             set/reset to synchronous operation
-             (timing simulation highly recommended when using this option)
-
-  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
-
-  List of register instances with asynchronous set and reset:
-    min_5 in unit <digi_clk>
-    hour_4 in unit <digi_clk>
-    min_0 in unit <digi_clk>
-    min_1 in unit <digi_clk>
-    min_2 in unit <digi_clk>
-    min_3 in unit <digi_clk>
-    hour_0 in unit <digi_clk>
-    min_4 in unit <digi_clk>
-    hour_2 in unit <digi_clk>
-    hour_3 in unit <digi_clk>
-    hour_1 in unit <digi_clk>
-
 
 Optimizing unit <top_digi_clk> ...
+
+Optimizing unit <debounce> ...
 
 Optimizing unit <digi_clk> ...
 
 Optimizing unit <vga_driver> ...
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_22> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_25> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_23> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_24> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_26> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_27> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_28> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_29> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_30> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_31> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_10> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_11> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_12> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_13> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_14> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_15> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_16> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_17> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_18> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_19> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_20> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_21> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_22> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_23> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_24> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_25> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_26> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_27> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_28> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_29> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_30> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/hPos_31> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:3203 - The FF/Latch <x_VGA_DATA/hPos_0> in Unit <top_digi_clk> is the opposite to the following FF/Latch, which will be removed : <x_VGA_DATA/count_0> 
+INFO:Xst:3203 - The FF/Latch <DIGI_RTC_DATA/count_0> in Unit <top_digi_clk> is the opposite to the following FF/Latch, which will be removed : <VGA_DATA/clk25> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top_digi_clk, actual ratio is 15.
-FlipFlop x_VGA_DATA/hPos_1 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/hPos_2 has been replicated 2 time(s)
-FlipFlop x_VGA_DATA/hPos_3 has been replicated 3 time(s)
-FlipFlop x_VGA_DATA/hPos_4 has been replicated 3 time(s)
-FlipFlop x_VGA_DATA/hPos_5 has been replicated 2 time(s)
-FlipFlop x_VGA_DATA/hPos_6 has been replicated 3 time(s)
-FlipFlop x_VGA_DATA/hPos_7 has been replicated 4 time(s)
-FlipFlop x_VGA_DATA/hPos_8 has been replicated 3 time(s)
-FlipFlop x_VGA_DATA/hPos_9 has been replicated 2 time(s)
-FlipFlop x_VGA_DATA/vPos_10 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_12 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_13 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_18 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_23 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_3 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_30 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_4 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_5 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_6 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_7 has been replicated 1 time(s)
-FlipFlop x_VGA_DATA/vPos_8 has been replicated 2 time(s)
-FlipFlop x_VGA_DATA/vPos_9 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block top_digi_clk, actual ratio is 19.
+FlipFlop VGA_DATA/hPos_1 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_10 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_11 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_12 has been replicated 1 time(s)
+FlipFlop VGA_DATA/hPos_13 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_14 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_15 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_16 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_17 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_18 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_19 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_2 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_20 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_21 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_22 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_23 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_24 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_25 has been replicated 1 time(s)
+FlipFlop VGA_DATA/hPos_26 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_27 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_28 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_29 has been replicated 1 time(s)
+FlipFlop VGA_DATA/hPos_3 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_30 has been replicated 1 time(s)
+FlipFlop VGA_DATA/hPos_31 has been replicated 1 time(s)
+FlipFlop VGA_DATA/hPos_4 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_5 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_6 has been replicated 2 time(s)
+FlipFlop VGA_DATA/hPos_7 has been replicated 3 time(s)
+FlipFlop VGA_DATA/hPos_8 has been replicated 3 time(s)
+FlipFlop VGA_DATA/hPos_9 has been replicated 2 time(s)
+FlipFlop VGA_DATA/vPos_10 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_11 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_12 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_13 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_14 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_15 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_16 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_17 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_18 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_19 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_20 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_21 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_22 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_23 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_24 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_25 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_26 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_27 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_28 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_29 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_3 has been replicated 2 time(s)
+FlipFlop VGA_DATA/vPos_30 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_4 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_5 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_6 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_7 has been replicated 1 time(s)
+FlipFlop VGA_DATA/vPos_8 has been replicated 2 time(s)
+FlipFlop VGA_DATA/vPos_9 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -448,8 +443,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 233
- Flip-Flops                                            : 233
+# Registers                                            : 351
+ Flip-Flops                                            : 351
 
 =========================================================================
 
@@ -472,32 +467,30 @@ Top Level Output File Name         : top_digi_clk.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1131
+# BELS                             : 1550
 #      GND                         : 1
-#      INV                         : 18
-#      LUT1                        : 100
-#      LUT2                        : 45
-#      LUT3                        : 58
-#      LUT4                        : 82
-#      LUT5                        : 228
-#      LUT6                        : 107
-#      MUXCY                       : 395
-#      MUXF7                       : 1
+#      INV                         : 26
+#      LUT1                        : 163
+#      LUT2                        : 61
+#      LUT3                        : 46
+#      LUT4                        : 46
+#      LUT5                        : 421
+#      LUT6                        : 144
+#      MUXCY                       : 460
+#      MUXF7                       : 15
 #      VCC                         : 1
-#      XORCY                       : 95
-# FlipFlops/Latches                : 244
-#      FD                          : 61
-#      FDC_1                       : 11
-#      FDE                         : 17
-#      FDP_1                       : 11
-#      FDR                         : 127
+#      XORCY                       : 166
+# FlipFlops/Latches                : 351
+#      FD                          : 21
+#      FDE                         : 24
+#      FDR                         : 195
+#      FDRE                        : 105
 #      FDS                         : 6
-#      LDC                         : 2
-#      LDP                         : 9
-# Clock Buffers                    : 4
+# Clock Buffers                    : 2
 #      BUFG                        : 1
-#      BUFGP                       : 3
-# IO Buffers                       : 17
+#      BUFGP                       : 1
+# IO Buffers                       : 19
+#      IBUF                        : 2
 #      OBUF                        : 17
 
 Device utilization summary:
@@ -507,23 +500,23 @@ Selected Device : 6slx9ftg256-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             244  out of  11440     2%  
- Number of Slice LUTs:                  638  out of   5720    11%  
-    Number used as Logic:               638  out of   5720    11%  
+ Number of Slice Registers:             351  out of  11440     3%  
+ Number of Slice LUTs:                  907  out of   5720    15%  
+    Number used as Logic:               907  out of   5720    15%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    694
-   Number with an unused Flip Flop:     450  out of    694    64%  
-   Number with an unused LUT:            56  out of    694     8%  
-   Number of fully used LUT-FF pairs:   188  out of    694    27%  
-   Number of unique control sets:        47
+ Number of LUT Flip Flop pairs used:   1052
+   Number with an unused Flip Flop:     701  out of   1052    66%  
+   Number with an unused LUT:           145  out of   1052    13%  
+   Number of fully used LUT-FF pairs:   206  out of   1052    19%  
+   Number of unique control sets:        23
 
 IO Utilization: 
  Number of IOs:                          20
  Number of bonded IOBs:                  20  out of    186    10%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                4  out of     16    25%  
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -543,29 +536,15 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
--------------------------------------------------------------------------+--------------------------------+-------+
-Clock Signal                                                             | Clock buffer(FF name)          | Load  |
--------------------------------------------------------------------------+--------------------------------+-------+
-x_DIGI_CLK/clk                                                           | NONE(x_DIGI_CLK/sec_3)         | 6     |
-CLK                                                                      | BUFGP                          | 35    |
-x_VGA_DATA/clk25                                                         | BUFG                           | 170   |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o(x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o1:O)| NONE(*)(x_DIGI_CLK/min_5_LDC1) | 1     |
-INC_MIN                                                                  | BUFGP                          | 12    |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o(x_DIGI_CLK/min[5]_GND_8_o_AND_6_o1:O)  | NONE(*)(x_DIGI_CLK/hour_4_LDC1)| 1     |
-INC_HOUR                                                                 | BUFGP                          | 10    |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o(x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o1:O)| NONE(*)(x_DIGI_CLK/min_0_LDC1) | 1     |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o(x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o1:O)| NONE(*)(x_DIGI_CLK/min_1_LDC1) | 1     |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o(x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o1:O)| NONE(*)(x_DIGI_CLK/min_2_LDC)  | 1     |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o(x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o1:O)| NONE(*)(x_DIGI_CLK/min_3_LDC1) | 1     |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o(x_DIGI_CLK/min[5]_GND_8_o_AND_14_o1:O)| NONE(*)(x_DIGI_CLK/hour_0_LDC1)| 1     |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o(x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o1:O)| NONE(*)(x_DIGI_CLK/min_4_LDC1) | 1     |
-x_DIGI_CLK/min[5]_GND_8_o_AND_10_o(x_DIGI_CLK/min[5]_GND_8_o_AND_10_o1:O)| NONE(*)(x_DIGI_CLK/hour_2_LDC1)| 1     |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o(x_DIGI_CLK/min[5]_GND_8_o_AND_7_o1:O)  | NONE(*)(x_DIGI_CLK/hour_3_LDC) | 1     |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o(x_DIGI_CLK/min[5]_GND_8_o_AND_12_o1:O)| NONE(*)(x_DIGI_CLK/hour_1_LDC1)| 1     |
--------------------------------------------------------------------------+--------------------------------+-------+
-(*) These 11 clock signal(s) are generated by combinatorial logic,
-and XST is not able to identify which are the primary clock signals.
-Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+-----------------------------------+---------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)     | Load  |
+-----------------------------------+---------------------------+-------+
+CLK                                | BUFGP                     | 78    |
+INC_MIN_DEBOUCE/result             | NONE(DIGI_RTC_DATA/min_2) | 6     |
+INC_HOUR_DEBOUCE/result            | NONE(DIGI_RTC_DATA/hour_3)| 5     |
+DIGI_RTC_DATA/clk                  | NONE(DIGI_RTC_DATA/sec_3) | 6     |
+DIGI_RTC_DATA/count_0              | BUFG                      | 256   |
+-----------------------------------+---------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -576,8 +555,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.903ns (Maximum Frequency: 144.871MHz)
-   Minimum input arrival time before clock: No path found
+   Minimum period: 8.267ns (Maximum Frequency: 120.956MHz)
+   Minimum input arrival time before clock: 1.903ns
    Maximum output required time after clock: 3.597ns
    Maximum combinational path delay: No path found
 
@@ -586,403 +565,164 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/clk'
-  Clock period: 3.751ns (frequency: 266.631MHz)
-  Total number of paths / destination ports: 50 / 9
--------------------------------------------------------------------------
-Delay:               3.751ns (Levels of Logic = 2)
-  Source:            x_DIGI_CLK/sec_2 (FF)
-  Destination:       x_DIGI_CLK/sec_5 (FF)
-  Source Clock:      x_DIGI_CLK/clk rising
-  Destination Clock: x_DIGI_CLK/clk rising
-
-  Data Path: x_DIGI_CLK/sec_2 to x_DIGI_CLK/sec_5
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDR:C->Q             22   0.447   1.498  x_DIGI_CLK/sec_2 (x_DIGI_CLK/sec_2)
-     LUT6:I0->O           13   0.203   1.297  x_DIGI_CLK/sec[5]_PWR_8_o_LessThan_17_o1 (x_DIGI_CLK/sec[5]_PWR_8_o_LessThan_17_o)
-     LUT6:I0->O            1   0.203   0.000  x_DIGI_CLK/sec_5_glue_rst (x_DIGI_CLK/sec_5_glue_rst)
-     FD:D                      0.102          x_DIGI_CLK/sec_5
-    ----------------------------------------
-    Total                      3.751ns (0.955ns logic, 2.796ns route)
-                                       (25.5% logic, 74.5% route)
-
-=========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 5.430ns (frequency: 184.171MHz)
-  Total number of paths / destination ports: 1619 / 69
+  Total number of paths / destination ports: 2642 / 188
 -------------------------------------------------------------------------
 Delay:               5.430ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/count_31 (FF)
-  Destination:       x_DIGI_CLK/count_30 (FF)
+  Source:            DIGI_RTC_DATA/count_31 (FF)
+  Destination:       DIGI_RTC_DATA/count_31 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: x_DIGI_CLK/count_31 to x_DIGI_CLK/count_30
+  Data Path: DIGI_RTC_DATA/count_31 to DIGI_RTC_DATA/count_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.981  x_DIGI_CLK/count_31 (x_DIGI_CLK/count_31)
-     LUT6:I0->O            1   0.203   0.808  x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>11 (x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>11)
-     LUT6:I3->O            2   0.205   0.845  x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>15 (x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>1)
-     LUT6:I3->O           33   0.205   1.305  x_DIGI_CLK/GND_8_o_count[31]_equal_6_o<31> (x_DIGI_CLK/GND_8_o_count[31]_equal_6_o)
-     FDS:S                     0.430          x_DIGI_CLK/count_0
+     FDR:C->Q              2   0.447   0.981  DIGI_RTC_DATA/count_31 (DIGI_RTC_DATA/count_31)
+     LUT6:I0->O            1   0.203   0.808  DIGI_RTC_DATA/GND_9_o_count[31]_equal_5_o<31>11 (DIGI_RTC_DATA/GND_9_o_count[31]_equal_5_o<31>11)
+     LUT6:I3->O            2   0.205   0.845  DIGI_RTC_DATA/GND_9_o_count[31]_equal_5_o<31>15 (DIGI_RTC_DATA/GND_9_o_count[31]_equal_5_o<31>1)
+     LUT6:I3->O           33   0.205   1.305  DIGI_RTC_DATA/GND_9_o_count[31]_equal_6_o<31> (DIGI_RTC_DATA/GND_9_o_count[31]_equal_6_o)
+     FDR:R                     0.430          DIGI_RTC_DATA/count_1
     ----------------------------------------
     Total                      5.430ns (1.490ns logic, 3.940ns route)
                                        (27.4% logic, 72.6% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'x_VGA_DATA/clk25'
-  Clock period: 6.903ns (frequency: 144.871MHz)
-  Total number of paths / destination ports: 56423 / 217
+Timing constraint: Default period analysis for Clock 'INC_MIN_DEBOUCE/result'
+  Clock period: 3.641ns (frequency: 274.654MHz)
+  Total number of paths / destination ports: 38 / 7
 -------------------------------------------------------------------------
-Delay:               6.903ns (Levels of Logic = 11)
-  Source:            x_VGA_DATA/hPos_5_1 (FF)
-  Destination:       x_VGA_DATA/RED_4 (FF)
-  Source Clock:      x_VGA_DATA/clk25 rising
-  Destination Clock: x_VGA_DATA/clk25 rising
+Delay:               3.641ns (Levels of Logic = 2)
+  Source:            DIGI_RTC_DATA/min_1 (FF)
+  Destination:       DIGI_RTC_DATA/min_2 (FF)
+  Source Clock:      INC_MIN_DEBOUCE/result falling
+  Destination Clock: INC_MIN_DEBOUCE/result falling
 
-  Data Path: x_VGA_DATA/hPos_5_1 to x_VGA_DATA/RED_4
+  Data Path: DIGI_RTC_DATA/min_1 to DIGI_RTC_DATA/min_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             23   0.447   1.498  x_VGA_DATA/hPos_5_1 (x_VGA_DATA/hPos_5_1)
-     LUT5:I0->O            1   0.203   0.000  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_lut<1> (x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_lut<1>)
-     MUXCY:S->O            1   0.172   0.000  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<1> (x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<2> (x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<3> (x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<4> (x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<5> (x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<5>)
-     MUXCY:CI->O           7   0.213   0.774  x_VGA_DATA/Mcompar_hPos[31]_GND_89_o_LessThan_383_o_cy<6> (x_VGA_DATA/hPos[31]_GND_89_o_LessThan_383_o)
-     LUT5:I4->O            1   0.205   0.808  x_VGA_DATA/_n18181 (x_VGA_DATA/_n18181)
-     LUT6:I3->O            1   0.205   0.580  x_VGA_DATA/_n18183 (x_VGA_DATA/_n18183)
-     LUT6:I5->O           15   0.205   1.210  x_VGA_DATA/_n18186 (x_VGA_DATA/_n18186)
-     LUT6:I3->O            1   0.205   0.000  x_VGA_DATA/RED_4_glue_set (x_VGA_DATA/RED_4_glue_set)
-     FDR:D                     0.102          x_VGA_DATA/RED_4
+     FDE:C->Q             20   0.447   1.197  DIGI_RTC_DATA/min_1 (DIGI_RTC_DATA/min_1)
+     LUT2:I0->O            1   0.203   0.580  DIGI_RTC_DATA/_n0063_SW0 (N2)
+     LUT6:I5->O            1   0.205   0.579  DIGI_RTC_DATA/_n0063 (DIGI_RTC_DATA/_n0063)
+     FDRE:R                    0.430          DIGI_RTC_DATA/min_2
     ----------------------------------------
-    Total                      6.903ns (2.033ns logic, 4.870ns route)
-                                       (29.5% logic, 70.5% route)
+    Total                      3.641ns (1.285ns logic, 2.356ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o'
-  Clock period: 5.186ns (frequency: 192.834MHz)
-  Total number of paths / destination ports: 1 / 1
+Timing constraint: Default period analysis for Clock 'INC_HOUR_DEBOUCE/result'
+  Clock period: 3.008ns (frequency: 332.480MHz)
+  Total number of paths / destination ports: 26 / 6
 -------------------------------------------------------------------------
-Delay:               5.186ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/min_5_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/min_5_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o falling
-  Destination Clock: x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o falling
+Delay:               3.008ns (Levels of Logic = 1)
+  Source:            DIGI_RTC_DATA/hour_4 (FF)
+  Destination:       DIGI_RTC_DATA/hour_3 (FF)
+  Source Clock:      INC_HOUR_DEBOUCE/result falling
+  Destination Clock: INC_HOUR_DEBOUCE/result falling
 
-  Data Path: x_DIGI_CLK/min_5_LDC1 to x_DIGI_CLK/min_5_LDC1
+  Data Path: DIGI_RTC_DATA/hour_4 to DIGI_RTC_DATA/hour_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDP:G->Q              1   0.498   0.808  x_DIGI_CLK/min_5_LDC1 (x_DIGI_CLK/min_5_LDC1)
-     LUT3:I0->O           24   0.205   1.537  x_DIGI_CLK/min_51 (x_DIGI_CLK/min_5)
-     LUT6:I0->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_min[5]_mux_14_OUT61 (x_DIGI_CLK/GND_8_o_min[5]_mux_14_OUT<5>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/sec[5]_GND_8_o_AND_15_o1 (x_DIGI_CLK/min_5_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/min_5_LDC1
+     FD:C->Q              16   0.447   1.349  DIGI_RTC_DATA/hour_4 (DIGI_RTC_DATA/hour_4)
+     LUT5:I0->O            1   0.203   0.579  DIGI_RTC_DATA/hour[4]_PWR_9_o_LessThan_9_o_inv1 (DIGI_RTC_DATA/hour[4]_PWR_9_o_LessThan_9_o_inv)
+     FDR:R                     0.430          DIGI_RTC_DATA/hour_3
     ----------------------------------------
-    Total                      5.186ns (1.541ns logic, 3.645ns route)
-                                       (29.7% logic, 70.3% route)
+    Total                      3.008ns (1.080ns logic, 1.928ns route)
+                                       (35.9% logic, 64.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'INC_MIN'
-  Clock period: 5.028ns (frequency: 198.906MHz)
-  Total number of paths / destination ports: 280 / 24
+Timing constraint: Default period analysis for Clock 'DIGI_RTC_DATA/clk'
+  Clock period: 4.152ns (frequency: 240.857MHz)
+  Total number of paths / destination ports: 58 / 9
 -------------------------------------------------------------------------
-Delay:               5.028ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/min_4_P_4 (FF)
-  Destination:       x_DIGI_CLK/min_4_C_4 (FF)
-  Source Clock:      INC_MIN falling
-  Destination Clock: INC_MIN falling
+Delay:               4.152ns (Levels of Logic = 3)
+  Source:            DIGI_RTC_DATA/sec_1 (FF)
+  Destination:       DIGI_RTC_DATA/sec_5 (FF)
+  Source Clock:      DIGI_RTC_DATA/clk rising
+  Destination Clock: DIGI_RTC_DATA/clk rising
 
-  Data Path: x_DIGI_CLK/min_4_P_4 to x_DIGI_CLK/min_4_C_4
+  Data Path: DIGI_RTC_DATA/sec_1 to DIGI_RTC_DATA/sec_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDP_1:C->Q            2   0.447   0.721  x_DIGI_CLK/min_4_P_4 (x_DIGI_CLK/min_4_P_4)
-     LUT3:I1->O           23   0.203   1.518  x_DIGI_CLK/min_41 (x_DIGI_CLK/min_4)
-     LUT6:I0->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_min[5]_mux_14_OUT51 (x_DIGI_CLK/GND_8_o_min[5]_mux_14_OUT<4>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o1 (x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o)
-     FDC_1:CLR                 0.430          x_DIGI_CLK/min_4_C_4
+     FD:C->Q              20   0.447   1.321  DIGI_RTC_DATA/sec_1 (DIGI_RTC_DATA/sec_1)
+     LUT3:I0->O            1   0.205   0.580  DIGI_RTC_DATA/_n0066_SW0 (N4)
+     LUT6:I5->O            6   0.205   1.089  DIGI_RTC_DATA/_n0066 (DIGI_RTC_DATA/_n0066)
+     LUT5:I0->O            1   0.203   0.000  DIGI_RTC_DATA/sec_1_glue_rst (DIGI_RTC_DATA/sec_1_glue_rst)
+     FD:D                      0.102          DIGI_RTC_DATA/sec_1
     ----------------------------------------
-    Total                      5.028ns (1.488ns logic, 3.540ns route)
-                                       (29.6% logic, 70.4% route)
+    Total                      4.152ns (1.162ns logic, 2.990ns route)
+                                       (28.0% logic, 72.0% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/min[5]_GND_8_o_AND_6_o'
-  Clock period: 4.213ns (frequency: 237.386MHz)
-  Total number of paths / destination ports: 1 / 1
+Timing constraint: Default period analysis for Clock 'DIGI_RTC_DATA/count_0'
+  Clock period: 8.267ns (frequency: 120.956MHz)
+  Total number of paths / destination ports: 160780 / 498
 -------------------------------------------------------------------------
-Delay:               4.213ns (Levels of Logic = 2)
-  Source:            x_DIGI_CLK/hour_4_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/hour_4_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/min[5]_GND_8_o_AND_6_o falling
-  Destination Clock: x_DIGI_CLK/min[5]_GND_8_o_AND_6_o falling
+Delay:               8.267ns (Levels of Logic = 12)
+  Source:            VGA_DATA/hPos_6_1 (FF)
+  Destination:       VGA_DATA/RED_4 (FF)
+  Source Clock:      DIGI_RTC_DATA/count_0 falling
+  Destination Clock: DIGI_RTC_DATA/count_0 falling
 
-  Data Path: x_DIGI_CLK/hour_4_LDC1 to x_DIGI_CLK/hour_4_LDC1
+  Data Path: VGA_DATA/hPos_6_1 to VGA_DATA/RED_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDP:G->Q              3   0.498   0.879  x_DIGI_CLK/hour_4_LDC1 (x_DIGI_CLK/hour_4_LDC1)
-     LUT3:I0->O           22   0.205   1.381  x_DIGI_CLK/hour_41 (x_DIGI_CLK/hour_4)
-     LUT6:I2->O            2   0.203   0.616  x_DIGI_CLK/min[5]_GND_8_o_AND_5_o1 (x_DIGI_CLK/hour_4_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/hour_4_LDC1
+     FDR:C->Q             20   0.447   1.437  VGA_DATA/hPos_6_1 (VGA_DATA/hPos_6_1)
+     LUT5:I0->O            1   0.203   0.000  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_lut<1> (VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_lut<1>)
+     MUXCY:S->O            1   0.172   0.000  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<1> (VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<2> (VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<3> (VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<4> (VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<5> (VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<5>)
+     MUXCY:CI->O          33   0.213   1.306  VGA_DATA/Mcompar_hPos[31]_GND_90_o_LessThan_391_o_cy<6> (VGA_DATA/hPos[31]_GND_90_o_LessThan_391_o)
+     LUT2:I1->O            2   0.205   0.617  VGA_DATA/SF19211 (VGA_DATA/SF1921)
+     LUT6:I5->O            1   0.205   0.684  VGA_DATA/_n17279 (VGA_DATA/_n17279)
+     LUT6:I4->O           16   0.203   1.005  VGA_DATA/_n172714 (VGA_DATA/_n172714)
+     LUT2:I1->O           15   0.205   0.982  VGA_DATA/RED_4_glue_set_SW0_SW1 (N2029)
+     LUT6:I5->O            1   0.205   0.000  VGA_DATA/RED_4_glue_set (VGA_DATA/RED_4_glue_set)
+     FDR:D                     0.102          VGA_DATA/RED_4
     ----------------------------------------
-    Total                      4.213ns (1.336ns logic, 2.877ns route)
-                                       (31.7% logic, 68.3% route)
+    Total                      8.267ns (2.236ns logic, 6.031ns route)
+                                       (27.0% logic, 73.0% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'INC_HOUR'
-  Clock period: 4.967ns (frequency: 201.323MHz)
-  Total number of paths / destination ports: 176 / 20
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Delay:               4.967ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/hour_0_P_0 (FF)
-  Destination:       x_DIGI_CLK/hour_1_C_1 (FF)
-  Source Clock:      INC_HOUR falling
-  Destination Clock: INC_HOUR falling
+Offset:              1.903ns (Levels of Logic = 1)
+  Source:            INC_MIN (PAD)
+  Destination:       INC_MIN_DEBOUCE/flipflops_0 (FF)
+  Destination Clock: CLK rising
 
-  Data Path: x_DIGI_CLK/hour_0_P_0 to x_DIGI_CLK/hour_1_C_1
+  Data Path: INC_MIN to INC_MIN_DEBOUCE/flipflops_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDP_1:C->Q            4   0.447   0.788  x_DIGI_CLK/hour_0_P_0 (x_DIGI_CLK/hour_0_P_0)
-     LUT3:I1->O           17   0.203   1.392  x_DIGI_CLK/hour_01 (x_DIGI_CLK/hour_0)
-     LUT6:I0->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_hour[4]_mux_10_OUT21 (x_DIGI_CLK/GND_8_o_hour[4]_mux_10_OUT<1>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/min[5]_GND_8_o_AND_12_o1 (x_DIGI_CLK/min[5]_GND_8_o_AND_12_o)
-     FDC_1:CLR                 0.430          x_DIGI_CLK/hour_1_C_1
+     IBUF:I->O             1   1.222   0.579  INC_MIN_IBUF (INC_MIN_IBUF)
+     FD:D                      0.102          INC_MIN_DEBOUCE/flipflops_0
     ----------------------------------------
-    Total                      4.967ns (1.488ns logic, 3.479ns route)
-                                       (30.0% logic, 70.0% route)
+    Total                      1.903ns (1.324ns logic, 0.579ns route)
+                                       (69.6% logic, 30.4% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o'
-  Clock period: 4.132ns (frequency: 242.019MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               4.132ns (Levels of Logic = 2)
-  Source:            x_DIGI_CLK/min_0_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/min_0_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o falling
-  Destination Clock: x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o falling
-
-  Data Path: x_DIGI_CLK/min_0_LDC1 to x_DIGI_CLK/min_0_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              1   0.498   0.808  x_DIGI_CLK/min_0_LDC1 (x_DIGI_CLK/min_0_LDC1)
-     LUT3:I0->O           17   0.205   1.372  x_DIGI_CLK/min_01 (x_DIGI_CLK/min_0)
-     LUT6:I1->O            2   0.203   0.616  x_DIGI_CLK/min_0_LDC (x_DIGI_CLK/min_0_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/min_0_LDC1
-    ----------------------------------------
-    Total                      4.132ns (1.336ns logic, 2.796ns route)
-                                       (32.3% logic, 67.7% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o'
-  Clock period: 5.086ns (frequency: 196.622MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.086ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/min_1_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/min_1_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o falling
-  Destination Clock: x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o falling
-
-  Data Path: x_DIGI_CLK/min_1_LDC1 to x_DIGI_CLK/min_1_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              1   0.498   0.808  x_DIGI_CLK/min_1_LDC1 (x_DIGI_CLK/min_1_LDC1)
-     LUT3:I0->O           20   0.205   1.437  x_DIGI_CLK/min_11 (x_DIGI_CLK/min_1)
-     LUT6:I1->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_min[5]_mux_14_OUT21 (x_DIGI_CLK/GND_8_o_min[5]_mux_14_OUT<1>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/sec[5]_GND_8_o_AND_23_o1 (x_DIGI_CLK/min_1_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/min_1_LDC1
-    ----------------------------------------
-    Total                      5.086ns (1.541ns logic, 3.545ns route)
-                                       (30.3% logic, 69.7% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o'
-  Clock period: 5.186ns (frequency: 192.834MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.186ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/min_2_LDC (LATCH)
-  Destination:       x_DIGI_CLK/min_2_LDC (LATCH)
-  Source Clock:      x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o falling
-  Destination Clock: x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o falling
-
-  Data Path: x_DIGI_CLK/min_2_LDC to x_DIGI_CLK/min_2_LDC
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDC:G->Q              1   0.498   0.808  x_DIGI_CLK/min_2_LDC (x_DIGI_CLK/min_2_LDC)
-     LUT3:I0->O           24   0.205   1.537  x_DIGI_CLK/min_21 (x_DIGI_CLK/min_2)
-     LUT6:I0->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_min[5]_mux_14_OUT31 (x_DIGI_CLK/GND_8_o_min[5]_mux_14_OUT<2>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/sec[5]_GND_8_o_AND_22_o1 (x_DIGI_CLK/sec[5]_GND_8_o_AND_22_o)
-     LDC:CLR                   0.430          x_DIGI_CLK/min_2_LDC
-    ----------------------------------------
-    Total                      5.186ns (1.541ns logic, 3.645ns route)
-                                       (29.7% logic, 70.3% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o'
-  Clock period: 5.052ns (frequency: 197.949MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.052ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/min_3_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/min_3_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o falling
-  Destination Clock: x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o falling
-
-  Data Path: x_DIGI_CLK/min_3_LDC1 to x_DIGI_CLK/min_3_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              1   0.498   0.808  x_DIGI_CLK/min_3_LDC1 (x_DIGI_CLK/min_3_LDC1)
-     LUT3:I0->O           24   0.205   1.401  x_DIGI_CLK/min_31 (x_DIGI_CLK/min_3)
-     LUT6:I3->O            4   0.205   0.684  x_DIGI_CLK/Mmux_GND_8_o_min[5]_mux_14_OUT41 (x_DIGI_CLK/GND_8_o_min[5]_mux_14_OUT<3>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/sec[5]_GND_8_o_AND_19_o1 (x_DIGI_CLK/min_3_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/min_3_LDC1
-    ----------------------------------------
-    Total                      5.052ns (1.543ns logic, 3.509ns route)
-                                       (30.5% logic, 69.5% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/min[5]_GND_8_o_AND_14_o'
-  Clock period: 2.775ns (frequency: 360.386MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               2.775ns (Levels of Logic = 1)
-  Source:            x_DIGI_CLK/hour_0_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/hour_0_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/min[5]_GND_8_o_AND_14_o falling
-  Destination Clock: x_DIGI_CLK/min[5]_GND_8_o_AND_14_o falling
-
-  Data Path: x_DIGI_CLK/hour_0_LDC1 to x_DIGI_CLK/hour_0_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              4   0.498   1.028  x_DIGI_CLK/hour_0_LDC1 (x_DIGI_CLK/hour_0_LDC1)
-     LUT6:I1->O            2   0.203   0.616  x_DIGI_CLK/min[5]_GND_8_o_AND_13_o1 (x_DIGI_CLK/hour_0_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/hour_0_LDC1
-    ----------------------------------------
-    Total                      2.775ns (1.131ns logic, 1.644ns route)
-                                       (40.8% logic, 59.2% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o'
-  Clock period: 5.204ns (frequency: 192.141MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               5.204ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/min_4_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/min_4_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o falling
-  Destination Clock: x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o falling
-
-  Data Path: x_DIGI_CLK/min_4_LDC1 to x_DIGI_CLK/min_4_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              2   0.498   0.845  x_DIGI_CLK/min_4_LDC1 (x_DIGI_CLK/min_4_LDC1)
-     LUT3:I0->O           23   0.205   1.518  x_DIGI_CLK/min_41 (x_DIGI_CLK/min_4)
-     LUT6:I0->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_min[5]_mux_14_OUT51 (x_DIGI_CLK/GND_8_o_min[5]_mux_14_OUT<4>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/sec[5]_GND_8_o_AND_17_o1 (x_DIGI_CLK/min_4_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/min_4_LDC1
-    ----------------------------------------
-    Total                      5.204ns (1.541ns logic, 3.663ns route)
-                                       (29.6% logic, 70.4% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/min[5]_GND_8_o_AND_10_o'
-  Clock period: 4.083ns (frequency: 244.897MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               4.083ns (Levels of Logic = 2)
-  Source:            x_DIGI_CLK/hour_2_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/hour_2_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/min[5]_GND_8_o_AND_10_o falling
-  Destination Clock: x_DIGI_CLK/min[5]_GND_8_o_AND_10_o falling
-
-  Data Path: x_DIGI_CLK/hour_2_LDC1 to x_DIGI_CLK/hour_2_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              1   0.498   0.808  x_DIGI_CLK/hour_2_LDC1 (x_DIGI_CLK/hour_2_LDC1)
-     LUT3:I0->O           20   0.205   1.321  x_DIGI_CLK/hour_21 (x_DIGI_CLK/hour_2)
-     LUT6:I3->O            2   0.205   0.616  x_DIGI_CLK/min[5]_GND_8_o_AND_9_o1 (x_DIGI_CLK/hour_2_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/hour_2_LDC1
-    ----------------------------------------
-    Total                      4.083ns (1.338ns logic, 2.745ns route)
-                                       (32.8% logic, 67.2% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/min[5]_GND_8_o_AND_7_o'
-  Clock period: 4.310ns (frequency: 232.043MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               4.310ns (Levels of Logic = 2)
-  Source:            x_DIGI_CLK/hour_3_LDC (LATCH)
-  Destination:       x_DIGI_CLK/hour_3_LDC (LATCH)
-  Source Clock:      x_DIGI_CLK/min[5]_GND_8_o_AND_7_o falling
-  Destination Clock: x_DIGI_CLK/min[5]_GND_8_o_AND_7_o falling
-
-  Data Path: x_DIGI_CLK/hour_3_LDC to x_DIGI_CLK/hour_3_LDC
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDC:G->Q              3   0.498   0.879  x_DIGI_CLK/hour_3_LDC (x_DIGI_CLK/hour_3_LDC)
-     LUT3:I0->O           22   0.205   1.478  x_DIGI_CLK/hour_31 (x_DIGI_CLK/hour_3)
-     LUT6:I1->O            2   0.203   0.616  x_DIGI_CLK/min[5]_GND_8_o_AND_8_o1 (x_DIGI_CLK/min[5]_GND_8_o_AND_8_o)
-     LDC:CLR                   0.430          x_DIGI_CLK/hour_3_LDC
-    ----------------------------------------
-    Total                      4.310ns (1.336ns logic, 2.974ns route)
-                                       (31.0% logic, 69.0% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/min[5]_GND_8_o_AND_12_o'
-  Clock period: 3.597ns (frequency: 278.006MHz)
-  Total number of paths / destination ports: 1 / 1
--------------------------------------------------------------------------
-Delay:               3.597ns (Levels of Logic = 2)
-  Source:            x_DIGI_CLK/hour_1_LDC1 (LATCH)
-  Destination:       x_DIGI_CLK/hour_1_LDC1 (LATCH)
-  Source Clock:      x_DIGI_CLK/min[5]_GND_8_o_AND_12_o falling
-  Destination Clock: x_DIGI_CLK/min[5]_GND_8_o_AND_12_o falling
-
-  Data Path: x_DIGI_CLK/hour_1_LDC1 to x_DIGI_CLK/hour_1_LDC1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LDP:G->Q              2   0.498   0.961  x_DIGI_CLK/hour_1_LDC1 (x_DIGI_CLK/hour_1_LDC1)
-     LUT6:I1->O            4   0.203   0.684  x_DIGI_CLK/Mmux_GND_8_o_hour[4]_mux_10_OUT21 (x_DIGI_CLK/GND_8_o_hour[4]_mux_10_OUT<1>)
-     LUT2:I1->O            2   0.205   0.616  x_DIGI_CLK/min[5]_GND_8_o_AND_11_o1 (x_DIGI_CLK/hour_1_LDC)
-     LDP:PRE                   0.430          x_DIGI_CLK/hour_1_LDC1
-    ----------------------------------------
-    Total                      3.597ns (1.336ns logic, 2.261ns route)
-                                       (37.1% logic, 62.9% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'x_VGA_DATA/clk25'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'DIGI_RTC_DATA/count_0'
   Total number of paths / destination ports: 17 / 17
 -------------------------------------------------------------------------
 Offset:              3.597ns (Levels of Logic = 1)
-  Source:            x_VGA_DATA/RED_4 (FF)
+  Source:            VGA_DATA/RED_4 (FF)
   Destination:       RED<4> (PAD)
-  Source Clock:      x_VGA_DATA/clk25 rising
+  Source Clock:      DIGI_RTC_DATA/count_0 falling
 
-  Data Path: x_VGA_DATA/RED_4 to RED<4>
+  Data Path: VGA_DATA/RED_4 to RED<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              1   0.447   0.579  x_VGA_DATA/RED_4 (x_VGA_DATA/RED_4)
+     FDR:C->Q              1   0.447   0.579  VGA_DATA/RED_4 (VGA_DATA/RED_4)
      OBUF:I->O                 2.571          RED_4_OBUF (RED<4>)
     ----------------------------------------
     Total                      3.597ns (3.018ns logic, 0.579ns route)
@@ -1001,269 +741,55 @@ Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 CLK            |    5.430|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock INC_HOUR
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_HOUR                          |         |         |    4.967|         |
-INC_MIN                           |         |         |    5.544|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_10_o|         |         |    4.197|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o|         |         |    4.094|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |         |    5.144|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |         |    4.856|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |         |    4.958|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.359|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.480|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.587|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.721|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.621|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    5.459|         |
-----------------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock DIGI_RTC_DATA/clk
+-----------------+---------+---------+---------+---------+
+                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------+---------+---------+---------+---------+
+CLK              |    3.678|         |         |         |
+DIGI_RTC_DATA/clk|    4.152|         |         |         |
+-----------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock INC_MIN
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    5.028|         |
-x_DIGI_CLK/clk                    |         |         |    4.695|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.186|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.204|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.052|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.186|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.086|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.923|         |
-----------------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock DIGI_RTC_DATA/count_0
+-----------------------+---------+---------+---------+---------+
+                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------+---------+---------+---------+---------+
+CLK                    |         |         |    4.434|         |
+DIGI_RTC_DATA/clk      |         |         |    4.047|         |
+DIGI_RTC_DATA/count_0  |         |         |    8.267|         |
+INC_HOUR_DEBOUCE/result|         |         |    2.124|         |
+INC_MIN_DEBOUCE/result |         |         |    4.111|         |
+-----------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock x_DIGI_CLK/clk
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-x_DIGI_CLK/clk |    3.751|         |         |         |
----------------+---------+---------+---------+---------+
+Clock to Setup on destination clock INC_HOUR_DEBOUCE/result
+-----------------------+---------+---------+---------+---------+
+                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-----------------------+---------+---------+---------+---------+
+INC_HOUR_DEBOUCE/result|         |         |    3.008|         |
+-----------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock x_DIGI_CLK/min[5]_GND_8_o_AND_10_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_HOUR                          |         |         |    4.059|         |
-INC_MIN                           |         |         |    5.544|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_10_o|         |         |    4.083|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o|         |         |    4.094|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |         |    4.236|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |         |    3.968|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |         |    4.070|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.359|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.480|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.587|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.721|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.621|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    5.459|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/min[5]_GND_8_o_AND_12_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_HOUR                          |         |         |    4.967|         |
-INC_MIN                           |         |         |    5.284|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o|         |         |    3.597|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |         |    5.144|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |         |    4.856|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |         |    4.958|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.099|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.220|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.327|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.461|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.361|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    5.199|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/min[5]_GND_8_o_AND_14_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_HOUR                          |         |         |    3.893|         |
-INC_MIN                           |         |         |    5.544|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |         |    2.775|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |         |    3.968|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |         |    4.070|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.359|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.480|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.587|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.721|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.621|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    5.459|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/min[5]_GND_8_o_AND_6_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_HOUR                          |         |         |    4.133|         |
-INC_MIN                           |         |         |    5.544|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_10_o|         |         |    3.957|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o|         |         |    4.077|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |         |    3.894|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |         |    4.213|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |         |    4.310|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.359|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.480|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.587|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.721|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.621|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    5.459|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/min[5]_GND_8_o_AND_7_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_HOUR                          |         |         |    4.133|         |
-INC_MIN                           |         |         |    5.544|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_10_o|         |         |    3.957|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o|         |         |    4.077|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |         |    4.139|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |         |    3.968|         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |         |    4.310|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.359|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.480|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.587|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.721|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.621|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    5.459|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    5.009|         |
-x_DIGI_CLK/clk                    |         |         |    4.435|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.186|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    4.842|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    4.926|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.166|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    4.989|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.906|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    5.028|         |
-x_DIGI_CLK/clk                    |         |         |    4.435|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    5.052|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    5.204|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    4.824|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.166|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    4.846|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.923|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    5.009|         |
-x_DIGI_CLK/clk                    |         |         |    4.435|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    4.824|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    4.944|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.052|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.186|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.086|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.923|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    5.009|         |
-x_DIGI_CLK/clk                    |         |         |    4.435|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    4.824|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    4.944|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.052|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.186|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.086|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.923|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    5.009|         |
-x_DIGI_CLK/clk                    |         |         |    4.435|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    4.824|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    4.944|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    5.052|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    5.186|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |         |    5.086|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.923|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-INC_MIN                           |         |         |    4.003|         |
-x_DIGI_CLK/clk                    |         |         |    4.695|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |         |    3.935|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |         |    4.056|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |         |    4.163|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |         |    4.180|         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |         |    4.132|         |
-----------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock x_VGA_DATA/clk25
-----------------------------------+---------+---------+---------+---------+
-                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                      |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-----------------------------------+---------+---------+---------+---------+
-CLK                               |    3.585|         |         |         |
-INC_HOUR                          |         |    3.188|         |         |
-INC_MIN                           |         |    5.304|         |         |
-x_DIGI_CLK/clk                    |    4.319|         |         |         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_10_o|         |    3.253|         |         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_12_o|         |    3.247|         |         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_14_o|         |    3.291|         |         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_6_o |         |    3.365|         |         |
-x_DIGI_CLK/min[5]_GND_8_o_AND_7_o |         |    3.365|         |         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_16_o|         |    5.365|         |         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_18_o|         |    5.481|         |         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_20_o|         |    5.239|         |         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_21_o|         |    5.348|         |         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_24_o|         |    5.142|         |         |
-x_DIGI_CLK/sec[5]_GND_8_o_AND_26_o|         |    4.309|         |         |
-x_VGA_DATA/clk25                  |    6.903|         |         |         |
-----------------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock INC_MIN_DEBOUCE/result
+----------------------+---------+---------+---------+---------+
+                      | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+----------------------+---------+---------+---------+---------+
+CLK                   |         |         |    2.932|         |
+INC_MIN_DEBOUCE/result|         |         |    3.641|         |
+----------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 18.00 secs
-Total CPU time to Xst completion: 18.37 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 16.50 secs
  
 --> 
 
-Total memory usage is 4527392 kilobytes
+Total memory usage is 4527424 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   46 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
 Number of infos    :    5 (   0 filtered)
 
