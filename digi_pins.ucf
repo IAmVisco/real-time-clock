@@ -1,9 +1,14 @@
+# NET "RESET" CLOCK_DEDICATED_ROUTE = FALSE;
+
 ############## CLOCK #############
 NET "CLK"             LOC = "T8";
 
 ############### VGA ##############
-NET "RGB<2>"           LOC = "M11";
-NET "RGB<1>"           LOC = "M9";
-NET "RGB<0>"           LOC = "P7";
+NET "RGB<2>"          LOC = "M11";
+NET "RGB<1>"          LOC = "M9";
+NET "RGB<0>"          LOC = "P7";
 NET "VGA_HSYNC"       LOC = "M14";
 NET "VGA_VSYNC"       LOC = "L13";
+
+# NET "RESET"           LOC = "C3";
+NET "LED"             LOC = "P4";

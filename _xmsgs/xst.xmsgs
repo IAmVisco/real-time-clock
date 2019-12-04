@@ -5,74 +5,46 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 71: Using initial value <arg fmt="%s" index="1">&quot;0111111&quot;</arg> for <arg fmt="%s" index="2">zero</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 71: Using initial value <arg fmt="%s" index="1">&quot;0111111&quot;</arg> for <arg fmt="%s" index="2">zero</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 72: Using initial value <arg fmt="%s" index="1">&quot;0000110&quot;</arg> for <arg fmt="%s" index="2">one</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 72: Using initial value <arg fmt="%s" index="1">&quot;0000110&quot;</arg> for <arg fmt="%s" index="2">one</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 73: Using initial value <arg fmt="%s" index="1">&quot;1011011&quot;</arg> for <arg fmt="%s" index="2">two</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 73: Using initial value <arg fmt="%s" index="1">&quot;1011011&quot;</arg> for <arg fmt="%s" index="2">two</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 74: Using initial value <arg fmt="%s" index="1">&quot;1001111&quot;</arg> for <arg fmt="%s" index="2">three</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 74: Using initial value <arg fmt="%s" index="1">&quot;1001111&quot;</arg> for <arg fmt="%s" index="2">three</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 75: Using initial value <arg fmt="%s" index="1">&quot;1100110&quot;</arg> for <arg fmt="%s" index="2">four</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 75: Using initial value <arg fmt="%s" index="1">&quot;1100110&quot;</arg> for <arg fmt="%s" index="2">four</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 76: Using initial value <arg fmt="%s" index="1">&quot;1101101&quot;</arg> for <arg fmt="%s" index="2">five</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 76: Using initial value <arg fmt="%s" index="1">&quot;1101101&quot;</arg> for <arg fmt="%s" index="2">five</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 77: Using initial value <arg fmt="%s" index="1">&quot;1111101&quot;</arg> for <arg fmt="%s" index="2">six</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 77: Using initial value <arg fmt="%s" index="1">&quot;1111101&quot;</arg> for <arg fmt="%s" index="2">six</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 78: Using initial value <arg fmt="%s" index="1">&quot;0000111&quot;</arg> for <arg fmt="%s" index="2">seven</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 78: Using initial value <arg fmt="%s" index="1">&quot;0000111&quot;</arg> for <arg fmt="%s" index="2">seven</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 79: Using initial value <arg fmt="%s" index="1">&quot;1111111&quot;</arg> for <arg fmt="%s" index="2">eight</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 79: Using initial value <arg fmt="%s" index="1">&quot;1111111&quot;</arg> for <arg fmt="%s" index="2">eight</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 80: Using initial value <arg fmt="%s" index="1">&quot;1101111&quot;</arg> for <arg fmt="%s" index="2">nine</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 80: Using initial value <arg fmt="%s" index="1">&quot;1101111&quot;</arg> for <arg fmt="%s" index="2">nine</arg> since it is never assigned
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">RESTART</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="2935" delta="old" >Signal &apos;<arg fmt="%s" index="1">seconds</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">digi_clk</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">10000000000000000000000000000000</arg>).
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">RGB_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2935" delta="old" >Signal &apos;<arg fmt="%s" index="1">minutes</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">digi_clk</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">10000000000000000000000000000000</arg>).
+<msg type="warning" file="Xst" num="1895" delta="new" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">RGB_2</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2935" delta="old" >Signal &apos;<arg fmt="%s" index="1">hours</arg>&apos;, unconnected in block &apos;<arg fmt="%s" index="2">digi_clk</arg>&apos;, is tied to its initial value (<arg fmt="%s" index="3">10000000000000000000000000000000</arg>).
-</msg>
-
-<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">h1seg_6</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">vga_driver</arg>.
-You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">h2seg_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">m1seg_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">s1seg_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">m2seg_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">s2seg_6</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1895" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">RGB_0</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">h2seg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">26 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;h2seg_2&gt; &lt;h2seg_3&gt; &lt;h2seg_4&gt; &lt;h2seg_5&gt; &lt;m1seg_0&gt; &lt;m1seg_1&gt; &lt;m1seg_2&gt; &lt;m1seg_3&gt; &lt;m1seg_5&gt; &lt;s1seg_0&gt; &lt;s1seg_1&gt; &lt;s1seg_3&gt; &lt;s1seg_4&gt; &lt;s1seg_5&gt; &lt;m2seg_0&gt; &lt;m2seg_1&gt; &lt;m2seg_2&gt; &lt;m2seg_3&gt; &lt;m2seg_4&gt; &lt;m2seg_5&gt; &lt;s2seg_0&gt; &lt;s2seg_1&gt; &lt;s2seg_2&gt; &lt;s2seg_3&gt; &lt;s2seg_4&gt; &lt;s2seg_5&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">h1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">8 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;h1seg_1&gt; &lt;h1seg_2&gt; &lt;h1seg_3&gt; &lt;h1seg_4&gt; &lt;h1seg_5&gt; &lt;h2seg_0&gt; &lt;m1seg_4&gt; &lt;s1seg_2&gt; </arg>
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">h1seg_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;h1seg_4&gt; </arg>
 </msg>
 
 <msg type="warning" file="Xst" num="3002" delta="old" >This design contains one or more registers/latches that are directly
@@ -94,12 +66,6 @@ Xilinx highly recommends one of the following:
        4) Use the -async_to_sync option to transform the asynchronous
           set/reset to synchronous operation
           (timing simulation highly recommended when using this option)
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">RGB_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;RGB_2&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">RGB_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;RGB_2&gt; </arg>
 </msg>
 
 <msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">x_VGA_DATA/hPos_31</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top_digi_clk</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -234,15 +200,15 @@ Xilinx highly recommends one of the following:
 <msg type="warning" file="Xst" num="1896" delta="old" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">x_VGA_DATA/vPos_10</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">top_digi_clk</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">x_VGA_DATA/h1seg_6_LD</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">top_digi_clk</arg>.
+<msg type="warning" file="Xst" num="1426" delta="new" >The value init of the FF/Latch <arg fmt="%s" index="1">x_VGA_DATA/s2seg_0_LD</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">top_digi_clk</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">x_VGA_DATA/s1seg_2_LD</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">top_digi_clk</arg>.
 You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="1426" delta="old" >The value init of the FF/Latch <arg fmt="%s" index="1">x_VGA_DATA/h1seg_6_P_6</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">top_digi_clk</arg>.
-You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">x_VGA_DATA/h2seg_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top_digi_clk</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;x_VGA_DATA/h1seg_0_C_0&gt; </arg>
+<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
 </messages>

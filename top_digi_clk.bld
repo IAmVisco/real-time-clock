@@ -1,15 +1,15 @@
 Release 14.7 ngdbuild P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Command Line: D:\POCP\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe -intstyle
-ise -dd _ngo -nt timestamp -uc digi_pins.ucf -p xc6slx9-ftg256-3
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
+-intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc6slx9-ftg256-3
 top_digi_clk.ngc top_digi_clk.ngd
 
-Reading NGO file "D:/POCP/POCPproject/real-time-clock/top_digi_clk.ngc" ...
+Reading NGO file "C:/Projects/RTC_2/top_digi_clk.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
-Annotating constraints to design from ucf file "digi_pins.ucf" ...
+Annotating constraints to design from ucf file "pins.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
 Done...
@@ -27,10 +27,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 4405284 kilobytes
+Total memory usage is 4405144 kilobytes
 
 Writing NGD file "top_digi_clk.ngd" ...
-Total REAL time to NGDBUILD completion:  5 sec
-Total CPU time to NGDBUILD completion:   3 sec
+Total REAL time to NGDBUILD completion:  4 sec
+Total CPU time to NGDBUILD completion:   4 sec
 
 Writing NGDBUILD log file "top_digi_clk.bld"...

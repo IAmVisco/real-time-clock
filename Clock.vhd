@@ -12,7 +12,10 @@ port (clk1    : in std_logic;
 end digi_clk;
 
 architecture Behavioral of digi_clk is
-signal sec, min, hour : integer range 0 to 60 := 0;
+signal sec : integer range 0 to 59  := 50;
+signal min : integer range 0 to 59  := 59;
+signal hour : integer range 0 to 23 := 23;
+
 signal count          : integer := 1;
 signal clk            : std_logic := '0';
 begin
@@ -35,14 +38,17 @@ begin
     process(clk) -- period of clk is 1 second.
     begin
         if rising_edge(clk) then
-            sec <= sec + 1;
-            if (sec = 60) then
+            if (sec < 59) then
+                sec <= sec + 1;
+            else
                 sec <= 0;
-                min <= min + 1;
-                if (min = 60) then
-                    hour <= hour + 1;
+                if (min < 59) then
+                    min <= min + 1;
+                else
                     min <= 0;
-                    if (hour = 24) then
+                    if (hour < 23) then
+                        hour <= hour + 1;
+                    else
                         hour <= 0;
                     end if;
                 end if;

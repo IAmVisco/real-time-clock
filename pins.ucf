@@ -2,17 +2,10 @@
 NET "CLK"             LOC = "T8";
 
 ############### VGA ##############
-NET "VGA_R"           LOC = "M11";
-NET "VGA_G"           LOC = "M9";
-NET "VGA_B"           LOC = "P7";
+NET "RGB<2>"          LOC = "M11";
+NET "RGB<1>"          LOC = "M9";
+NET "RGB<0>"          LOC = "P7";
 NET "VGA_HSYNC"       LOC = "M14";
 NET "VGA_VSYNC"       LOC = "L13";
 
-############## TIMER #############
-NET "T_DT"            LOC = "D14";
-NET "T_CK"            LOC = "E13";
-NET "T_CE"            LOC = "C13";
-
-############# BUTTONS ############
-NET "RESET"            LOC = "C3";
-NET "RESTART"          LOC = "D3";
+NET "LED"             LOC = "P4";

@@ -1,29 +1,13 @@
-Running: D:\POCP\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o D:/POCP/POCPproject/real-time-clock/TB_digi_isim_beh.exe -prj D:/POCP/POCPproject/real-time-clock/TB_digi_beh.prj work.TB_digi 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib secureip -o C:/Projects/RTC_2/TB_digi_clk_isim_beh.exe -prj C:/Projects/RTC_2/TB_digi_clk_beh.prj work.TB_digi_clk 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "D:/POCP/POCPproject/real-time-clock/VGA.vhd" into library work
-Parsing VHDL file "D:/POCP/POCPproject/real-time-clock/ctrl_types_pkg.vhd" into library work
-Parsing VHDL file "D:/POCP/POCPproject/real-time-clock/Clock.vhd" into library work
-Parsing VHDL file "D:/POCP/POCPproject/real-time-clock/top_digi_clk.vhd" into library work
-Parsing VHDL file "D:/POCP/POCPproject/real-time-clock/TB_digi.vhd" into library work
-Starting static elaboration
-Completed static elaboration
-Compiling package standard
-Compiling package std_logic_1164
-Compiling package std_logic_arith
-Compiling package std_logic_unsigned
-Compiling package vcomponents
-Compiling package ctrl_types_pkg
-Compiling package numeric_std
-Compiling architecture behavioral of entity digi_clk [digi_clk_default]
-Compiling architecture vga_driver of entity vga_driver [vga_driver_default]
-Compiling architecture behavioral of entity top_digi_clk [top_digi_clk_default]
-Compiling architecture behavior of entity tb_digi
-Time Resolution for simulation is 1ps.
-Waiting for 3 sub-compilation(s) to finish...
-Compiled 14 VHDL Units
-Built simulation executable D:/POCP/POCPproject/real-time-clock/TB_digi_isim_beh.exe
-Fuse Memory Usage: 52524 KB
-Fuse CPU Usage: 749 ms
+Parsing VHDL file "C:/Projects/RTC_2/VGA.vhd" into library work
+Parsing VHDL file "C:/Projects/RTC_2/ctrl_types_pkg.vhd" into library work
+Parsing VHDL file "C:/Projects/RTC_2/Clock.vhd" into library work
+Parsing VHDL file "C:/Projects/RTC_2/top_digi_clk.vhd" into library work
+Parsing VHDL file "C:/Projects/RTC_2/TB_digi_clk.vhd" into library work
+ERROR:HDLCompiler:1314 - "C:/Projects/RTC_2/TB_digi_clk.vhd" Line 48: Formal port/generic <led> is not declared in <top_digi_clk>
+ERROR:HDLCompiler:854 - "C:/Projects/RTC_2/TB_digi_clk.vhd" Line 7: Unit <behavior> ignored due to previous errors.
+VHDL file C:/Projects/RTC_2/TB_digi_clk.vhd ignored due to errors

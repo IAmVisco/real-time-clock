@@ -1,9 +1,10 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Dec 04 08:22:57 2019
+// Written by: Map P.20131013 on Wed Dec 04 09:53:20 2019
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "CLK" LOCATE = SITE "T8" LEVEL 1;
+COMP "LED" LOCATE = SITE "P4" LEVEL 1;
 COMP "VGA_HSYNC" LOCATE = SITE "M14" LEVEL 1;
 COMP "VGA_VSYNC" LOCATE = SITE "L13" LEVEL 1;
 COMP "RGB<0>" LOCATE = SITE "P7" LEVEL 1;
