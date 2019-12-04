@@ -5,55 +5,25 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\top_digi_clk.vhd" Line 29: Using initial value <arg fmt="%s" index="1">&apos;0&apos;</arg> for <arg fmt="%s" index="2">reset</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\top_digi_clk.vhd" Line 29: Using initial value <arg fmt="%s" index="1">&apos;0&apos;</arg> for <arg fmt="%s" index="2">reset</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 96: Using initial value <arg fmt="%s" index="1">&quot;0111111&quot;</arg> for <arg fmt="%s" index="2">zero</arg> since it is never assigned
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">h1seg_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 97: Using initial value <arg fmt="%s" index="1">&quot;0000110&quot;</arg> for <arg fmt="%s" index="2">one</arg> since it is never assigned
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">m1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;m1seg_3&gt; </arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 98: Using initial value <arg fmt="%s" index="1">&quot;1011011&quot;</arg> for <arg fmt="%s" index="2">two</arg> since it is never assigned
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">s1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;s1seg_3&gt; </arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 99: Using initial value <arg fmt="%s" index="1">&quot;1001111&quot;</arg> for <arg fmt="%s" index="2">three</arg> since it is never assigned
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">h1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;h1seg_3&gt; &lt;h1seg_4&gt; </arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 100: Using initial value <arg fmt="%s" index="1">&quot;1100110&quot;</arg> for <arg fmt="%s" index="2">four</arg> since it is never assigned
+<msg type="info" file="Xst" num="3203" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DIGI_RTC_DATA/count_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top_digi_clk</arg>&gt; is the opposite to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;VGA_DATA/clk25&gt; </arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 101: Using initial value <arg fmt="%s" index="1">&quot;1101101&quot;</arg> for <arg fmt="%s" index="2">five</arg> since it is never assigned
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 102: Using initial value <arg fmt="%s" index="1">&quot;1111101&quot;</arg> for <arg fmt="%s" index="2">six</arg> since it is never assigned
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 103: Using initial value <arg fmt="%s" index="1">&quot;0000111&quot;</arg> for <arg fmt="%s" index="2">seven</arg> since it is never assigned
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 104: Using initial value <arg fmt="%s" index="1">&quot;1111111&quot;</arg> for <arg fmt="%s" index="2">eight</arg> since it is never assigned
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="871" delta="new" >"C:\Projects\RTC_2\VGA.vhd" Line 105: Using initial value <arg fmt="%s" index="1">&quot;1101111&quot;</arg> for <arg fmt="%s" index="2">nine</arg> since it is never assigned
-</msg>
-
-<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">h1seg_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">m1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;m1seg_3&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">s1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;s1seg_3&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">h1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;h1seg_3&gt; &lt;h1seg_4&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="3203" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">DIGI_RTC_DATA/count_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top_digi_clk</arg>&gt; is the opposite to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;VGA_DATA/clk25&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
 </messages>

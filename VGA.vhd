@@ -93,16 +93,16 @@ architecture vga_driver of vga_driver is
     signal s2seg       : std_logic_vector(6 downto 0) := "0000000";
 
     -- 7seg preset values
-    signal zero        : std_logic_vector(6 downto 0) := "0111111";
-    signal one         : std_logic_vector(6 downto 0) := "0000110";
-    signal two         : std_logic_vector(6 downto 0) := "1011011";
-    signal three       : std_logic_vector(6 downto 0) := "1001111";
-    signal four        : std_logic_vector(6 downto 0) := "1100110";
-    signal five        : std_logic_vector(6 downto 0) := "1101101";
-    signal six         : std_logic_vector(6 downto 0) := "1111101";
-    signal seven       : std_logic_vector(6 downto 0) := "0000111";
-    signal eight       : std_logic_vector(6 downto 0) := "1111111";
-    signal nine        : std_logic_vector(6 downto 0) := "1101111";
+    constant zero        : std_logic_vector(6 downto 0) := "0111111";
+    constant one         : std_logic_vector(6 downto 0) := "0000110";
+    constant two         : std_logic_vector(6 downto 0) := "1011011";
+    constant three       : std_logic_vector(6 downto 0) := "1001111";
+    constant four        : std_logic_vector(6 downto 0) := "1100110";
+    constant five        : std_logic_vector(6 downto 0) := "1101101";
+    constant six         : std_logic_vector(6 downto 0) := "1111101";
+    constant seven       : std_logic_vector(6 downto 0) := "0000111";
+    constant eight       : std_logic_vector(6 downto 0) := "1111111";
+    constant nine        : std_logic_vector(6 downto 0) := "1101111";
 begin
     clk_div: process(CLK)
     begin
@@ -111,7 +111,7 @@ begin
         end if;
     end process;
 
-    Horizontal_position_counter: process(clk25, RST)
+    horizontal_position_counter: process(clk25, RST)
     begin
         if (RST = '1') then
             hPos <= 0;
@@ -124,7 +124,7 @@ begin
         end if;
     end process;
 
-    Vertical_position_counter: process(clk25, RST, hPos)
+    vertical_position_counter: process(clk25, RST, hPos)
     begin
         if (RST = '1') then
             vPos <= 0;
@@ -139,7 +139,7 @@ begin
         end if;
     end process;
 
-    Horizontal_Synchronisation: process(clk25, RST, hPos)
+    horizontal_synchronisation: process(clk25, RST, hPos)
     begin
         if (RST = '1') then
             HSYNC <= '0';
@@ -152,7 +152,7 @@ begin
         end if;
     end process;
 
-    Vertical_Synchronisation: process(clk25, RST, vPos)
+    vertical_synchronisation: process(clk25, RST, vPos)
     begin
         if (RST = '1') then
             VSYNC <= '0';
@@ -178,7 +178,7 @@ begin
         end if;
     end process;
 
-    DATA_to_segment: process(clk25, RST, SECONDS, MINUTES, HOURS)
+    Data_to_segment: process(clk25, RST, SECONDS, MINUTES, HOURS)
     begin
         if (RST = '1') then
             h1seg <= "0000000";
@@ -668,7 +668,7 @@ begin
         end if;
     end process;
 
-    draw: process(clk25, RST, hPos, vPos, videoOn)
+    draw_main: process(clk25, RST, hPos, vPos, videoOn)
     begin
         if (RST = '1') then
             RED   <= "00000";

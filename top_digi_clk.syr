@@ -132,16 +132,6 @@ Elaborating entity <debounce> (architecture <logic>) with generics from library 
 Elaborating entity <digi_clk> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <vga_driver> (architecture <vga_driver>) from library <work>.
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 96: Using initial value "0111111" for zero since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 97: Using initial value "0000110" for one since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 98: Using initial value "1011011" for two since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 99: Using initial value "1001111" for three since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 100: Using initial value "1100110" for four since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 101: Using initial value "1101101" for five since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 102: Using initial value "1111101" for six since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 103: Using initial value "0000111" for seven since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 104: Using initial value "1111111" for eight since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 105: Using initial value "1101111" for nine since it is never assigned
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -212,58 +202,58 @@ Synthesizing Unit <vga_driver>.
     Found 1-bit register for signal <clk25>.
     Found 32-bit adder for signal <hPos[31]_GND_90_o_add_1_OUT> created at line 122.
     Found 32-bit adder for signal <vPos[31]_GND_90_o_add_6_OUT> created at line 136.
-    Found 32-bit adder for signal <count[31]_GND_90_o_add_175_OUT> created at line 648.
-    Found 5-bit adder for signal <cur_green[4]_GND_90_o_add_184_OUT> created at line 654.
-    Found 5-bit adder for signal <cur_blue[4]_GND_90_o_add_192_OUT> created at line 658.
-    Found 5-bit adder for signal <cur_red[4]_GND_90_o_add_200_OUT> created at line 662.
-    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_189_OUT<4:0>> created at line 656.
-    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_197_OUT<4:0>> created at line 660.
-    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_205_OUT<4:0>> created at line 664.
+    Found 32-bit adder for signal <count[31]_GND_90_o_add_175_OUT> created at line 649.
+    Found 5-bit adder for signal <cur_green[4]_GND_90_o_add_184_OUT> created at line 655.
+    Found 5-bit adder for signal <cur_blue[4]_GND_90_o_add_192_OUT> created at line 659.
+    Found 5-bit adder for signal <cur_red[4]_GND_90_o_add_200_OUT> created at line 663.
+    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_189_OUT<4:0>> created at line 657.
+    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_197_OUT<4:0>> created at line 661.
+    Found 5-bit subtractor for signal <GND_90_o_GND_90_o_sub_205_OUT<4:0>> created at line 665.
     Found 32-bit comparator lessequal for signal <n0011> created at line 147
     Found 32-bit comparator greater for signal <hPos[31]_GND_90_o_LessThan_12_o> created at line 147
     Found 32-bit comparator lessequal for signal <n0016> created at line 160
     Found 32-bit comparator greater for signal <vPos[31]_GND_90_o_LessThan_14_o> created at line 160
     Found 32-bit comparator lessequal for signal <n0021> created at line 173
     Found 32-bit comparator lessequal for signal <n0023> created at line 173
-    Found 32-bit comparator lessequal for signal <n0276> created at line 698
-    Found 32-bit comparator lessequal for signal <n0306> created at line 728
-    Found 32-bit comparator lessequal for signal <n0312> created at line 732
-    Found 32-bit comparator lessequal for signal <n0318> created at line 736
-    Found 32-bit comparator lessequal for signal <n0324> created at line 740
-    Found 32-bit comparator lessequal for signal <n0330> created at line 744
-    Found 32-bit comparator lessequal for signal <n0336> created at line 748
-    Found 32-bit comparator lessequal for signal <n0362> created at line 773
-    Found 32-bit comparator lessequal for signal <n0388> created at line 798
-    Found 32-bit comparator lessequal for signal <n0394> created at line 803
-    Found 32-bit comparator lessequal for signal <n0400> created at line 807
-    Found 32-bit comparator lessequal for signal <n0406> created at line 811
-    Found 32-bit comparator lessequal for signal <n0412> created at line 815
-    Found 32-bit comparator lessequal for signal <n0418> created at line 819
-    Found 32-bit comparator lessequal for signal <n0424> created at line 823
-    Found 32-bit comparator lessequal for signal <n0426> created at line 823
-    Found 32-bit comparator lessequal for signal <n0428> created at line 823
-    Found 32-bit comparator lessequal for signal <n0434> created at line 828
-    Found 32-bit comparator lessequal for signal <n0436> created at line 828
-    Found 32-bit comparator lessequal for signal <n0442> created at line 832
-    Found 32-bit comparator lessequal for signal <n0444> created at line 832
-    Found 32-bit comparator lessequal for signal <n0450> created at line 836
-    Found 32-bit comparator lessequal for signal <n0452> created at line 836
-    Found 32-bit comparator lessequal for signal <n0458> created at line 840
-    Found 32-bit comparator lessequal for signal <n0460> created at line 840
-    Found 32-bit comparator lessequal for signal <n0466> created at line 844
-    Found 32-bit comparator lessequal for signal <n0468> created at line 844
-    Found 32-bit comparator lessequal for signal <n0474> created at line 848
-    Found 32-bit comparator lessequal for signal <n0476> created at line 848
-    Found 32-bit comparator lessequal for signal <n0478> created at line 848
-    Found 32-bit comparator lessequal for signal <n0480> created at line 848
-    Found 32-bit comparator lessequal for signal <n0488> created at line 857
-    Found 32-bit comparator lessequal for signal <n0490> created at line 857
-    Found 32-bit comparator lessequal for signal <n0494> created at line 862
-    Found 32-bit comparator lessequal for signal <n0496> created at line 862
-    Found 32-bit comparator lessequal for signal <n0502> created at line 866
-    Found 32-bit comparator lessequal for signal <n0504> created at line 866
-    Found 32-bit comparator lessequal for signal <n0506> created at line 866
-    Found 32-bit comparator lessequal for signal <n0508> created at line 866
+    Found 32-bit comparator lessequal for signal <n0276> created at line 700
+    Found 32-bit comparator lessequal for signal <n0306> created at line 732
+    Found 32-bit comparator lessequal for signal <n0312> created at line 736
+    Found 32-bit comparator lessequal for signal <n0318> created at line 740
+    Found 32-bit comparator lessequal for signal <n0324> created at line 744
+    Found 32-bit comparator lessequal for signal <n0330> created at line 748
+    Found 32-bit comparator lessequal for signal <n0336> created at line 752
+    Found 32-bit comparator lessequal for signal <n0362> created at line 778
+    Found 32-bit comparator lessequal for signal <n0388> created at line 804
+    Found 32-bit comparator lessequal for signal <n0394> created at line 810
+    Found 32-bit comparator lessequal for signal <n0400> created at line 814
+    Found 32-bit comparator lessequal for signal <n0406> created at line 818
+    Found 32-bit comparator lessequal for signal <n0412> created at line 822
+    Found 32-bit comparator lessequal for signal <n0418> created at line 826
+    Found 32-bit comparator lessequal for signal <n0424> created at line 830
+    Found 32-bit comparator lessequal for signal <n0426> created at line 830
+    Found 32-bit comparator lessequal for signal <n0428> created at line 830
+    Found 32-bit comparator lessequal for signal <n0434> created at line 836
+    Found 32-bit comparator lessequal for signal <n0436> created at line 836
+    Found 32-bit comparator lessequal for signal <n0442> created at line 840
+    Found 32-bit comparator lessequal for signal <n0444> created at line 840
+    Found 32-bit comparator lessequal for signal <n0450> created at line 844
+    Found 32-bit comparator lessequal for signal <n0452> created at line 844
+    Found 32-bit comparator lessequal for signal <n0458> created at line 848
+    Found 32-bit comparator lessequal for signal <n0460> created at line 848
+    Found 32-bit comparator lessequal for signal <n0466> created at line 852
+    Found 32-bit comparator lessequal for signal <n0468> created at line 852
+    Found 32-bit comparator lessequal for signal <n0474> created at line 856
+    Found 32-bit comparator lessequal for signal <n0476> created at line 856
+    Found 32-bit comparator lessequal for signal <n0478> created at line 856
+    Found 32-bit comparator lessequal for signal <n0480> created at line 856
+    Found 32-bit comparator lessequal for signal <n0488> created at line 867
+    Found 32-bit comparator lessequal for signal <n0490> created at line 867
+    Found 32-bit comparator lessequal for signal <n0494> created at line 873
+    Found 32-bit comparator lessequal for signal <n0496> created at line 873
+    Found 32-bit comparator lessequal for signal <n0502> created at line 878
+    Found 32-bit comparator lessequal for signal <n0504> created at line 878
+    Found 32-bit comparator lessequal for signal <n0506> created at line 878
+    Found 32-bit comparator lessequal for signal <n0508> created at line 878
     Summary:
 	inferred   7 Adder/Subtractor(s).
 	inferred 172 D-type flip-flop(s).
@@ -783,13 +773,13 @@ INC_MIN_DEBOUCE/result|         |         |    3.641|         |
 
 
 Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 16.50 secs
+Total CPU time to Xst completion: 16.18 secs
  
 --> 
 
-Total memory usage is 4527424 kilobytes
+Total memory usage is 4527392 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   12 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    5 (   0 filtered)
 

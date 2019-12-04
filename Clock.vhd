@@ -32,7 +32,7 @@ begin
     half_seconds <= clk05;
 
     -- Frequency divider - 50MHz to 1MHz
-    process(clk1)
+    frequency_divider: process(clk1)
     begin
         if rising_edge(clk1) then
             count <= count + 1;
@@ -46,7 +46,7 @@ begin
         end if;
     end process;
 
-    process(clk, inc_hour, inc_min) -- period of clk is 1 second
+    digital_clock: process(clk, inc_hour, inc_min) -- period of clk is 1 second
     begin
         if falling_edge(inc_hour) then
             if (hour < 23) then
