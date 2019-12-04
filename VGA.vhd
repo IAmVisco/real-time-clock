@@ -42,7 +42,7 @@ architecture vga_driver of vga_driver is
     constant ColDist : integer := 20;
     constant ColWidth : integer := 10;
     constant ColHeight : integer := 18;
-    constant StartPosX : integer := HD / 2 - 160;
+    constant StartPosX : integer := HD / 2 - 150;
     constant StartPosY : integer := VD / 2 - 40;
 
     --h1

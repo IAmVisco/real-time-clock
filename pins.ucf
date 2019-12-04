@@ -24,6 +24,6 @@ NET "BLUE<4>"         LOC = "L7";
 NET "VGA_HSYNC"       LOC = "M14";
 NET "VGA_VSYNC"       LOC = "L13";
 
-NET "RESET"           LOC = "D3";
+# #NET "RESET"           LOC = "D3";
 
 ## NET "LED"             LOC = "P4";
