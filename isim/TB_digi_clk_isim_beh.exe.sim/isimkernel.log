@@ -1,0 +1,28 @@
+Command line:
+   TB_digi_clk_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  57062
+
+Wed Dec 04 12:13:02 2019
+
+
+ Elaboration Time: 0.078125 sec
+
+ Current Memory Usage: 5163.81 Meg
+
+ Total Signals          : 87
+ Total Nets             : 172
+ Total Signal Drivers   : 26
+ Total Blocks           : 10
+ Total Primitive Blocks : 8
+ Total Processes        : 15
+ Total Traceable Variables  : 50
+ Total Scalar Nets and Variables : 708
+
+ Total Simulation Time: 0.078125 sec
+
+ Current Memory Usage: 5163.81 Meg
+
+Wed Dec 04 12:13:19 2019
+

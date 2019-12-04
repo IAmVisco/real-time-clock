@@ -4,32 +4,41 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity digi_clk is
-port (clk1    : in std_logic;
-      seconds : out integer;
-      minutes : out integer;
-      hours   : out integer
-    );
+port (
+    clk1         : in  std_logic;
+    half_seconds : out std_logic;
+    seconds      : out integer;
+    minutes      : out integer;
+    hours        : out integer
+);
 end digi_clk;
 
 architecture Behavioral of digi_clk is
-signal sec : integer range 0 to 59  := 50;
-signal min : integer range 0 to 59  := 59;
-signal hour : integer range 0 to 23 := 23;
+constant frequnency_division : integer                := 25000000;
+constant ms_division         : integer                := frequnency_division / 2;
+signal sec                   : integer range 0 to 59  := 50;
+signal min                   : integer range 0 to 59  := 59;
+signal hour                  : integer range 0 to 23  := 23;
 
-signal count          : integer := 1;
-signal clk            : std_logic := '0';
+signal count                 : integer   := 1;
+signal clk                   : std_logic := '0';
+signal clk05                 : std_logic := '0';
 begin
-    seconds <= sec;
-    minutes <= min;
-    hours   <= hour;
+    seconds      <= sec;
+    minutes      <= min;
+    hours        <= hour;
+    half_seconds <= clk05;
 
     -- Frequency divider - 100MHz to 1MHz
     process(clk1)
     begin
         if rising_edge(clk1) then
             count <= count + 1;
-            if (count = 25000000) then
-                clk <= not clk;
+            if (count = ms_division) then
+                clk05 <= not clk05;
+            end if;
+            if (count = frequnency_division) then
+                clk   <= not clk;
                 count <= 1;
             end if;
         end if;

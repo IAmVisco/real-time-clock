@@ -17,42 +17,39 @@ entity top_digi_clk is
         ---- VGA SYNC ----
         VGA_HSYNC   :  out  std_logic;  --! horiztonal sync
         VGA_VSYNC   :  out  std_logic;  --! vertical sync
-        RGB         :  out  STD_LOGIC_VECTOR (2 downto 0);
-        ------ TB SIGNALS ----
-        LED         : out std_logic
-        --SECS        : out integer;
-        --MINS        : out integer;
-        --HOURS       : out integer
+        RED         :  out  STD_LOGIC_VECTOR (4 downto 0);
+        GREEN       :  out  STD_LOGIC_VECTOR (5 downto 0);
+        BLUE        :  out  STD_LOGIC_VECTOR (4 downto 0)
     );
 end top_digi_clk;
 
 architecture Behavioral of top_digi_clk is
 signal sec, min, hour : integer range 0 to 60 := 0;
+signal half_sec       : std_logic;
 
 begin
-    --SECS  <= sec;
-    --MINS  <= min;
-    --HOURS <= hour;
-
     x_DIGI_CLK: digi_clk
         port map (
-            clk1    => CLK,
-            seconds => sec,
-            minutes => min,
-            hours   => hour
+            clk1         => CLK,
+            half_seconds => half_sec,
+            seconds      => sec,
+            minutes      => min,
+            hours        => hour
         );
 
     x_VGA_DATA: vga_driver
         port map (
-            RST        => RESET,
-            CLK        => CLK,
-            SECONDS    => sec,
-            MINUTES    => min,
-            HOURS      => hour,
-            HSYNC      => VGA_HSYNC,
-            VSYNC      => VGA_VSYNC,
-            RGB        => RGB
+            RST         => RESET,
+            CLK         => CLK,
+            HALF_SECOND => half_sec,
+            SECONDS     => sec,
+            MINUTES     => min,
+            HOURS       => hour,
+            HSYNC       => VGA_HSYNC,
+            VSYNC       => VGA_VSYNC,
+            RED         => RED,
+            GREEN       => GREEN,
+            BLUE        => BLUE
         );
 
 end Behavioral;
-

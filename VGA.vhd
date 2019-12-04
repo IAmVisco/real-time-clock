@@ -4,16 +4,17 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity vga_driver is
-    Port (  CLK       : in   STD_LOGIC;
-            RST       : in   STD_LOGIC;
-            SECONDS   : in   integer;
-            MINUTES   : in   integer;
-            HOURS     : in   integer;
-            HSYNC     : out  STD_LOGIC;
-            VSYNC     : out  STD_LOGIC;
-            RED       : out  STD_LOGIC_VECTOR (4 downto 0);
-            GREEN     : out  STD_LOGIC_VECTOR (5 downto 0);
-            BLUE      : out  STD_LOGIC_VECTOR (4 downto 0)
+    Port (  CLK         : in   STD_LOGIC;
+            RST         : in   STD_LOGIC;
+            HALF_SECOND : in   STD_LOGIC;
+            SECONDS     : in   integer;
+            MINUTES     : in   integer;
+            HOURS       : in   integer;
+            HSYNC       : out  STD_LOGIC;
+            VSYNC       : out  STD_LOGIC;
+            RED         : out  STD_LOGIC_VECTOR (4 downto 0);
+            GREEN       : out  STD_LOGIC_VECTOR (5 downto 0);
+            BLUE        : out  STD_LOGIC_VECTOR (4 downto 0)
         );
 end vga_driver;
 
@@ -38,30 +39,43 @@ architecture vga_driver of vga_driver is
     constant SegWidth : integer := 32;
     constant SegSize1 : integer := SegWidth / 6;
     constant SegSize2 : integer := SegWidth + (SegSize1 / 2);
+    constant ColDist : integer := 20;
+    constant ColWidth : integer := 10;
+    constant ColHeight : integer := 18;
+    constant StartPosX : integer := HD / 2 - 160;
+    constant StartPosY : integer := VD / 2 - 40;
 
     --h1
-    constant SegH1Xpos : integer := 10;
-    constant SegH1Ypos : integer := 10;
+    constant SegH1Xpos : integer := StartPosX + 10;
+    constant SegH1Ypos : integer := StartPosY;
 
     --h2
-    constant SegH2Xpos : integer := 50;
-    constant SegH2Ypos : integer := 10;
+    constant SegH2Xpos : integer := StartPosX + 50;
+    constant SegH2Ypos : integer := StartPosY;
+
+    --column1
+    constant Col1Xpos : integer := StartPosX + 91;
+    constant Col1Ypos : integer := StartPosY + 5;
 
     --m1
-    constant SegM1Xpos : integer := 90;
-    constant SegM1Ypos : integer := 10;
+    constant SegM1Xpos : integer := StartPosX + 110;
+    constant SegM1Ypos : integer := StartPosY;
 
     --m2
-    constant SegM2Xpos : integer := 130;
-    constant SegM2Ypos : integer := 10;
+    constant SegM2Xpos : integer := StartPosX + 150;
+    constant SegM2Ypos : integer := StartPosY;
+
+    --column2
+    constant Col2Xpos : integer := StartPosX + 191;
+    constant Col2Ypos : integer := StartPosY + 5;
 
     --s1
-    constant SegS1Xpos : integer := 170;
-    constant SegS1Ypos : integer := 10;
+    constant SegS1Xpos : integer := StartPosX + 210;
+    constant SegS1Ypos : integer := StartPosY;
 
     --s2
-    constant SegS2Xpos : integer := 210;
-    constant SegS2Ypos : integer := 10;
+    constant SegS2Xpos : integer := StartPosX + 250;
+    constant SegS2Ypos : integer := StartPosY;
 
     signal h1seg : std_logic_vector (6 downto 0) := "1111111";
     signal h2seg : std_logic_vector (6 downto 0) := "0000001";
@@ -443,7 +457,7 @@ begin
                     m1seg <= two;
                     m2seg <= nine;
                 when 30 =>
-                    m1seg <= zero;
+                    m1seg <= three;
                     m2seg <= zero;
                 when 31 =>
                     m1seg <= three;
@@ -648,6 +662,7 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
                 elsif (h1seg(1) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segH1Xpos + SegWidth - SegSize1 AND Hpos <= segH1Xpos + SegWidth) then  -- segB H1
                     RED   <= "11111";
                     GREEN <= "000001";
@@ -672,6 +687,7 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
                 elsif (h1seg(2) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos + SegWidth - SegSize1 AND Hpos <= segH1Xpos + SegWidth) then  -- segC H1
                     RED   <= "11111";
                     GREEN <= "000001";
@@ -696,6 +712,7 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
                 elsif (h1seg(3) = '1' AND Vpos >= segH1Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segD H1
                     RED   <= "11111";
                     GREEN <= "000001";
@@ -720,6 +737,7 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
                 elsif (h1seg(4) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegSize1) then  -- segE H1
                     RED   <= "11111";
                     GREEN <= "000001";
@@ -744,6 +762,7 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
                 elsif (h1seg(5) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegWidth ) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegSize1) then  -- segF H1
                     RED   <= "11111";
                     GREEN <= "000001";
@@ -768,6 +787,7 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
                 elsif (h1seg(6) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segG H1
                     RED   <= "11111";
                     GREEN <= "000001";
@@ -792,10 +812,28 @@ begin
                     RED   <= "11111";
                     GREEN <= "000001";
                     BLUE  <= "00001";
+
+               elsif HALF_SECOND = '1' AND (Vpos >= Col1Ypos AND Vpos <= Col1Ypos + ColHeight) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then -- left colon top
+                    RED   <= "11111";
+                    GREEN <= "000001";
+                    BLUE  <= "00001";
+               elsif HALF_SECOND = '1' AND  (Vpos >= Col1Ypos + ColHeight + ColDist AND Vpos <= Col1Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then -- left colon bot
+                    RED   <= "11111";
+                    GREEN <= "000001";
+                    BLUE  <= "00001";
+
+               elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos AND Vpos <= Col2Ypos + ColHeight) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then -- right colon top
+                    RED   <= "11111";
+                    GREEN <= "000001";
+                    BLUE  <= "00001";
+               elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos + ColHeight + ColDist AND Vpos <= Col2Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then -- right colon bot
+                    RED   <= "11111";
+                    GREEN <= "000001";
+                    BLUE  <= "00001";
                 else
                     RED   <= "11111";
                     GREEN <= "111111";
-                    BLUE  <= "11111";  -- background colo1ur
+                    BLUE  <= "11111";  -- background colour
                 end if;
             else
                 RED   <= "00000";

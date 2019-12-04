@@ -2,10 +2,28 @@
 NET "CLK"             LOC = "T8";
 
 ############### VGA ##############
-NET "RGB<2>"          LOC = "M11";
-NET "RGB<1>"          LOC = "M9";
-NET "RGB<0>"          LOC = "P7";
+NET "RED<0>"          LOC = "M11";
+NET "RED<1>"          LOC = "M12";
+NET "RED<2>"          LOC = "L12";
+NET "RED<3>"          LOC = "N14";
+NET "RED<4>"          LOC = "M13";
+
+NET "GREEN<0>"        LOC = "M9";
+NET "GREEN<1>"        LOC = "N9";
+NET "GREEN<2>"        LOC = "P9";
+NET "GREEN<3>"        LOC = "L10";
+NET "GREEN<4>"        LOC = "M10";
+NET "GREEN<5>"        LOC = "P11";
+
+NET "BLUE<0>"         LOC = "P7";
+NET "BLUE<1>"         LOC = "M7";
+NET "BLUE<2>"         LOC = "P8";
+NET "BLUE<3>"         LOC = "N8";
+NET "BLUE<4>"         LOC = "L7";
+
 NET "VGA_HSYNC"       LOC = "M14";
 NET "VGA_VSYNC"       LOC = "L13";
 
-NET "LED"             LOC = "P4";
+NET "RESET"           LOC = "D3";
+
+## NET "LED"             LOC = "P4";

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-12-04T09:43:16</DateModified>
+  <DateModified>2019-12-04T12:13:50</DateModified>
   <ModuleName>top_digi_clk</ModuleName>
-  <SummaryTimeStamp>2019-12-04T09:41:29</SummaryTimeStamp>
+  <SummaryTimeStamp>2019-12-04T12:09:18</SummaryTimeStamp>
   <SavedFilePath>C:/Projects/RTC_2/iseconfig/top_digi_clk.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Projects/RTC_2\</ImplementationReportsDirectory>
   <DateInitialized>2019-12-04T09:41:59</DateInitialized>
