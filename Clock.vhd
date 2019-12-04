@@ -16,9 +16,9 @@ signal sec, min, hour : integer range 0 to 60 := 0;
 signal count          : integer := 1;
 signal clk            : std_logic := '0';
 begin
-    --seconds <= conv_std_logic_vector(sec, 6);
-    --minutes <= conv_std_logic_vector(min, 6);
-    --hours   <= conv_std_logic_vector(hour,5);
+    seconds <= sec;
+    minutes <= min;
+    hours   <= hour;
 
     -- Frequency divider - 100MHz to 1MHz
     process(clk1)

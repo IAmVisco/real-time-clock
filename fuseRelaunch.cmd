@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Projects/RTC_2/TB_digi_clock_isim_beh.exe" -prj "C:/Projects/RTC_2/TB_digi_clock_beh.prj" "work.TB_digi_clock" 
+-intstyle "ise" -incremental -lib "secureip" -o "D:/POCP/POCPproject/real-time-clock/TB_digi_isim_beh.exe" -prj "D:/POCP/POCPproject/real-time-clock/TB_digi_beh.prj" "work.TB_digi" 

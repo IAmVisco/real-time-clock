@@ -2,8 +2,8 @@
 Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
--n 3 -fastpaths -xml top_digi_clk.twx top_digi_clk.ncd -o top_digi_clk.twr
+D:\POCP\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml top_digi_clk.twx top_digi_clk.ncd -o top_digi_clk.twr
 top_digi_clk.pcf -ucf digi_pins.ucf
 
 Design file:              top_digi_clk.ncd
@@ -41,7 +41,7 @@ CLK            |    0.875|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Mon Dec 02 22:06:56 2019 
+Analysis completed Wed Dec 04 08:23:15 2019 
 --------------------------------------------------------------------------------
 
 Trace Settings:

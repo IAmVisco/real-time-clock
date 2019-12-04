@@ -5,34 +5,34 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 71: Using initial value <arg fmt="%s" index="1">&quot;0111111&quot;</arg> for <arg fmt="%s" index="2">zero</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 71: Using initial value <arg fmt="%s" index="1">&quot;0111111&quot;</arg> for <arg fmt="%s" index="2">zero</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 72: Using initial value <arg fmt="%s" index="1">&quot;0000110&quot;</arg> for <arg fmt="%s" index="2">one</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 72: Using initial value <arg fmt="%s" index="1">&quot;0000110&quot;</arg> for <arg fmt="%s" index="2">one</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 73: Using initial value <arg fmt="%s" index="1">&quot;1011011&quot;</arg> for <arg fmt="%s" index="2">two</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 73: Using initial value <arg fmt="%s" index="1">&quot;1011011&quot;</arg> for <arg fmt="%s" index="2">two</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 74: Using initial value <arg fmt="%s" index="1">&quot;1001111&quot;</arg> for <arg fmt="%s" index="2">three</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 74: Using initial value <arg fmt="%s" index="1">&quot;1001111&quot;</arg> for <arg fmt="%s" index="2">three</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 75: Using initial value <arg fmt="%s" index="1">&quot;1100110&quot;</arg> for <arg fmt="%s" index="2">four</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 75: Using initial value <arg fmt="%s" index="1">&quot;1100110&quot;</arg> for <arg fmt="%s" index="2">four</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 76: Using initial value <arg fmt="%s" index="1">&quot;1101101&quot;</arg> for <arg fmt="%s" index="2">five</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 76: Using initial value <arg fmt="%s" index="1">&quot;1101101&quot;</arg> for <arg fmt="%s" index="2">five</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 77: Using initial value <arg fmt="%s" index="1">&quot;1111101&quot;</arg> for <arg fmt="%s" index="2">six</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 77: Using initial value <arg fmt="%s" index="1">&quot;1111101&quot;</arg> for <arg fmt="%s" index="2">six</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 78: Using initial value <arg fmt="%s" index="1">&quot;0000111&quot;</arg> for <arg fmt="%s" index="2">seven</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 78: Using initial value <arg fmt="%s" index="1">&quot;0000111&quot;</arg> for <arg fmt="%s" index="2">seven</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 79: Using initial value <arg fmt="%s" index="1">&quot;1111111&quot;</arg> for <arg fmt="%s" index="2">eight</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 79: Using initial value <arg fmt="%s" index="1">&quot;1111111&quot;</arg> for <arg fmt="%s" index="2">eight</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\VGA.vhd" Line 80: Using initial value <arg fmt="%s" index="1">&quot;1101111&quot;</arg> for <arg fmt="%s" index="2">nine</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 80: Using initial value <arg fmt="%s" index="1">&quot;1101111&quot;</arg> for <arg fmt="%s" index="2">nine</arg> since it is never assigned
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">RESTART</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.

@@ -1,3 +1,4 @@
+library IEEE;
 USE ieee.std_logic_1164.ALL;
 
 ENTITY TB_digi IS

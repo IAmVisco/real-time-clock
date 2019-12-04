@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.57 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.57 secs
  
 --> Reading design: top_digi_clk.prj
 
@@ -105,15 +105,15 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Projects\RTC_2\VGA.vhd" into library work
+Parsing VHDL file "D:\POCP\POCPproject\real-time-clock\VGA.vhd" into library work
 Parsing entity <vga_driver>.
 Parsing architecture <vga_driver> of entity <vga_driver>.
-Parsing VHDL file "C:\Projects\RTC_2\ctrl_types_pkg.vhd" into library work
+Parsing VHDL file "D:\POCP\POCPproject\real-time-clock\ctrl_types_pkg.vhd" into library work
 Parsing package <ctrl_types_pkg>.
-Parsing VHDL file "C:\Projects\RTC_2\Clock.vhd" into library work
+Parsing VHDL file "D:\POCP\POCPproject\real-time-clock\Clock.vhd" into library work
 Parsing entity <digi_clk>.
 Parsing architecture <Behavioral> of entity <digi_clk>.
-Parsing VHDL file "C:\Projects\RTC_2\top_digi_clk.vhd" into library work
+Parsing VHDL file "D:\POCP\POCPproject\real-time-clock\top_digi_clk.vhd" into library work
 Parsing entity <top_digi_clk>.
 Parsing architecture <Behavioral> of entity <top_digi_clk>.
 
@@ -126,30 +126,30 @@ Elaborating entity <top_digi_clk> (architecture <Behavioral>) from library <work
 Elaborating entity <digi_clk> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <vga_driver> (architecture <vga_driver>) from library <work>.
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 71: Using initial value "0111111" for zero since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 72: Using initial value "0000110" for one since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 73: Using initial value "1011011" for two since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 74: Using initial value "1001111" for three since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 75: Using initial value "1100110" for four since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 76: Using initial value "1101101" for five since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 77: Using initial value "1111101" for six since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 78: Using initial value "0000111" for seven since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 79: Using initial value "1111111" for eight since it is never assigned
-WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 80: Using initial value "1101111" for nine since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 71: Using initial value "0111111" for zero since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 72: Using initial value "0000110" for one since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 73: Using initial value "1011011" for two since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 74: Using initial value "1001111" for three since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 75: Using initial value "1100110" for four since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 76: Using initial value "1101101" for five since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 77: Using initial value "1111101" for six since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 78: Using initial value "0000111" for seven since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 79: Using initial value "1111111" for eight since it is never assigned
+WARNING:HDLCompiler:871 - "D:\POCP\POCPproject\real-time-clock\VGA.vhd" Line 80: Using initial value "1101111" for nine since it is never assigned
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <top_digi_clk>.
-    Related source file is "C:\Projects\RTC_2\top_digi_clk.vhd".
+    Related source file is "D:\POCP\POCPproject\real-time-clock\top_digi_clk.vhd".
 WARNING:Xst:647 - Input <RESTART> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Summary:
 	no macro.
 Unit <top_digi_clk> synthesized.
 
 Synthesizing Unit <digi_clk>.
-    Related source file is "C:\Projects\RTC_2\Clock.vhd".
+    Related source file is "D:\POCP\POCPproject\real-time-clock\Clock.vhd".
 WARNING:Xst:2935 - Signal 'seconds', unconnected in block 'digi_clk', is tied to its initial value (10000000000000000000000000000000).
 WARNING:Xst:2935 - Signal 'minutes', unconnected in block 'digi_clk', is tied to its initial value (10000000000000000000000000000000).
 WARNING:Xst:2935 - Signal 'hours', unconnected in block 'digi_clk', is tied to its initial value (10000000000000000000000000000000).
@@ -158,7 +158,7 @@ WARNING:Xst:2935 - Signal 'hours', unconnected in block 'digi_clk', is tied to i
 Unit <digi_clk> synthesized.
 
 Synthesizing Unit <vga_driver>.
-    Related source file is "C:\Projects\RTC_2\VGA.vhd".
+    Related source file is "D:\POCP\POCPproject\real-time-clock\VGA.vhd".
     Found 1-bit register for signal <HSYNC>.
     Found 1-bit register for signal <VSYNC>.
     Found 1-bit register for signal <videoOn>.
@@ -613,12 +613,12 @@ x_VGA_DATA/clk25|    6.436|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 11.30 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.86 secs
  
 --> 
 
-Total memory usage is 4526312 kilobytes
+Total memory usage is 4526432 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   68 (   0 filtered)
