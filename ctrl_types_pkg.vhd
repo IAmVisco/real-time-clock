@@ -60,24 +60,26 @@ package ctrl_types_pkg is
     --end component;
 
     component vga_driver is
-        port (
-            CLK         : in   STD_LOGIC;
-            RST         : in   STD_LOGIC;
-            HALF_SECOND : in   STD_LOGIC;
-            SECONDS     : in   integer;
-            MINUTES     : in   integer;
-            HOURS       : in   integer;
-            HSYNC       : out  STD_LOGIC;
-            VSYNC       : out  STD_LOGIC;
-            RED         : out  STD_LOGIC_VECTOR (4 downto 0);
-            GREEN       : out  STD_LOGIC_VECTOR (4 downto 0);
-            BLUE        : out  STD_LOGIC_VECTOR (4 downto 0)
-        );
+    port (
+        CLK         : in   STD_LOGIC;
+        RST         : in   STD_LOGIC;
+        HALF_SECOND : in   STD_LOGIC;
+        SECONDS     : in   integer;
+        MINUTES     : in   integer;
+        HOURS       : in   integer;
+        HSYNC       : out  STD_LOGIC;
+        VSYNC       : out  STD_LOGIC;
+        RED         : out  STD_LOGIC_VECTOR (4 downto 0);
+        GREEN       : out  STD_LOGIC_VECTOR (4 downto 0);
+        BLUE        : out  STD_LOGIC_VECTOR (4 downto 0)
+    );
     end component;
 
     component digi_clk is
     port (
         clk1         : in  std_logic;
+        inc_hour     : in  std_logic;
+        inc_min      : in  std_logic;
         half_seconds : out std_logic;
         seconds      : out integer;
         minutes      : out integer;

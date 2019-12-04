@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Dec 04 14:15:56 2019
+// Written by: Map P.20131013 on Wed Dec 04 14:54:17 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -21,5 +21,11 @@ COMP "BLUE<1>" LOCATE = SITE "M7" LEVEL 1;
 COMP "BLUE<2>" LOCATE = SITE "P8" LEVEL 1;
 COMP "BLUE<3>" LOCATE = SITE "N8" LEVEL 1;
 COMP "BLUE<4>" LOCATE = SITE "L7" LEVEL 1;
+COMP "INC_HOUR" LOCATE = SITE "C3" LEVEL 1;
+PIN INC_HOUR_pin<0> = BEL "INC_HOUR" PINNAME PAD;
+PIN "INC_HOUR_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "INC_MIN" LOCATE = SITE "D3" LEVEL 1;
+PIN INC_MIN_pin<0> = BEL "INC_MIN" PINNAME PAD;
+PIN "INC_MIN_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
 SCHEMATIC END;
 

@@ -6,6 +6,8 @@ use ieee.std_logic_unsigned.all;
 entity digi_clk is
 port (
     clk1         : in  std_logic;
+    inc_hour     : in  std_logic;
+    inc_min      : in  std_logic;
     half_seconds : out std_logic;
     seconds      : out integer;
     minutes      : out integer;
@@ -44,9 +46,21 @@ begin
         end if;
     end process;
 
-    process(clk) -- period of clk is 1 second
+    process(clk, inc_hour, inc_min) -- period of clk is 1 second
     begin
-        if rising_edge(clk) then
+        if falling_edge(inc_hour) then
+            if (hour < 23) then
+                hour <= hour + 1;
+            else
+                hour <= 0;
+            end if;
+        elsif falling_edge(inc_min) then
+            if (min < 59) then
+                min <= min + 1;
+            else
+                min <= 0;
+            end if;
+        elsif rising_edge(clk) then
             if (sec < 59) then
                 sec <= sec + 1;
             else

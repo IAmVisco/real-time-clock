@@ -10,8 +10,8 @@ use work.ctrl_types_pkg.all;
 entity top_digi_clk is
     port (
         ---- SWITCHES ----
-        RESET       :  in   std_logic;  --! asycnchronous reset: SW(1)
-        RESTART     :  in   std_logic;  --! RESTART Timer DS1302 SW(2)
+        INC_HOUR    :  in   std_logic;  --! asycnchronous reset: SW(1)
+        INC_MIN     :  in   std_logic;  --! RESTART Timer DS1302 SW(2)
         ---- CLOCK 50 MHz ----
         CLK         :  in   std_logic;  --! main clock 50 MHz
         ---- VGA SYNC ----
@@ -26,11 +26,14 @@ end top_digi_clk;
 architecture Behavioral of top_digi_clk is
 signal sec, min, hour : integer range 0 to 60 := 0;
 signal half_sec       : std_logic;
+signal RESET          : std_logic := '0';
 
 begin
     x_DIGI_CLK: digi_clk
         port map (
             clk1         => CLK,
+            inc_hour     => INC_HOUR,
+            inc_min      => INC_MIN,
             half_seconds => half_sec,
             seconds      => sec,
             minutes      => min,

@@ -37,11 +37,28 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    4.283|         |         |         |
+CLK            |    4.374|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock INC_HOUR
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+INC_HOUR       |         |         |         |    4.125|
+INC_MIN        |         |         |         |    7.013|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock INC_MIN
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+INC_MIN        |         |         |         |    4.358|
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Dec 04 14:16:11 2019 
+Analysis completed Wed Dec 04 14:54:33 2019 
 --------------------------------------------------------------------------------
 
 Trace Settings:
