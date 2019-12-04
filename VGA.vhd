@@ -6,7 +6,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity vga_driver is
     port (
         CLK         : in   std_logic;
-        RST         : in   std_logic; -- doesnt map on real fpga for some reason
+        RST         : in   std_logic; -- does not map on real fpga for some reason
         HALF_SECOND : in   std_logic;
         SECONDS     : in   integer;
         MINUTES     : in   integer;
@@ -188,6 +188,7 @@ begin
             s1seg <= "0000000";
             s2seg <= "0000000";
         elsif rising_edge(clk25) then
+            -- bruh
             case SECONDS is
                 when 0 =>
                     s1seg <= zero;
@@ -675,6 +676,7 @@ begin
             BLUE  <= "00000";
         elsif rising_edge(clk25) then
             if (videoOn = '1') then
+                -- SEG A
                 if (h1seg(0) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegSize1) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segA H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -700,6 +702,7 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
+                -- SEG B
                 elsif (h1seg(1) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegWidth + (SegSize1/2)) AND (Hpos >= segH1Xpos + SegWidth - SegSize1 AND Hpos <= segH1Xpos + SegWidth) then  -- segB H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -725,6 +728,7 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
+                -- SEG C
                 elsif (h1seg(2) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos + SegWidth - SegSize1 AND Hpos <= segH1Xpos + SegWidth) then  -- segC H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -750,6 +754,7 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
+                -- SEG D
                 elsif (h1seg(3) = '1' AND Vpos >= segH1Ypos + (2*SegWidth) - SegSize1 AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segD H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -775,6 +780,7 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
+                -- SEG E
                 elsif (h1seg(4) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + (2*SegWidth)) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegSize1) then  -- segE H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -800,6 +806,7 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
+                -- SEG F
                 elsif (h1seg(5) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegWidth ) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegSize1) then  -- segF H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -825,6 +832,7 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
+                -- SEG G
                 elsif (h1seg(6) = '1' AND Vpos >= segH1Ypos + SegWidth - (SegSize1/2) AND Vpos <= segH1Ypos + SegWidth + (SegSize1/2) ) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segG H1
                     RED   <= cur_red;
                     GREEN <= cur_green;
@@ -850,27 +858,32 @@ begin
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
-               elsif HALF_SECOND = '1' AND (Vpos >= Col1Ypos AND Vpos <= Col1Ypos + ColHeight) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then -- left colon top
+                -- left colon top
+               elsif HALF_SECOND = '1' AND (Vpos >= Col1Ypos AND Vpos <= Col1Ypos + ColHeight) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then
                     RED   <= cur_red;
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
-               elsif HALF_SECOND = '1' AND  (Vpos >= Col1Ypos + ColHeight + ColDist AND Vpos <= Col1Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then -- left colon bot
+                -- left colon bot
+               elsif HALF_SECOND = '1' AND  (Vpos >= Col1Ypos + ColHeight + ColDist AND Vpos <= Col1Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col1Xpos AND Hpos <= Col1Xpos + ColWidth) then
                     RED   <= cur_red;
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
 
-               elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos AND Vpos <= Col2Ypos + ColHeight) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then -- right colon top
+                -- right colon top
+               elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos AND Vpos <= Col2Ypos + ColHeight) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then
                     RED   <= cur_red;
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
-               elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos + ColHeight + ColDist AND Vpos <= Col2Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then -- right colon bot
+                -- right colon bot
+               elsif HALF_SECOND = '1' AND  (Vpos >= Col2Ypos + ColHeight + ColDist AND Vpos <= Col2Ypos + 2 * ColHeight + ColDist) AND (Hpos >= Col2Xpos AND Hpos <= Col2Xpos + ColWidth) then
                     RED   <= cur_red;
                     GREEN <= cur_green;
                     BLUE  <= cur_blue;
                 else
+                    -- background colour
                     RED   <= "11111";
                     GREEN <= "11111";
-                    BLUE  <= "11111";  -- background colour
+                    BLUE  <= "11111";
                 end if;
             else
                 RED   <= "00000";
@@ -879,5 +892,4 @@ begin
             end if;
         end if;
     end process;
-
 end vga_driver;

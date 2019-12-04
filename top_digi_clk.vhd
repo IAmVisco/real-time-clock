@@ -10,8 +10,8 @@ use work.ctrl_types_pkg.all;
 entity top_digi_clk is
     port (
         ---- SWITCHES ----
-        INC_HOUR    :  in   std_logic;  --! asycnchronous reset: SW(1)
-        INC_MIN     :  in   std_logic;  --! RESTART Timer DS1302 SW(2)
+        INC_HOUR    :  in   std_logic;
+        INC_MIN     :  in   std_logic;
         ---- CLOCK 50 MHz ----
         CLK         :  in   std_logic;  --! main clock 50 MHz
         ---- VGA SYNC ----

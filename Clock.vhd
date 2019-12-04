@@ -18,7 +18,7 @@ end digi_clk;
 architecture Behavioral of digi_clk is
 constant frequnency_division : integer                := 25000000;
 constant ms_division         : integer                := frequnency_division / 2;
-signal sec                   : integer range 0 to 59  := 50;
+signal sec                   : integer range 0 to 59  := 50; -- initial config
 signal min                   : integer range 0 to 59  := 59;
 signal hour                  : integer range 0 to 23  := 23;
 
