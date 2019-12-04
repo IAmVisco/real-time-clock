@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: top_digi_clk.prj
 
@@ -136,6 +136,7 @@ WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 102: Using initial va
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 103: Using initial value "0000111" for seven since it is never assigned
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 104: Using initial value "1111111" for eight since it is never assigned
 WARNING:HDLCompiler:871 - "C:\Projects\RTC_2\VGA.vhd" Line 105: Using initial value "1101111" for nine since it is never assigned
+WARNING:HDLCompiler:1127 - "C:\Projects\RTC_2\VGA.vhd" Line 642: Assignment to incr_red ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -171,9 +172,6 @@ Unit <digi_clk> synthesized.
 
 Synthesizing Unit <vga_driver>.
     Related source file is "C:\Projects\RTC_2\VGA.vhd".
-    Found 1-bit register for signal <incr_green>.
-    Found 1-bit register for signal <incr_blue>.
-    Found 1-bit register for signal <incr_red>.
     Found 1-bit register for signal <HSYNC>.
     Found 1-bit register for signal <VSYNC>.
     Found 1-bit register for signal <videoOn>.
@@ -196,75 +194,76 @@ Synthesizing Unit <vga_driver>.
     Found 32-bit adder for signal <hPos[31]_GND_89_o_add_1_OUT> created at line 123.
     Found 32-bit adder for signal <vPos[31]_GND_89_o_add_6_OUT> created at line 137.
     Found 32-bit adder for signal <count[31]_GND_89_o_add_175_OUT> created at line 652.
-    Found 5-bit adder for signal <cur_red[4]_GND_89_o_add_178_OUT> created at line 659.
-    Found 5-bit adder for signal <cur_green[4]_GND_89_o_add_185_OUT> created at line 673.
-    Found 5-bit adder for signal <cur_blue[4]_GND_89_o_add_192_OUT> created at line 687.
-    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_182_OUT<4:0>> created at line 665.
-    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_189_OUT<4:0>> created at line 679.
-    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_196_OUT<4:0>> created at line 693.
+    Found 5-bit adder for signal <cur_green[4]_GND_89_o_add_184_OUT> created at line 658.
+    Found 5-bit adder for signal <cur_blue[4]_GND_89_o_add_192_OUT> created at line 662.
+    Found 5-bit adder for signal <cur_red[4]_GND_89_o_add_200_OUT> created at line 666.
+    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_189_OUT<4:0>> created at line 660.
+    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_197_OUT<4:0>> created at line 664.
+    Found 5-bit subtractor for signal <GND_89_o_GND_89_o_sub_205_OUT<4:0>> created at line 668.
     Found 32-bit comparator lessequal for signal <n0011> created at line 148
     Found 32-bit comparator greater for signal <hPos[31]_GND_89_o_LessThan_12_o> created at line 148
     Found 32-bit comparator lessequal for signal <n0016> created at line 161
     Found 32-bit comparator greater for signal <vPos[31]_GND_89_o_LessThan_14_o> created at line 161
     Found 32-bit comparator lessequal for signal <n0021> created at line 174
     Found 32-bit comparator lessequal for signal <n0023> created at line 174
-    Found 32-bit comparator lessequal for signal <n0255> created at line 728
-    Found 32-bit comparator lessequal for signal <n0285> created at line 758
-    Found 32-bit comparator lessequal for signal <n0291> created at line 762
-    Found 32-bit comparator lessequal for signal <n0297> created at line 766
-    Found 32-bit comparator lessequal for signal <n0303> created at line 770
-    Found 32-bit comparator lessequal for signal <n0309> created at line 774
-    Found 32-bit comparator lessequal for signal <n0315> created at line 778
-    Found 32-bit comparator lessequal for signal <n0341> created at line 803
-    Found 32-bit comparator lessequal for signal <n0367> created at line 828
-    Found 32-bit comparator lessequal for signal <n0373> created at line 833
-    Found 32-bit comparator lessequal for signal <n0379> created at line 837
-    Found 32-bit comparator lessequal for signal <n0385> created at line 841
-    Found 32-bit comparator lessequal for signal <n0391> created at line 845
-    Found 32-bit comparator lessequal for signal <n0397> created at line 849
-    Found 32-bit comparator lessequal for signal <n0403> created at line 853
-    Found 32-bit comparator lessequal for signal <n0405> created at line 853
-    Found 32-bit comparator lessequal for signal <n0407> created at line 853
-    Found 32-bit comparator lessequal for signal <n0413> created at line 858
-    Found 32-bit comparator lessequal for signal <n0415> created at line 858
-    Found 32-bit comparator lessequal for signal <n0421> created at line 862
-    Found 32-bit comparator lessequal for signal <n0423> created at line 862
-    Found 32-bit comparator lessequal for signal <n0429> created at line 866
-    Found 32-bit comparator lessequal for signal <n0431> created at line 866
-    Found 32-bit comparator lessequal for signal <n0437> created at line 870
-    Found 32-bit comparator lessequal for signal <n0439> created at line 870
-    Found 32-bit comparator lessequal for signal <n0445> created at line 874
-    Found 32-bit comparator lessequal for signal <n0447> created at line 874
-    Found 32-bit comparator lessequal for signal <n0453> created at line 878
-    Found 32-bit comparator lessequal for signal <n0455> created at line 878
-    Found 32-bit comparator lessequal for signal <n0457> created at line 878
-    Found 32-bit comparator lessequal for signal <n0459> created at line 878
-    Found 32-bit comparator lessequal for signal <n0467> created at line 887
-    Found 32-bit comparator lessequal for signal <n0469> created at line 887
-    Found 32-bit comparator lessequal for signal <n0473> created at line 892
-    Found 32-bit comparator lessequal for signal <n0475> created at line 892
-    Found 32-bit comparator lessequal for signal <n0481> created at line 896
-    Found 32-bit comparator lessequal for signal <n0483> created at line 896
-    Found 32-bit comparator lessequal for signal <n0485> created at line 896
-    Found 32-bit comparator lessequal for signal <n0487> created at line 896
+    Found 32-bit comparator lessequal for signal <n0276> created at line 702
+    Found 32-bit comparator lessequal for signal <n0306> created at line 732
+    Found 32-bit comparator lessequal for signal <n0312> created at line 736
+    Found 32-bit comparator lessequal for signal <n0318> created at line 740
+    Found 32-bit comparator lessequal for signal <n0324> created at line 744
+    Found 32-bit comparator lessequal for signal <n0330> created at line 748
+    Found 32-bit comparator lessequal for signal <n0336> created at line 752
+    Found 32-bit comparator lessequal for signal <n0362> created at line 777
+    Found 32-bit comparator lessequal for signal <n0388> created at line 802
+    Found 32-bit comparator lessequal for signal <n0394> created at line 807
+    Found 32-bit comparator lessequal for signal <n0400> created at line 811
+    Found 32-bit comparator lessequal for signal <n0406> created at line 815
+    Found 32-bit comparator lessequal for signal <n0412> created at line 819
+    Found 32-bit comparator lessequal for signal <n0418> created at line 823
+    Found 32-bit comparator lessequal for signal <n0424> created at line 827
+    Found 32-bit comparator lessequal for signal <n0426> created at line 827
+    Found 32-bit comparator lessequal for signal <n0428> created at line 827
+    Found 32-bit comparator lessequal for signal <n0434> created at line 832
+    Found 32-bit comparator lessequal for signal <n0436> created at line 832
+    Found 32-bit comparator lessequal for signal <n0442> created at line 836
+    Found 32-bit comparator lessequal for signal <n0444> created at line 836
+    Found 32-bit comparator lessequal for signal <n0450> created at line 840
+    Found 32-bit comparator lessequal for signal <n0452> created at line 840
+    Found 32-bit comparator lessequal for signal <n0458> created at line 844
+    Found 32-bit comparator lessequal for signal <n0460> created at line 844
+    Found 32-bit comparator lessequal for signal <n0466> created at line 848
+    Found 32-bit comparator lessequal for signal <n0468> created at line 848
+    Found 32-bit comparator lessequal for signal <n0474> created at line 852
+    Found 32-bit comparator lessequal for signal <n0476> created at line 852
+    Found 32-bit comparator lessequal for signal <n0478> created at line 852
+    Found 32-bit comparator lessequal for signal <n0480> created at line 852
+    Found 32-bit comparator lessequal for signal <n0488> created at line 861
+    Found 32-bit comparator lessequal for signal <n0490> created at line 861
+    Found 32-bit comparator lessequal for signal <n0494> created at line 866
+    Found 32-bit comparator lessequal for signal <n0496> created at line 866
+    Found 32-bit comparator lessequal for signal <n0502> created at line 870
+    Found 32-bit comparator lessequal for signal <n0504> created at line 870
+    Found 32-bit comparator lessequal for signal <n0506> created at line 870
+    Found 32-bit comparator lessequal for signal <n0508> created at line 870
     Summary:
-	inferred   6 Adder/Subtractor(s).
-	inferred 175 D-type flip-flop(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred 172 D-type flip-flop(s).
 	inferred  45 Comparator(s).
-	inferred 197 Multiplexer(s).
+	inferred 199 Multiplexer(s).
 Unit <vga_driver> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 10
+# Adders/Subtractors                                   : 11
  32-bit adder                                          : 4
- 5-bit adder                                           : 1
- 5-bit addsub                                          : 3
+ 5-bit adder                                           : 2
+ 5-bit addsub                                          : 2
+ 5-bit subtractor                                      : 1
  6-bit adder                                           : 2
-# Registers                                            : 28
- 1-bit register                                        : 9
+# Registers                                            : 25
+ 1-bit register                                        : 6
  32-bit register                                       : 4
  5-bit register                                        : 7
  6-bit register                                        : 2
@@ -274,9 +273,9 @@ Macro Statistics
  32-bit comparator lessequal                           : 43
  5-bit comparator lessequal                            : 1
  6-bit comparator greater                              : 2
-# Multiplexers                                         : 197
+# Multiplexers                                         : 199
  32-bit 2-to-1 multiplexer                             : 2
- 5-bit 2-to-1 multiplexer                              : 141
+ 5-bit 2-to-1 multiplexer                              : 143
  7-bit 2-to-1 multiplexer                              : 54
 
 =========================================================================
@@ -294,11 +293,10 @@ The following registers are absorbed into counter <hour>: 1 register on signal <
 Unit <digi_clk> synthesized (advanced).
 
 Synthesizing (advanced) Unit <vga_driver>.
-The following registers are absorbed into counter <cur_green>: 1 register on signal <cur_green>.
-The following registers are absorbed into counter <cur_blue>: 1 register on signal <cur_blue>.
-The following registers are absorbed into counter <cur_red>: 1 register on signal <cur_red>.
 The following registers are absorbed into counter <hPos>: 1 register on signal <hPos>.
 The following registers are absorbed into counter <vPos>: 1 register on signal <vPos>.
+The following registers are absorbed into counter <cur_green>: 1 register on signal <cur_green>.
+The following registers are absorbed into counter <cur_blue>: 1 register on signal <cur_blue>.
 The following registers are absorbed into counter <count>: 1 register on signal <count>.
 Unit <vga_driver> synthesized (advanced).
 
@@ -306,20 +304,23 @@ Unit <vga_driver> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Counters                                             : 10
+# Adders/Subtractors                                   : 2
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+# Counters                                             : 9
  32-bit up counter                                     : 4
  5-bit up counter                                      : 1
- 5-bit updown counter                                  : 3
+ 5-bit updown counter                                  : 2
  6-bit up counter                                      : 2
-# Registers                                            : 66
- Flip-Flops                                            : 66
+# Registers                                            : 68
+ Flip-Flops                                            : 68
 # Comparators                                          : 48
  32-bit comparator greater                             : 2
  32-bit comparator lessequal                           : 43
  5-bit comparator lessequal                            : 1
  6-bit comparator greater                              : 2
-# Multiplexers                                         : 195
- 5-bit 2-to-1 multiplexer                              : 141
+# Multiplexers                                         : 197
+ 5-bit 2-to-1 multiplexer                              : 143
  7-bit 2-to-1 multiplexer                              : 54
 
 =========================================================================
@@ -378,12 +379,17 @@ WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_25> has a constant value of 0 in b
 WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_24> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_23> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <x_VGA_DATA/count_22> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_26> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_25> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_24> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_23> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_22> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_21> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_22> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_23> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_24> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_25> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_26> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_27> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_28> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_29> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_30> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_31> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_20> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_19> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_18> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
@@ -417,36 +423,20 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/vPos_13>
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/vPos_12> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/vPos_11> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/vPos_10> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_31> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_30> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_29> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_28> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <x_VGA_DATA/hPos_27> has a constant value of 0 in block <top_digi_clk>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/incr_red> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/incr_blue> <x_VGA_DATA/incr_green> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/cur_red_0> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/cur_blue_0> <x_VGA_DATA/cur_green_0> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/cur_red_1> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/cur_blue_1> <x_VGA_DATA/cur_green_1> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/cur_red_2> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/cur_blue_2> <x_VGA_DATA/cur_green_2> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/cur_red_3> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/cur_blue_3> <x_VGA_DATA/cur_green_3> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/cur_red_4> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/cur_blue_4> <x_VGA_DATA/cur_green_4> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/BLUE_0> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/GREEN_0> <x_VGA_DATA/RED_0> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/BLUE_1> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/GREEN_1> <x_VGA_DATA/RED_1> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/BLUE_2> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/GREEN_2> <x_VGA_DATA/RED_2> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/BLUE_3> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/GREEN_3> <x_VGA_DATA/RED_3> 
-INFO:Xst:2261 - The FF/Latch <x_VGA_DATA/BLUE_4> in Unit <top_digi_clk> is equivalent to the following 2 FFs/Latches, which will be removed : <x_VGA_DATA/GREEN_4> <x_VGA_DATA/RED_4> 
-Found area constraint ratio of 100 (+ 5) on block top_digi_clk, actual ratio is 14.
+Found area constraint ratio of 100 (+ 5) on block top_digi_clk, actual ratio is 15.
 WARNING:Xst:1426 - The value init of the FF/Latch x_VGA_DATA/s1seg_2_LD hinder the constant cleaning in the block top_digi_clk.
    You should achieve better results by setting this init to 0.
-FlipFlop x_VGA_DATA/hPos_1 has been replicated 1 time(s)
+FlipFlop x_VGA_DATA/hPos_1 has been replicated 2 time(s)
 FlipFlop x_VGA_DATA/hPos_2 has been replicated 2 time(s)
 FlipFlop x_VGA_DATA/hPos_3 has been replicated 3 time(s)
-FlipFlop x_VGA_DATA/hPos_4 has been replicated 2 time(s)
+FlipFlop x_VGA_DATA/hPos_4 has been replicated 3 time(s)
 FlipFlop x_VGA_DATA/hPos_5 has been replicated 4 time(s)
-FlipFlop x_VGA_DATA/hPos_6 has been replicated 2 time(s)
-FlipFlop x_VGA_DATA/hPos_7 has been replicated 3 time(s)
-FlipFlop x_VGA_DATA/hPos_8 has been replicated 3 time(s)
+FlipFlop x_VGA_DATA/hPos_6 has been replicated 3 time(s)
+FlipFlop x_VGA_DATA/hPos_7 has been replicated 4 time(s)
+FlipFlop x_VGA_DATA/hPos_8 has been replicated 2 time(s)
 FlipFlop x_VGA_DATA/hPos_9 has been replicated 3 time(s)
 FlipFlop x_VGA_DATA/vPos_3 has been replicated 1 time(s)
 FlipFlop x_VGA_DATA/vPos_4 has been replicated 1 time(s)
@@ -462,8 +452,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 183
- Flip-Flops                                            : 183
+# Registers                                            : 205
+ Flip-Flops                                            : 205
 
 =========================================================================
 
@@ -486,24 +476,23 @@ Top Level Output File Name         : top_digi_clk.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 907
+# BELS                             : 957
 #      GND                         : 1
-#      INV                         : 14
+#      INV                         : 15
 #      LUT1                        : 77
-#      LUT2                        : 52
-#      LUT3                        : 59
-#      LUT4                        : 55
-#      LUT5                        : 135
-#      LUT6                        : 63
-#      MUXCY                       : 376
+#      LUT2                        : 61
+#      LUT3                        : 60
+#      LUT4                        : 63
+#      LUT5                        : 150
+#      LUT6                        : 81
+#      MUXCY                       : 374
 #      VCC                         : 1
 #      XORCY                       : 74
-# FlipFlops/Latches                : 184
+# FlipFlops/Latches                : 206
 #      FD                          : 16
-#      FDC                         : 79
-#      FDCE                        : 22
+#      FDC                         : 92
+#      FDCE                        : 32
 #      FDE                         : 6
-#      FDPE                        : 1
 #      FDR                         : 34
 #      FDRE                        : 23
 #      FDS                         : 1
@@ -523,16 +512,16 @@ Selected Device : 6slx9ftg256-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             184  out of  11440     1%  
- Number of Slice LUTs:                  455  out of   5720     7%  
-    Number used as Logic:               455  out of   5720     7%  
+ Number of Slice Registers:             206  out of  11440     1%  
+ Number of Slice LUTs:                  507  out of   5720     8%  
+    Number used as Logic:               507  out of   5720     8%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    497
-   Number with an unused Flip Flop:     313  out of    497    62%  
-   Number with an unused LUT:            42  out of    497     8%  
-   Number of fully used LUT-FF pairs:   142  out of    497    28%  
-   Number of unique control sets:        16
+ Number of LUT Flip Flop pairs used:    551
+   Number with an unused Flip Flop:     345  out of    551    62%  
+   Number with an unused LUT:            44  out of    551     7%  
+   Number of fully used LUT-FF pairs:   162  out of    551    29%  
+   Number of unique control sets:        17
 
 IO Utilization: 
  Number of IOs:                          20
@@ -562,7 +551,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-x_VGA_DATA/clk25                   | BUFG                   | 131   |
+x_VGA_DATA/clk25                   | BUFG                   | 153   |
 CLK                                | BUFGP                  | 35    |
 x_DIGI_CLK/clk                     | NONE(x_DIGI_CLK/min_2) | 17    |
 RESET                              | IBUF+BUFG              | 1     |
@@ -577,9 +566,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.615ns (Maximum Frequency: 151.177MHz)
-   Minimum input arrival time before clock: 5.106ns
-   Maximum output required time after clock: 3.668ns
+   Minimum period: 6.785ns (Maximum Frequency: 147.387MHz)
+   Minimum input arrival time before clock: 5.164ns
+   Maximum output required time after clock: 3.597ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -588,60 +577,60 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'x_VGA_DATA/clk25'
-  Clock period: 6.615ns (frequency: 151.177MHz)
-  Total number of paths / destination ports: 11902 / 131
+  Clock period: 6.785ns (frequency: 147.387MHz)
+  Total number of paths / destination ports: 32937 / 162
 -------------------------------------------------------------------------
-Delay:               6.615ns (Levels of Logic = 12)
+Delay:               6.785ns (Levels of Logic = 12)
   Source:            x_VGA_DATA/vPos_2 (FF)
-  Destination:       x_VGA_DATA/BLUE_4 (FF)
+  Destination:       x_VGA_DATA/RED_4 (FF)
   Source Clock:      x_VGA_DATA/clk25 rising
   Destination Clock: x_VGA_DATA/clk25 rising
 
-  Data Path: x_VGA_DATA/vPos_2 to x_VGA_DATA/BLUE_4
+  Data Path: x_VGA_DATA/vPos_2 to x_VGA_DATA/RED_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q            19   0.447   1.300  x_VGA_DATA/vPos_2 (x_VGA_DATA/vPos_2)
-     LUT5:I2->O            1   0.205   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_lut<0> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<0> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<1> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<2> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<3> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<4> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<5> (x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<5>)
-     MUXCY:CI->O           7   0.213   0.774  x_VGA_DATA/Mcompar_vPos[31]_GND_89_o_LessThan_348_o_cy<6> (x_VGA_DATA/vPos[31]_GND_89_o_LessThan_348_o)
-     LUT2:I1->O            2   0.205   0.845  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_529_OUT1412111 (x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_529_OUT141211)
-     LUT6:I3->O            5   0.205   0.819  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_529_OUT101129 (x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_529_OUT101129)
-     LUT4:I2->O            1   0.203   0.827  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_529_OUT101143_SW1 (N19)
-     LUT6:I2->O            1   0.203   0.000  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_531_OUT101 (x_VGA_DATA/GND_89_o_PWR_10_o_mux_531_OUT<0>)
+     FDCE:C->Q            19   0.447   1.416  x_VGA_DATA/vPos_2 (x_VGA_DATA/vPos_2)
+     LUT5:I0->O            1   0.203   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_lut<0> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<0> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<1> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<2> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<3> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<4> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<5> (x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<5>)
+     MUXCY:CI->O           1   0.213   0.684  x_VGA_DATA/Mcompar_GND_89_o_vPos[31]_LessThan_410_o_cy<6> (x_VGA_DATA/GND_89_o_vPos[31]_LessThan_410_o)
+     LUT3:I1->O            2   0.203   0.617  x_VGA_DATA/HALF_SECOND_GND_89_o_AND_290_o1 (x_VGA_DATA/HALF_SECOND_GND_89_o_AND_290_o)
+     LUT6:I5->O            1   0.205   0.808  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_554_OUT101120 (x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_554_OUT101120)
+     LUT6:I3->O           15   0.205   1.210  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_554_OUT101126 (x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_554_OUT101126)
+     LUT6:I3->O            1   0.205   0.000  x_VGA_DATA/Mmux_GND_89_o_PWR_10_o_mux_556_OUT101 (x_VGA_DATA/GND_89_o_PWR_10_o_mux_556_OUT<0>)
      FDC:D                     0.102          x_VGA_DATA/BLUE_0
     ----------------------------------------
-    Total                      6.615ns (2.050ns logic, 4.565ns route)
-                                       (31.0% logic, 69.0% route)
+    Total                      6.785ns (2.050ns logic, 4.735ns route)
+                                       (30.2% logic, 69.8% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 5.182ns (frequency: 192.985MHz)
+  Clock period: 5.430ns (frequency: 184.171MHz)
   Total number of paths / destination ports: 1619 / 69
 -------------------------------------------------------------------------
-Delay:               5.182ns (Levels of Logic = 3)
-  Source:            x_DIGI_CLK/count_18 (FF)
+Delay:               5.430ns (Levels of Logic = 3)
+  Source:            x_DIGI_CLK/count_31 (FF)
   Destination:       x_DIGI_CLK/count_31 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: x_DIGI_CLK/count_18 to x_DIGI_CLK/count_31
+  Data Path: x_DIGI_CLK/count_31 to x_DIGI_CLK/count_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.447   0.961  x_DIGI_CLK/count_18 (x_DIGI_CLK/count_18)
-     LUT5:I0->O            1   0.203   0.808  x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>12 (x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>12)
-     LUT6:I3->O            2   0.205   0.617  x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>15 (x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>1)
-     LUT6:I5->O           33   0.205   1.305  x_DIGI_CLK/GND_8_o_count[31]_equal_6_o<31> (x_DIGI_CLK/GND_8_o_count[31]_equal_6_o)
+     FDR:C->Q              2   0.447   0.981  x_DIGI_CLK/count_31 (x_DIGI_CLK/count_31)
+     LUT6:I0->O            1   0.203   0.808  x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>11 (x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>11)
+     LUT6:I3->O            2   0.205   0.845  x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>15 (x_DIGI_CLK/GND_8_o_count[31]_equal_5_o<31>1)
+     LUT6:I3->O           33   0.205   1.305  x_DIGI_CLK/GND_8_o_count[31]_equal_6_o<31> (x_DIGI_CLK/GND_8_o_count[31]_equal_6_o)
      FDR:R                     0.430          x_DIGI_CLK/count_1
     ----------------------------------------
-    Total                      5.182ns (1.490ns logic, 3.692ns route)
-                                       (28.8% logic, 71.2% route)
+    Total                      5.430ns (1.490ns logic, 3.940ns route)
+                                       (27.4% logic, 72.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'x_DIGI_CLK/clk'
@@ -669,9 +658,9 @@ Delay:               5.167ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'x_VGA_DATA/clk25'
-  Total number of paths / destination ports: 146 / 146
+  Total number of paths / destination ports: 168 / 168
 -------------------------------------------------------------------------
-Offset:              5.106ns (Levels of Logic = 2)
+Offset:              5.164ns (Levels of Logic = 2)
   Source:            RESET (PAD)
   Destination:       x_VGA_DATA/count_20 (FF)
   Destination Clock: x_VGA_DATA/clk25 rising
@@ -680,31 +669,31 @@ Offset:              5.106ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           104   1.222   2.116  RESET_IBUF (RESET_IBUF)
-     LUT5:I2->O           22   0.205   1.133  x_VGA_DATA/_n15971 (x_VGA_DATA/_n1597)
+     IBUF:I->O           126   1.222   2.174  RESET_IBUF (RESET_IBUF)
+     LUT5:I2->O           22   0.205   1.133  x_VGA_DATA/_n16331 (x_VGA_DATA/_n1633)
      FDSE:S                    0.430          x_VGA_DATA/count_0
     ----------------------------------------
-    Total                      5.106ns (1.857ns logic, 3.249ns route)
-                                       (36.4% logic, 63.6% route)
+    Total                      5.164ns (1.857ns logic, 3.307ns route)
+                                       (36.0% logic, 64.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'x_VGA_DATA/clk25'
   Total number of paths / destination ports: 17 / 17
 -------------------------------------------------------------------------
-Offset:              3.668ns (Levels of Logic = 1)
-  Source:            x_VGA_DATA/BLUE_4 (FF)
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            x_VGA_DATA/RED_4 (FF)
   Destination:       RED<4> (PAD)
   Source Clock:      x_VGA_DATA/clk25 rising
 
-  Data Path: x_VGA_DATA/BLUE_4 to RED<4>
+  Data Path: x_VGA_DATA/RED_4 to RED<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              3   0.447   0.650  x_VGA_DATA/BLUE_4 (x_VGA_DATA/BLUE_4)
-     OBUF:I->O                 2.571          BLUE_4_OBUF (BLUE<4>)
+     FDC:C->Q              1   0.447   0.579  x_VGA_DATA/RED_4 (x_VGA_DATA/RED_4)
+     OBUF:I->O                 2.571          RED_4_OBUF (RED<4>)
     ----------------------------------------
-    Total                      3.668ns (3.018ns logic, 0.650ns route)
-                                       (82.3% logic, 17.7% route)
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
 
 =========================================================================
 
@@ -716,7 +705,7 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    5.182|         |         |         |
+CLK            |    5.430|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock x_DIGI_CLK/clk
@@ -732,23 +721,23 @@ Clock to Setup on destination clock x_VGA_DATA/clk25
                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ----------------+---------+---------+---------+---------+
-CLK             |    4.633|         |         |         |
-RESET           |         |    5.809|         |         |
+CLK             |    4.948|         |         |         |
+RESET           |         |    5.974|         |         |
 x_DIGI_CLK/clk  |    4.111|         |         |         |
-x_VGA_DATA/clk25|    6.615|         |         |         |
+x_VGA_DATA/clk25|    6.785|         |         |         |
 ----------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 14.39 secs
+Total CPU time to Xst completion: 14.76 secs
  
 --> 
 
-Total memory usage is 4527420 kilobytes
+Total memory usage is 4527404 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   67 (   0 filtered)
-Number of infos    :   15 (   0 filtered)
+Number of warnings :   68 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

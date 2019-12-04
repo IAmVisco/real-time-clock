@@ -652,46 +652,20 @@ begin
             count <= count + 1;
             if (count = 2500000) then
                 count <= 1;
-                if (incr_red = '1') then
-                    if (cur_red = "11111") then
-                        incr_red <= '0';
-                    else
-                        cur_red <= cur_red + "00001";
-                    end if;
-                else
-                    if (cur_red = "00000") then
-                        incr_red <= '1';
-                    else
-                        cur_red <= cur_red - "00001";
-                    end if;
-                end if;
-
-                if (incr_green = '1') then
-                    if (cur_green = "11111") then
-                        incr_green <= '0';
-                    else
-                        cur_green <= cur_green + "00001";
-                    end if;
-                else
-                    if (cur_green = "00000") then
-                        incr_green <= '1';
-                    else
-                        cur_green <= cur_green - "00001";
-                    end if;
-                end if;
-
-                if (incr_blue = '1') then
-                    if (cur_blue = "11111") then
-                        incr_blue <= '0';
-                    else
-                        cur_blue <= cur_blue + "00001";
-                    end if;
-                else
-                    if (cur_blue = "00000") then
-                        incr_blue <= '1';
-                    else
-                        cur_blue <= cur_blue - "00001";
-                    end if;
+                if (cur_blue = "00000" AND cur_green = "00000" AND cur_red /= "11111") then
+                    cur_red <= cur_red + "00001";
+                elsif (cur_red = "11111" AND cur_blue = "00000" AND cur_green /= "11111") then
+                    cur_green <= cur_green + "00001";
+                elsif (cur_green = "11111" AND cur_blue = "00000" AND cur_red /= "00000") then
+                    cur_red <= cur_red - "00001";
+                elsif (cur_green = "11111" AND cur_red = "00000" AND cur_blue /= "11111") then
+                    cur_blue <= cur_blue + "00001";
+                elsif (cur_blue = "11111" AND cur_red = "00000" AND cur_green /= "00000") then
+                    cur_green <= cur_green - "00001";
+                elsif (cur_blue = "11111" AND cur_green = "00000" AND cur_red /= "11111") then
+                    cur_red <= cur_red + "00001";
+                elsif (cur_red = "11111" AND cur_green = "00000" AND cur_blue /= "00000") then
+                    cur_blue <= cur_blue - "00001";
                 end if;
             end if;
         end if;
