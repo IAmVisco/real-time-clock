@@ -348,7 +348,7 @@ begin
                 when others =>
                     s1seg <= "0000000";
                     s2seg <= "0000000";
-                end case;
+            end case;
             case MINUTES is
                 when 0 =>
                     m1seg <= zero;
@@ -533,8 +533,8 @@ begin
                 when others =>
                     m1seg <= "0000000";
                     m2seg <= "0000000";
-                end case;
-                case HOURS is
+            end case;
+            case HOURS is
                 when 0 =>
                     h1seg <= zero;
                     h2seg <= zero;
@@ -610,8 +610,8 @@ begin
                 when others =>
                     h1seg <= "0000000";
                     h2seg <= "0000000";
-                end case;
-            end if;
+            end case;
+        end if;
     end process;
 
     draw: process(clk25, RST, hPos, vPos, videoOn)
