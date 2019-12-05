@@ -1,5 +1,0 @@
-vhdl work "VGA.vhd"
-vhdl work "debounce.vhd"
-vhdl work "ctrl_types_pkg.vhd"
-vhdl work "Clock.vhd"
-vhdl work "top_digi_clk.vhd"

@@ -1,4 +1,1 @@
 work	"Clock.vhd"
-work	"VGA.vhd"
-work	"ctrl_types_pkg.vhd"
-work	"top_digi_clk.vhd"

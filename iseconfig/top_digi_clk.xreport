@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-12-05T13:57:54</DateModified>
+  <DateModified>2019-12-05T22:59:57</DateModified>
   <ModuleName>top_digi_clk</ModuleName>
-  <SummaryTimeStamp>2019-12-04T12:09:18</SummaryTimeStamp>
-  <SavedFilePath>D:/POCP/POCPproject/real-time-clock/iseconfig/top_digi_clk.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/POCP/POCPproject/real-time-clock\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2019-12-05T22:59:36</SummaryTimeStamp>
+  <SavedFilePath>C:/Projects/RTC_2/iseconfig/top_digi_clk.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Projects/RTC_2\</ImplementationReportsDirectory>
   <DateInitialized>2019-12-04T09:41:59</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

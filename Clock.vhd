@@ -46,21 +46,23 @@ begin
         end if;
     end process;
 
-    digital_clock: process(clk, inc_hour, inc_min) -- period of clk is 1 second
+    digital_clock: process(clk) -- period of clk is 1 second
     begin
-        if falling_edge(inc_hour) then
-            if (hour < 23) then
-                hour <= hour + 1;
-            else
-                hour <= 0;
-            end if;
-        elsif falling_edge(inc_min) then --increment minutes button
-            if (min < 59) then
-                min <= min + 1;
-            else
-                min <= 0;
-            end if;
-        elsif rising_edge(clk) then --increment hours button
+        --if rising_edge(inc_hour) then
+        --    if (hour < 23) then
+        --        hour <= hour + 1;
+        --    else
+        --        hour <= 0;
+        --    end if;
+        --end if;
+        --if rising_edge(inc_min) then --increment minutes button
+        --    if (min < 59) then
+        --        min <= min + 1;
+        --    else
+        --        min <= 0;
+        --    end if;
+        --end if;
+        if rising_edge(clk) then --increment hours button
             if (sec < 59) then
                 sec <= sec + 1;
             else

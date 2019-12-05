@@ -647,7 +647,7 @@ begin
             cur_blue   <= "00000";
         elsif rising_edge(clk25) then
             count <= count + 1;
-            if (count = 2500000) then
+            if (count = 25000) then -- +2 and const
                 count <= 1;
                 if (cur_blue = "00000" AND cur_green = "00000" AND cur_red /= "11111") then
                     cur_red <= cur_red + "00001";
