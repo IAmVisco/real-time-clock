@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "secureip" -o "C:/Projects/RTC_2/test_isim_beh.exe" -prj "C:/Projects/RTC_2/test_beh.prj" "test" 
