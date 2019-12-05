@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Projects\RTC_2\top_rtc_clock_ax309.ncd
-OUTFILE=C:\Projects\RTC_2\top_rtc_clock_ax309.bit
-FAMILY=Spartan6
-PART=xc6slx9-3ftg256
-WORKINGDIR=C:\Projects\RTC_2
-LICENSE=WebPack
-USER_INFO=__0_0_0
