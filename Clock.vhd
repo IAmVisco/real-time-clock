@@ -49,7 +49,7 @@ begin
     -- period of clk is 1 second
     digital_clock: process(clk) -- inc_hour, inc_min)
     begin
-        -- breaks the hell out of counter, increments wiht light speed if MINUTES are at exactly 59
+        -- breaks the hell out of counter, increments with light speed if MINUTES are at exactly 59
         -- if rising_edge(inc_hour) then -- increment hours button
         --     if (hour < 23) then
         --         hour <= hour + 1;
@@ -58,7 +58,7 @@ begin
         --     end if;
         -- end if;
 
-        -- breaks the hell out of counter, increments wiht light speed if SECONDS are at exactly 59
+        -- breaks the hell out of counter, increments with light speed if SECONDS are at exactly 59
         -- if rising_edge(inc_min) then -- increment minutes button
         --     if (min < 59) then
         --         min <= min + 1;

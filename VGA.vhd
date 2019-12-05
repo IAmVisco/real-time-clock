@@ -165,7 +165,7 @@ begin
         end if;
     end process;
 
-    video_on: process(clk25, RST, hPos, vPos)
+    can_draw: process(clk25, RST, hPos, vPos)
     begin
         if (RST = '1') then
             video_on <= '0';
