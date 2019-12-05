@@ -178,7 +178,7 @@ begin
         end if;
     end process;
 
-    Data_to_segment: process(clk25, RST, SECONDS, MINUTES, HOURS)
+    data_to_segment: process(clk25, RST, SECONDS, MINUTES, HOURS)
     begin
         if (RST = '1') then
             h1seg <= "0000000";

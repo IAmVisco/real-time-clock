@@ -5,25 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="871" delta="old" >"C:\Projects\RTC_2\top_digi_clk.vhd" Line 29: Using initial value <arg fmt="%s" index="1">&apos;0&apos;</arg> for <arg fmt="%s" index="2">reset</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="871" delta="old" >"D:\POCP\POCPproject\real-time-clock\top_digi_clk.vhd" Line 29: Using initial value <arg fmt="%s" index="1">&apos;0&apos;</arg> for <arg fmt="%s" index="2">reset</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">h1seg_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">vga_driver</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">m1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;m1seg_3&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">s1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;s1seg_3&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">h1seg_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">vga_driver</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;h1seg_3&gt; &lt;h1seg_4&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="3203" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">DIGI_RTC_DATA/count_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">top_digi_clk</arg>&gt; is the opposite to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;VGA_DATA/clk25&gt; </arg>
-</msg>
-
-<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+<msg type="error" file="HDLCompiler" num="1401" delta="old" >"D:\POCP\POCPproject\real-time-clock\Clock.vhd" Line 51: Signal <arg fmt="%s" index="1">min[5]</arg> in unit <arg fmt="%s" index="2">digi_clk</arg> is connected to following multiple drivers:
 </msg>
 
 </messages>

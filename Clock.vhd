@@ -54,13 +54,13 @@ begin
             else
                 hour <= 0;
             end if;
-        elsif falling_edge(inc_min) then
+        elsif falling_edge(inc_min) then --increment minutes button
             if (min < 59) then
                 min <= min + 1;
             else
                 min <= 0;
             end if;
-        elsif rising_edge(clk) then
+        elsif rising_edge(clk) then --increment hours button
             if (sec < 59) then
                 sec <= sec + 1;
             else

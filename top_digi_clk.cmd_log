@@ -336,3 +336,5 @@ map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -reg
 par -w -intstyle ise -ol high -mt off top_digi_clk_map.ncd top_digi_clk.ncd top_digi_clk.pcf 
 trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml top_digi_clk.twx top_digi_clk.ncd -o top_digi_clk.twr top_digi_clk.pcf -ucf pins.ucf 
 bitgen -intstyle ise -f top_digi_clk.ut top_digi_clk.ncd 
+xst -intstyle ise -ifn "D:/POCP/POCPproject/real-time-clock/top_digi_clk.xst" -ofn "D:/POCP/POCPproject/real-time-clock/top_digi_clk.syr" 
+xst -intstyle ise -ifn "D:/POCP/POCPproject/real-time-clock/top_digi_clk.xst" -ofn "D:/POCP/POCPproject/real-time-clock/top_digi_clk.syr" 
