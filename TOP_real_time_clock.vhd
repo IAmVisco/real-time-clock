@@ -1,33 +1,35 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
-library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
+library unisim;
+use unisim.vcomponents.all;
 
 use work.ctrl_types_pkg.all;
 
-entity top_digi_clk is
+entity top_real_time_clock is
     port (
+        ---- CLOCK 50 MHz ----
+        CLK         :  in   std_logic;
         ---- SWITCHES ----
+        RESET       :  in   std_logic;
         INC_HOUR    :  in   std_logic;
         INC_MIN     :  in   std_logic;
-        ---- CLOCK 50 MHz ----
-        CLK         :  in   std_logic;  --! main clock 50 MHz
         ---- VGA SYNC ----
-        VGA_HSYNC   :  out  std_logic;  --! horiztonal sync
-        VGA_VSYNC   :  out  std_logic;  --! vertical sync
+        VGA_HSYNC   :  out  std_logic;                     --! horiztonal sync
+        VGA_VSYNC   :  out  std_logic;                     --! vertical sync
         RED         :  out  STD_LOGIC_VECTOR (4 downto 0);
         GREEN       :  out  STD_LOGIC_VECTOR (4 downto 0);
         BLUE        :  out  STD_LOGIC_VECTOR (4 downto 0)
     );
-end top_digi_clk;
+end top_real_time_clock;
 
-architecture Behavioral of top_digi_clk is
-signal sec, min, hour      : integer range 0 to 60 := 0;
-signal half_sec            : std_logic;
-signal RESET               : std_logic := '0';
+architecture top_real_time_clock of top_real_time_clock is
 signal reset_n             : std_logic;
+
+signal half_sec            : std_logic;
+signal sec, min, hour      : integer range 0 to 60 := 0;
+
 signal debounced_inc_hour  : std_logic;
 signal debounced_inc_min   : std_logic;
 
@@ -76,4 +78,4 @@ begin
             BLUE        => BLUE
         );
 
-end Behavioral;
+end top_real_time_clock;

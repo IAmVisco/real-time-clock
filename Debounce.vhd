@@ -2,21 +2,21 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity debounce is
-  generic (
-    clk_freq    : integer := 50_000_000;
-    stable_time : integer := 10
-  );
-  port(
-    clk     : IN  std_logic;
-    reset_n : IN  std_logic;
-    button  : IN  std_logic;
-    result  : OUT std_logic
-  );
+    generic (
+        clk_freq    : integer := 50_000_000;
+        stable_time : integer := 10
+    );
+    port(
+        clk     : in  std_logic;
+        reset_n : in  std_logic;
+        button  : in  std_logic;
+        result  : out std_logic
+    );
 end debounce;
 
 architecture logic of debounce is
-  signal flipflops   : std_logic_vector(1 downto 0);                    -- input flip flops
-  signal counter_set : std_logic;                                       -- sync reset to zero
+    signal flipflops   : std_logic_vector(1 downto 0);                    -- input flip flops
+    signal counter_set : std_logic;                                       -- sync reset to zero
 begin
     counter_set <= flipflops(0) xor flipflops(1);                       -- determine when to start/reset counter
 

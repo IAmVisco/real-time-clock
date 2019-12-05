@@ -1,3 +1,4 @@
+## NOT VERY GOOD
 NET "INC_MIN" CLOCK_DEDICATED_ROUTE = FALSE;
 NET "INC_HOUR" CLOCK_DEDICATED_ROUTE = FALSE;
 
@@ -11,7 +12,7 @@ NET "RED<2>"          LOC = "L12";
 NET "RED<3>"          LOC = "N14";
 NET "RED<4>"          LOC = "M13";
 
-## NET "GREEN<0>"        LOC = "M9";
+## NET "GREEN<0>"        LOC = "M9"; ## NOT SURE IF 0 OR 5 PORT IS USED FOR SYNC
 NET "GREEN<0>"        LOC = "N9";
 NET "GREEN<1>"        LOC = "P9";
 NET "GREEN<2>"        LOC = "L10";
@@ -27,7 +28,6 @@ NET "BLUE<4>"         LOC = "L7";
 NET "VGA_HSYNC"       LOC = "M14";
 NET "VGA_VSYNC"       LOC = "L13";
 
+############ BUTTONS ##############
 NET "INC_HOUR"        LOC = "C3";
 NET "INC_MIN"         LOC = "D3";
-
-## NET "LED"             LOC = "P4";

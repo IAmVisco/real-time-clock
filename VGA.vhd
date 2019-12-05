@@ -1,13 +1,13 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use IEEE.NUMERIC_STD.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 entity vga_driver is
     port (
-        CLK         : in   std_logic;
-        RST         : in   std_logic; -- does not map on real fpga for some reason
-        HALF_SECOND : in   std_logic;
+        CLK         : in   std_logic;                       -- FPGA CLK, assumed to be 50MHz
+        RST         : in   std_logic;                       -- RESET, does not map on real fpga for some reason
+        HALF_SECOND : in   std_logic;                       -- half a second indicatior for separators blinking
         SECONDS     : in   integer;
         MINUTES     : in   integer;
         HOURS       : in   integer;
@@ -42,7 +42,7 @@ architecture vga_driver of vga_driver is
     signal cur_blue    : std_logic_vector(4 downto 0) := "00000";
     signal count       : integer   := 1;
 
-    signal videoOn     : std_logic := '0';
+    signal video_on     : std_logic := '0';
 
     constant SegWidth  : integer := 32;
     constant SegSize1  : integer := SegWidth / 6;
@@ -168,12 +168,12 @@ begin
     video_on: process(clk25, RST, hPos, vPos)
     begin
         if (RST = '1') then
-            videoOn <= '0';
+            video_on <= '0';
         elsif rising_edge(clk25) then
             if (hPos <= HD and vPos <= VD) then
-                videoOn <= '1';
+                video_on <= '1';
             else
-                videoOn <= '0';
+                video_on <= '0';
             end if;
         end if;
     end process;
@@ -668,14 +668,14 @@ begin
         end if;
     end process;
 
-    draw_main: process(clk25, RST, hPos, vPos, videoOn)
+    draw_main: process(clk25, RST, hPos, vPos, video_on)
     begin
         if (RST = '1') then
             RED   <= "00000";
             GREEN <= "00000";
             BLUE  <= "00000";
         elsif rising_edge(clk25) then
-            if (videoOn = '1') then
+            if (video_on = '1') then
                 -- SEG A
                 if (h1seg(0) = '1' AND Vpos >= segH1Ypos AND Vpos <= segH1Ypos + SegSize1) AND (Hpos >= segH1Xpos AND Hpos <= segH1Xpos + SegWidth) then  -- segA H1
                     RED   <= cur_red;
@@ -886,6 +886,7 @@ begin
                     BLUE  <= "11111";
                 end if;
             else
+                -- non display areas
                 RED   <= "00000";
                 GREEN <= "00000";
                 BLUE  <= "00000";
